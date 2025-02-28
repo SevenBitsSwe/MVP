@@ -52,8 +52,9 @@ services:
           "kafka-topics --bootstrap-server localhost:29092 --list | grep -q 'MessageElaborated' && kafka-topics --bootstrap-server localhost:29092 --list | grep -q 'SimulatorPosition'",
         ]
       interval: 10s
-      timeout: 2s
-      retries: 3
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   kafdrop:
     container_name: kafdrop
@@ -129,7 +130,6 @@ services:
 
   flink:
     container_name: flink
-
     build: ./FlinkController
     volumes:
       - .env:/app/.env
