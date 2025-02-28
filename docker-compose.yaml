@@ -77,9 +77,9 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: admin
       GF_INSTALL_PLUGINS: "grafana-clickhouse-datasource" # Plugin ClickHouse
     volumes:
-      - ./grafana/DashboardProv:/etc/grafana/provisioning/dashboards # Configurazione provider dashboard # dashboard.yml
-      - ./grafana/Dashboards:/var/lib/grafana/dashboards # Configurazione dashboard # dashboard.json
-      - ./grafana/DatasourceProv:/etc/grafana/provisioning/datasources # Configurazione datasource # datasources.yml
+      - ./Grafana/DashboardProv:/etc/grafana/provisioning/dashboards # Configurazione provider dashboard # dashboard.yml
+      - ./Grafana/Dashboards:/var/lib/grafana/dashboards # Configurazione dashboard # dashboard.json
+      - ./Grafana/DatasourceProv:/etc/grafana/provisioning/datasources # Configurazione datasource # datasources.yml
 
   # clickhouse:
   #   image: bitnami/clickhouse:latest
@@ -111,7 +111,7 @@ services:
       CLICKHOUSE_PASSWORD: pass # Password per l'utente
       CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 0 # Abilita la gestione accessi
     volumes:
-      - ./Storagedata:/docker-entrypoint-initdb.d
+      - ./StorageData:/docker-entrypoint-initdb.d
 
   # python-script1:
   #   build:
