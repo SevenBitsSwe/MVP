@@ -8,7 +8,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
     def __init__(self):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
-        self.__delta_time_between_positions = 5
+        self.__delta_time_between_positions = 10
         self.__dict_withStartingCoordinates = {'latitude': 45.464664, 'longitude': 9.188540}
     
     def simulate_position_live_update(self, sensor_istance: GpsSensor):
@@ -17,7 +17,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
             time.sleep(self.__delta_time_between_positions)
             self.__dict_withStartingCoordinates['latitude'] += 0.0001
             self.__dict_withStartingCoordinates['longitude'] += 0.0001
-            print("positiozne updated")
+            print("posizione updated")
             sensor_istance.set_current_position(
                 GeoPosition(
                     sensor_istance.get_sensor_uuid(),
@@ -26,3 +26,4 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
                     datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 )
             )
+            

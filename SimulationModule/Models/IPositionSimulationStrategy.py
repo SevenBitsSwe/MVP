@@ -7,5 +7,4 @@ class IPositionSimulationStrategy(ABC):
     def simulate_position_live_update(self, sensor_istance: GpsSensor):
         '''abstract method to simulate the position live update'''
         pass
-
-
+    

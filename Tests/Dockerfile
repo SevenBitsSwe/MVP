@@ -22,26 +22,14 @@ COPY Tests/.coveragerc .
 COPY Tests/pylintrc .
 RUN mkdir -p app/SimulationModule
 RUN mkdir -p app/FlinkProcessor
-RUN mkdir -p app/Tests
-
-# Copy each directory into a temporary location
-COPY ./SimulationModule/Tests /tmp/SimulationModuleTests/
-COPY ./FlinkProcessor/Tests /tmp/FlinkProcessorTests/
-COPY ./IntegrationTests /tmp/IntegrationTests/
-COPY ./SystemTests /tmp/SystemTests/
-
-# Concatenate them into the final destination (/app/tests)
-RUN cp -r /tmp/SimulationModuleTests/* /app/tests/ && \
-    cp -r /tmp/FlinkProcessorTests/* /app/tests/ && \
-    cp -r /tmp/IntegrationTests/* /app/tests/ && \
-    cp -r /tmp/SystemTests/* /app/tests/
-
-# Clean up the temporary directories
-RUN rm -rf /tmp/SimulationModuleTests /tmp/FlinkProcessorTests /tmp/IntegrationTests /tmp/SystemTests
+RUN mkdir -p app/IntegrationTests
+RUN mkdir -p app/SystemTests
 
 # Copia il codice sorgente e i test
-COPY ./SimulationModule/ /app/SimulationModule
-COPY ./FlinkProcessor /app/FlinkProcessor
+COPY ./SimulationModule/Tests /app/SimulationModule
+COPY ./FlinkProcessor/Tests /app/FlinkProcessor
+COPY ./Tests/IntegrationTests /app/IntegrationTests
+COPY ./Tests/SystemTests /app/SystemTests
 
 
 RUN apt-get update -y && \
@@ -57,7 +45,7 @@ COPY ./__init__.py /app/
 
 RUN chmod -R 777 /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml tests/ --cov-config=.coveragerc "]
+CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest --cov=SystemTests --cov=IntegrationTests --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml tests/ --cov-config=.coveragerc "]
 
 
 # # Costruisci l'immagine

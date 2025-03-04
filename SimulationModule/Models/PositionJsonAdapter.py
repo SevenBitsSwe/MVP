@@ -11,3 +11,4 @@ class PositionJsonAdapter(IJsonSerializable):
             'longitude': float(position_istance.get_longitude()),
             'received_at': position_istance.get_timestamp(),
         })
+    

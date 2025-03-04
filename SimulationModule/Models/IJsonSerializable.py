@@ -6,3 +6,4 @@ class IJsonSerializable(ABC):
     def serialize_to_json(self):
         '''abstract method to serialize the object to JSON'''
         pass
+    

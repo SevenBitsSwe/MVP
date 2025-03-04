@@ -13,22 +13,23 @@ class SensorSubject(ABC):
     def __init__(self, uuid_creation: uuid):
         '''constructor to initialize the sensor subject'''
         self._sensor_uuid = uuid_creation
-        self._observersList = []
+        self._observers_list = []
 
     def register_observer(self, observer_istance: IPositionObserver):
         '''method to register the observer'''
-        self._observersList.append(observer_istance)
+        self._observers_list.append(observer_istance)
 
     def unregister_observer(self, observer_istance: IPositionObserver):
         '''method to unregister the observer'''
-        self._observersList.remove(observer_istance)
-    
-    def notify_observers(self):
+        self._observers_list.remove(observer_istance)
+
+    @abstractmethod
+    def notify_observers(self, sensor_istance: "SensorSubject"):
         '''method to notify the observers'''
-        for observer in self.__observersList:
-            observer.on_sensor_data_changed(self)
+        pass
 
     @abstractmethod
     def get_current_data(self) -> "SensorSubject":
         '''abstract method to get the current data'''
         pass
+    

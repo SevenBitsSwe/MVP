@@ -4,6 +4,7 @@ import uuid
 
 class SensorFactory:
     @classmethod
-    def create_gps_sensor(self) -> SensorSubject:
+    def create_gps_sensor(cls) -> SensorSubject:
         '''method to create the GPS sensor'''
         return GpsSensor(uuid.uuid4())
+    
