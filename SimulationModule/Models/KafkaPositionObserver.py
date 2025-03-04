@@ -14,7 +14,7 @@ class KafkaPositionObserver(IPositionObserver,ABC):
         self._lock = threading.Lock()
 
     @abstractmethod
-    def send_data_with_kafka(self):
+    def send_data_with_kafka(self, json_payload, sensor_key: str):
         '''abstract method to send the data to the Kafka topic'''
         pass
 
@@ -22,6 +22,7 @@ class KafkaPositionObserver(IPositionObserver,ABC):
         '''function call to send data will automatically be called in the subclass implementation'''
         with self._lock:
             self.send_data_with_kafka(
-                self.__position_serializator.\
-                serialize_to_json(sensor_istance.get_current_data()))
+                self.__position_serializator.serialize_to_json(sensor_istance.get_current_data()),
+                sensor_istance.get_sensor_uuid()
+            )
         

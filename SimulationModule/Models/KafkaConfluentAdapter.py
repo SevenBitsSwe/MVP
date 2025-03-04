@@ -11,9 +11,10 @@ class KafkaConfluentAdapter(KafkaPositionObserver):
         self.__kafka_config = kafka_config
         self.__producer = Producer({'bootstrap.servers': self.__kafka_config.bootstrap_servers})
         
-    def send_data_with_kafka(self, json_payload):
+    def send_data_with_kafka(self, json_payload, sensor_key: str):
         '''method to send the data to the Kafka topic'''
         self.__producer.produce(self.__kafka_config.source_topic, 
-                                json_payload.encode('utf-8'))
+                                key = str(sensor_key),
+                                value = json_payload.encode('utf-8'))
         self.__producer.flush()
         

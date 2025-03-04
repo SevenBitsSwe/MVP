@@ -25,12 +25,12 @@ RUN mkdir -p app/FlinkProcessor
 RUN mkdir -p app/IntegrationTests
 RUN mkdir -p app/SystemTests
 
+
 # Copia il codice sorgente e i test
-COPY ./SimulationModule/Tests /app/SimulationModule
-COPY ./FlinkProcessor/Tests /app/FlinkProcessor
+COPY ./SimulationModule /app/SimulationModule
+COPY ./FlinkProcessor /app/FlinkProcessor
 COPY ./Tests/IntegrationTests /app/IntegrationTests
 COPY ./Tests/SystemTests /app/SystemTests
-
 
 RUN apt-get update -y && \
 apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/*
@@ -44,8 +44,10 @@ RUN pip install pytest pytest-cov coveralls pylint
 COPY ./__init__.py /app/
 
 RUN chmod -R 777 /app
+
+RUN ls -la /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest --cov=SystemTests --cov=IntegrationTests --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml tests/ --cov-config=.coveragerc "]
+CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/  --cov-config=.coveragerc "]
 
 
 # # Costruisci l'immagine
