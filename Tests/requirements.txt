@@ -1,0 +1,14 @@
+pytest==7.4.3
+pytest-cov==4.1.0
+pylint==3.0.3
+codecov==2.1.13
+geopy
+osmnx
+gpxpy
+confluent_kafka==2.8.0
+scikit-learn
+apache-flink==1.18.1
+python-dotenv==1.0.1
+langchain-groq
+groq
+clickhouse-connect
