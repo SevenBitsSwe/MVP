@@ -129,7 +129,7 @@ services:
     container_name: test
     build: 
       context: ./
-      dockerfile: tests/Dockerfile
+      dockerfile: Tests/Dockerfile
     depends_on:
       kafka:
         condition: service_healthy
