@@ -69,3 +69,5 @@ jobs:
         else
           echo "No changes to README.md, skipping commit and push."
         fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
