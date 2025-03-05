@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: write  
-  
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
         if [[ $(git diff --name-only 'README.md') ]]; then
           git add README.md
           git commit -m "Update Pylint Badge"
-          git push origin HEAD:${GITHUB_REF#refs/heads/}
+          git push 
         else
           echo "No changes to README.md, skipping commit and push."
         fi
