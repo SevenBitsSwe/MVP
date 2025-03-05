@@ -43,7 +43,6 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
 
                 latitude = start_point[0] + fraction * (end_point[0] - start_point[0])
                 longitude = start_point[1] + fraction * (end_point[1] - start_point[1])
-                print("New position: ", latitude, longitude)
                 sensor_istance.set_current_position(
                     GeoPosition(
                         sensor_istance.get_sensor_uuid(),

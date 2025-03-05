@@ -73,11 +73,12 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
             # Verifica che time.sleep sia stato chiamato
             mock_sleep.assert_called()
     
+        # Modifica questo decoratore per puntare al percorso esatto di datetime
+    @patch('Models.BycicleSimulationStrategy.datetime')
     @patch('random.choice', side_effect=[1, 2])
     @patch('osmnx.shortest_path', return_value=[1, 2])
     @patch('time.sleep')  # Per evitare ritardi nei test
-    @patch('datetime.datetime')
-    def test_position_update_correct_parameters(self, mock_datetime, mock_sleep, mock_shortest_path, mock_choice):
+    def test_position_update_correct_parameters(self, mock_sleep, mock_shortest_path, mock_choice, mock_datetime):
         """Verifica che la posizione del sensore venga aggiornata con i parametri corretti"""
         # Configura datetime.now
         mock_now = MagicMock()
