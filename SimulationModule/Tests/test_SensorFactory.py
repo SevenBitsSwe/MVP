@@ -15,11 +15,9 @@ class TestSensorFactory(unittest.TestCase):
         self.assertIsNotNone(sensor_istance.get_sensor_uuid())
         sensor_uuid = sensor_istance.get_sensor_uuid()
 
-        try:
-            uuid_obj = uuid.UUID(str(sensor_uuid))
-            self.assertEqual(str(sensor_uuid), str(uuid_obj))
-        except ValueError:
-            self.fail("The sensor UUID is not a valid UUID")
+        uuid_obj = uuid.UUID(str(sensor_uuid))
+        self.assertEqual(str(sensor_uuid), str(uuid_obj))
+        
     
     def test_sensor_has_unique_uuid(self):
         num_sensor = 10

@@ -16,7 +16,7 @@ class TestSensorSimulationManager(unittest.TestCase):
         self.mock_sensors = [MagicMock() for _ in range(self.num_sensors)]
 
     def test_initialization(self):
-        """Test che il costruttore inizializzi correttamente i sensori"""
+        """Test correct initialization of SensorSimulationManager"""
         with patch('Models.SensorFactory.SensorFactory.create_gps_sensor') as mock_create:
             mock_create.side_effect = self.mock_sensors
             
@@ -38,7 +38,7 @@ class TestSensorSimulationManager(unittest.TestCase):
         mock_pool = MagicMock()
         mock_thread_pool.return_value.__enter__.return_value = mock_pool
         
-        # Raddoppio il numero di sensori mockati perché start_simulation chiama nuovamente __populate_registry
+        # double sensor number due to another call of __populate_registry
         doubled_mock_sensors = [MagicMock() for _ in range(self.num_sensors * 2)]
         
         with patch('Models.SensorFactory.SensorFactory.create_gps_sensor') as mock_create:
@@ -51,7 +51,7 @@ class TestSensorSimulationManager(unittest.TestCase):
                 self.mock_graph
             )
             
-            # Reset del mock per verificare le chiamate successive
+            # mock reset to verify next calls
             mock_create.reset_mock()
             
             # Act
@@ -61,12 +61,11 @@ class TestSensorSimulationManager(unittest.TestCase):
             mock_thread_pool.assert_called_once_with(self.num_sensors)
             mock_pool.map.assert_called_once()
             
-            # Verifica che il numero di sensori passati a map sia corretto
+            # verify number of sensors passed to call is correct
             args = mock_pool.map.call_args[0]
             self.assertEqual(len(args[1]), self.num_sensors*2)
 
     def test_error_handling(self):
-        """Test che gestisca correttamente gli errori durante la simulazione"""
         with patch('Models.SensorSimulationManager.ThreadPool') as mock_thread_pool:
             mock_thread_pool.side_effect = Exception("Errore simulato")
             
