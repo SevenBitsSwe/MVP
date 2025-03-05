@@ -40,7 +40,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
 
             for j in range(num_positions):
                 fraction = j / num_positions
-                # Calcola la nuova posizione come interpolazione lineare
+
                 latitude = start_point[0] + fraction * (end_point[0] - start_point[0])
                 longitude = start_point[1] + fraction * (end_point[1] - start_point[1])
                 print("New position: ", latitude, longitude)
