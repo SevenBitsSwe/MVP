@@ -15,6 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+          ref: ${{ github.head_ref || github.ref }}  # Ensures proper branch checkout
+          fetch-depth: 0  # Get full git history
+
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
