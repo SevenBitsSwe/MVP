@@ -47,7 +47,7 @@ RUN chmod -R 777 /app
 
 RUN ls -la /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/  --cov-config=.coveragerc "]
+CMD ["sh","-c","pylint --output-format=parseable . > pylint_report.txt; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/  --cov-config=.coveragerc "]
 
 
 # # Costruisci l'immagine
