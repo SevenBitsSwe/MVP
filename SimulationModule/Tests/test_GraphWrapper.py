@@ -16,7 +16,7 @@ class TestGraphWrapper(unittest.TestCase):
             self.longitude, 
             self.map_radius, 
             self.network_type
-    )
+        )
 
 def test_initialization(self):
     
