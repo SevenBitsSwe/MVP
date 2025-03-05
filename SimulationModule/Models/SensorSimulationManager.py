@@ -1,8 +1,5 @@
 from Models.SensorFactory import SensorFactory 
-from Models.KafkaConfluentAdapter import KafkaConfluentAdapter
-from Models.BycicleSimulationStrategy import BycicleSimulationStrategy
-from Models.KafkaConfigParameters import KafkaConfigParameters
-from Models.GraphWrapper import GraphWrapper    
+ 
 from multiprocessing.pool import ThreadPool
 import functools
 
@@ -10,12 +7,18 @@ import functools
 
 class SensorSimulationManager:
     '''This class implements all the logic to simulate the sensors and send the data to a Kafka topic'''
-    def __init__(self, number_of_sensors: int):
+    def __init__(self, number_of_sensors: int,\
+                    sensor_observer_istance: "IPositionObserver",\
+                    simulaiton_strategy_istance: "IPositionSimulationStrategy",\
+                    simulation_graph: "GraphWrapper"
+                ):
         '''constructor to initialize the sensor simulation manager'''
         self.__sensor_registry = []
         self.__number_of_sensors = number_of_sensors     
-        self.__sensor_observer = KafkaConfluentAdapter(KafkaConfigParameters())
-        self.__simulation_strategy = BycicleSimulationStrategy()
+        self.__sensor_observer = sensor_observer_istance
+        self.__simulation_strategy = simulaiton_strategy_istance
+        self.__cached_graph = simulation_graph
+        self.__populate_registry()
 
     def __populate_registry(self):
         '''method to populate the sensor registry with different types of sensors'''
@@ -31,7 +34,7 @@ class SensorSimulationManager:
 
         simulation_with_shared_graph = functools.partial(
             self.__simulation_strategy.simulate_position_live_update,
-            graph_istance = GraphWrapper(45.3, 11.87, 4000, 'walk').get_graph()
+            graph_istance = self.__cached_graph.get_graph()
         )
         with ThreadPool(self.__number_of_sensors) as pool:
             pool.map(simulation_with_shared_graph, self.__sensor_registry)

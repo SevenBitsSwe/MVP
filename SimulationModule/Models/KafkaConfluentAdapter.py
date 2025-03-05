@@ -5,9 +5,9 @@ from confluent_kafka import Producer
 class KafkaConfluentAdapter(KafkaPositionObserver):
     '''This class implements the KafkaPositionObserver and is used to send the position to a Kafka topic'''
     
-    def __init__(self, kafka_config: KafkaConfigParameters):
+    def __init__(self, kafka_config: KafkaConfigParameters, json_adapter_istance: "PositionJsonAdapter"):
         '''constructor to initialize the KafkaConfluentAdapter'''
-        super().__init__()
+        super().__init__(json_adapter_istance)
         self.__kafka_config = kafka_config
         self.__producer = Producer({'bootstrap.servers': self.__kafka_config.bootstrap_servers})
         

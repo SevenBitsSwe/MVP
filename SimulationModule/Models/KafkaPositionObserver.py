@@ -8,9 +8,9 @@ class KafkaPositionObserver(IPositionObserver,ABC):
     '''This class implements the observer interface and is used to observe the GPS sensor position and
     write the position to a Kafka topic, note this class will be inherited by a KafkaConfluentAdapter'''
     
-    def __init__(self):
+    def __init__(self, json_adapter_istance: PositionJsonAdapter):
         '''constructor to initialize the kafka position observer'''
-        self.__position_serializator = PositionJsonAdapter()
+        self.__position_serializator = json_adapter_istance
         self._lock = threading.Lock()
 
     @abstractmethod
