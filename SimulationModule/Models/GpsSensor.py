@@ -14,7 +14,7 @@ class GpsSensor(SensorSubject):
         for observer in self._observers_list:
             observer.on_sensor_data_changed(sensor_istance)
 
-    def get_current_data(self) -> "GpsSensor":
+    def get_current_data(self):
         '''method to get the current position'''
         return self.__currentPosition
 
@@ -23,8 +23,5 @@ class GpsSensor(SensorSubject):
         self.__currentPosition = position_istance
         self.notify_observers(self) 
         
-    def get_sensor_uuid(self):
-        '''method to get the sensor uuid'''
-        return self._sensor_uuid
     
     

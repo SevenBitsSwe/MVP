@@ -22,14 +22,18 @@ class SensorSubject(ABC):
     def unregister_observer(self, observer_istance: IPositionObserver):
         '''method to unregister the observer'''
         self._observers_list.remove(observer_istance)
-
+        
+    def get_sensor_uuid(self):
+        '''method to get the sensor uuid'''
+        return self._sensor_uuid
+    
     @abstractmethod
     def notify_observers(self, sensor_istance: "SensorSubject"):
         '''method to notify the observers'''
         pass
 
     @abstractmethod
-    def get_current_data(self) -> "SensorSubject":
+    def get_current_data(self):
         '''abstract method to get the current data'''
         pass
     
