@@ -8,19 +8,15 @@ import osmnx
 import random
 
 class BycicleSimulationStrategy(IPositionSimulationStrategy):
+
     def __init__(self):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
         self.__delta_time_between_positions = 10
-        self.__dict_withStartingCoordinates = {'latitude': 45.39, 'longitude': 11.87}
-    
-    def simulate_position_live_update(self, sensor_istance: GpsSensor):
+
+    def simulate_position_live_update(self, sensor_istance: GpsSensor, graph_istance):
         '''method to simulate the position live update'''
-        graph_returned = osmnx.graph_from_point(
-            (self.__dict_withStartingCoordinates['latitude'],self.__dict_withStartingCoordinates['longitude']),
-            dist=4000,
-            network_type='walk'
-        )
+        graph_returned = graph_istance
         graph_nodes = list(graph_returned.nodes)
         starting_node = random.choice(graph_nodes)
         destination_node = random.choice(graph_nodes)
