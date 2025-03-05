@@ -229,7 +229,7 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "fixed": "dark-blue"
+                  "fixed": "orange"
                 },
                 "opacity": 1,
                 "rotation": {

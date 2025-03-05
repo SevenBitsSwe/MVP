@@ -101,7 +101,7 @@
 				"showLegend": true,
 				"style": {
 				  "color": {
-					"fixed": "dark-blue"
+					"fixed": "orange"
 				  },
 				  "opacity": 0.8,
 				  "rotation": {
