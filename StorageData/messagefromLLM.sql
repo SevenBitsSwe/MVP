@@ -1,12 +1,12 @@
-
 CREATE TABLE nearyou.messageTableKafka
 (
-    id Int16,
+    userID UUID,
+    attivitaID UUID,
+    id UUID,
     message String,
     latitude Float64,
     longitude Float64,
     creationTime String
-
 ) 
 ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', 'JSONEachRow')
       SETTINGS kafka_thread_per_consumer = 0, kafka_num_consumers = 1;
@@ -14,7 +14,9 @@ ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', '
 
 CREATE TABLE nearyou.messageTable
 (
-    id Int16,
+    userID UUID,
+    attivitaID UUID,
+    id UUID,
     message String,
     latitude Float64,
     longitude Float64,
@@ -32,6 +34,8 @@ SETTINGS index_granularity = 8192;
 CREATE MATERIALIZED VIEW nearyou.mv_messageTable TO nearyou.messageTable
 AS
 SELECT
+    userID,
+    attivitaID,
     id,
     message,
     latitude,

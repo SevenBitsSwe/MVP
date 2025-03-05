@@ -10,16 +10,23 @@ import gpxpy.parser
 import sys
 import random
 import uuid
+import warnings
+from dbflink import BatchDatabaseUser
 
 print("\n<producing>")
 sys.stdout.flush()
+
+# Inizializza il database client e ottieni l'ID utente
+db = BatchDatabaseUser()
+user_dict = db.getFirstUser()
+user_id = user_dict["id"]
 
 p = Producer({"bootstrap.servers": "kafka:9092"})
 
 point = (45.39, 11.87)
 dist = 4000
-G = ox.graph_from_point(point, dist, network_type="walk")
 
+G = ox.graph_from_point(point, dist=dist, network_type="walk")
 
 # Ottieni i nodi del grafo
 nodes = list(G.nodes)
@@ -39,12 +46,10 @@ route_coords = [(G.nodes[node]["y"], G.nodes[node]["x"]) for node in route]
 if len(route_coords) < 2:
     print("Errore: il percorso non ha abbastanza coordinate.")
 else:
-
     def generate_positions(route_coords, speed_kmh, interval_seconds):
         speed_mps = speed_kmh * 1000 / 3600  # Converti la velocità in metri al secondo
         total_distance = 0
-        #id = str(uuid.uuid4())  # Genera un id univoco per il percorso
-        id = 1 #idutenteBase
+        route_id = str(uuid.uuid4())  # Genera un id univoco per il percorso
 
         for i in range(len(route_coords) - 1):
             start_point = route_coords[i]
@@ -66,7 +71,8 @@ else:
 
                 # Crea un dizionario JSON
                 new_position = {
-                    "id": id,
+                    "id": route_id,
+                    "userID": user_id,  # Usa l'ID utente dal database
                     "latitude": float(latitude),
                     "longitude": float(longitude),
                     "received_at": received_at,
@@ -76,11 +82,8 @@ else:
 
                 # Invia il messaggio su Kafka
                 jsonProva = json.dumps(new_position)
-                p.produce("SimulatorPosition",key=json.dumps(new_position["id"]), value=jsonProva.encode("utf-8"))
+                p.produce("SimulatorPosition", key=json.dumps(new_position["userID"]), value=jsonProva.encode("utf-8"))
                 p.flush()
-
-                # Incrementa l'id
-                #point_id += 1
 
                 # Aspetta prima di generare la prossima posizione
                 time.sleep(interval_seconds)
