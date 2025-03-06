@@ -66,7 +66,7 @@
 					{
 					  "targetBlank": true,
 					  "title": "dettagli",
-					  "url": "http://localhost:3000/d/cec5m2txm1fr4a/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&editPanel=1&var-user_id=${__data.fields.userID}"
+					  "url": "http://localhost:3000/d/cec5m2txm1fr4a/new-dashboard?orgId=1&from=now-6h&to=now&timezone=browser&var-user_id=${__data.fields.userID}"
 					}
 				  ]
 				}
