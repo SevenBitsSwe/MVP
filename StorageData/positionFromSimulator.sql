@@ -1,8 +1,9 @@
 CREATE TABLE nearyou.positionsKafka (
-                           id Int16,
-                           latitude Float64,
-                           longitude Float64,
-                           received_at String
+    userID UUID,
+    id UUID,
+    latitude Float64,
+    longitude Float64,
+    received_at String
 ) ENGINE = Kafka()
 SETTINGS 
     kafka_broker_list = 'kafka:9092',
@@ -14,7 +15,8 @@ SETTINGS
 
 CREATE TABLE nearyou.positions
 (
-    id Int16,
+    userID UUID,
+    id UUID,
     latitude Float64,
     longitude Float64,
     received_at String
@@ -29,6 +31,7 @@ SETTINGS index_granularity = 8192;
 CREATE MATERIALIZED VIEW nearyou.mv_positions TO nearyou.positions
 AS
 SELECT
+    userID,
     id,
     latitude,
     longitude,

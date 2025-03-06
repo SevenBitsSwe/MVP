@@ -1,5 +1,8 @@
 FROM python:3.8
 
+# Imposta la directory di lavoro
+WORKDIR /app
+
 # Installa solo librerie minime necessarie
 RUN apt-get update && apt-get install -y \
   gdal-bin \
@@ -14,12 +17,12 @@ ENV GDAL_VERSION=3.10.0
 # Aggiorna pip e installa le dipendenze
 RUN pip install --upgrade pip
 
-# Copia e installa le dipendenze Python
+# Copia i file necessari nella directory di lavoro
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY simulatePosition.py .
+COPY dbflink.py .
 
-# Copia il codice e imposta la directory di lavoro
-COPY . /app
-WORKDIR /app
+# Installa le dipendenze Python
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python", "simulatePosition.py"]

@@ -1,4 +1,3 @@
-
 from pyflink.datastream import StreamExecutionEnvironment
 from pyflink.datastream.execution_mode import RuntimeExecutionMode
 from pyflink.common.watermark_strategy import WatermarkStrategy
@@ -11,6 +10,7 @@ from pyflink.common import DeserializationSchema, TypeInformation, typeinfo, Ser
 from pyflink.datastream.connectors.kafka import KafkaSource,KafkaSink,KafkaRecordSerializationSchema,KafkaOffsetsInitializer
 from pyflink.common.serialization import SimpleStringSchema
 from pyflink.datastream.formats.json import JsonRowDeserializationSchema,JsonRowSerializationSchema
+import uuid  # Aggiunto import per UUID
 #######
 
 from dbflink import BatchDatabaseUser
@@ -47,7 +47,7 @@ streamingEnvironment.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 row_type_info = Types.ROW_NAMED(
     ['id', 'latitude','longitude', 'receptionTime'],  # i campi principali
     [
-        Types.INT(), 
+        Types.STRING(),  # cambiato da INT a STRING per UUID
         Types.FLOAT(),  
         Types.FLOAT(),   
         Types.STRING()
@@ -56,9 +56,11 @@ row_type_info = Types.ROW_NAMED(
 )
 
 row_type_info_message = Types.ROW_NAMED(
-    ['id', 'message', 'latitude','longitude','creationTime'],  # i campi principali
+    ['userID', 'attivitaID', 'id', 'message', 'latitude','longitude','creationTime'],  # aggiunti userID e attivitaID
     [
-        Types.INT(),  # tipo per 'id'
+        Types.STRING(),  # userID (UUID)
+        Types.STRING(),  # attivitaID (UUID)
+        Types.STRING(),  # id (UUID)
         Types.STRING(),
         Types.FLOAT(),  
         Types.FLOAT(),
@@ -120,7 +122,9 @@ class MapDataToMessages(MapFunction):
         prompt += "\nQueste sono le attività fra cui puoi scegliere:\n"
         for activityDict in activityDictList:
             prompt += " - " + str(activityDict) + "\n"
-        if len(activityDictList) == 0 : return Row(-1,"error",0,0,"2024-12-18 15:45:23")
+        
+        if len(activityDictList) == 0: 
+            return Row("00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000","error",0,0,"2024-12-18 15:45:23")
         prompt += '''Il messaggio deve essere lungo fra i 200 e 300 caratteri e deve riguardare al massimo una fra le attività. Il messaggio deve essere uno solo. La risposta deve essere in lingua italiana.'''
         print(prompt)
         print("\n")
@@ -136,13 +140,19 @@ class MapDataToMessages(MapFunction):
         print("\n\n")
 
         self.activityCoordinates = self.serviceDb.getActivityCoordinates(response_dict["attivita"])
-
+        
+        # Recupera l'ID dell'attività selezionata
+        activityID = self.serviceDb.getActivityID(response_dict["attivita"])
+        
         print(self.activityCoordinates)
-        row = Row(id=self.userDictionary["id"], 
-                  message=response_dict["pubblicita"],
-                  latitude=self.activityCoordinates["lat"],
-                  longitude=self.activityCoordinates["lon"],
-                  creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        row = Row(
+            userID=str(self.userDictionary["id"]),
+            attivitaID=str(activityID),
+            id=str(uuid.uuid4()),
+            message=response_dict["pubblicita"],
+            latitude=self.activityCoordinates["lat"],
+            longitude=self.activityCoordinates["lon"],
+            creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
         return row
 
@@ -153,12 +163,12 @@ class FilterMessagesAlreadyDisplayed(FilterFunction):
         ####### Connect to DB service #########
         self.serviceDb = BatchDatabaseUser()
 
-    #il filter da effettuare è che se dato un id utente (value[0]) e le coordinate attuali sono uguali alle coordinate dell'ultimo messaggio generato
     def filter(self,value):
         coordinates = self.serviceDb.getLastMessageCoordinates()
         print(coordinates)
-        print("\n valori"+ str(value[2]) + " - " + str(value[3]))
-        if (round(coordinates["latitude"],4) == round(value[2],4) and round(coordinates["longitude"],4) == round(value[3],4)) or value[2] == 0 and value[3]==0:
+        print("\n valori"+ str(value[4]) + " - " + str(value[5]))  # Indici aggiornati per latitude e longitude
+        if (round(coordinates["latitude"],4) == round(value[4],4) and 
+            round(coordinates["longitude"],4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
             print("Filtered")
             return False
         else: 
@@ -176,7 +186,7 @@ source = KafkaSource.builder() \
 #.set_value_only_deserializer(SimpleStringSchema()) \
 datastream = streamingEnvironment.from_source(source,WatermarkStrategy.for_monotonous_timestamps(), "Kafka Source")
 
-datastream = datastream.key_by(lambda x: x[0], key_type=Types.INT())
+datastream = datastream.key_by(lambda x: x[0], key_type=Types.STRING()) # Cambiato da INT a STRING per UUID
 
 mappedstream = datastream.map(MapDataToMessages(), output_type=row_type_info_message)
 filteredstream = mappedstream.filter(FilterMessagesAlreadyDisplayed())
@@ -194,7 +204,7 @@ record_serializer = KafkaRecordSerializationSchema.builder() \
                                 .with_type_info(Types.ROW_NAMED(
                                 ['id'],  # i campi principali
                                 [
-                                    Types.INT()
+                                    Types.STRING()  # Cambiato da INT a STRING per UUID
                                 ]))\
                                 .build())\
                     .set_value_serialization_schema(json_format_serialize_message) \
