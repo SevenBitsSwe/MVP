@@ -28,7 +28,7 @@ class SensorSubject(ABC):
         return self._sensor_uuid
     
     @abstractmethod
-    def notify_observers(self, sensor_istance: "SensorSubject"):
+    def notify_observers(self):
         '''method to notify the observers'''
         pass
 

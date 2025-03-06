@@ -39,7 +39,7 @@ class TestSensorSimulationManager(unittest.TestCase):
         mock_thread_pool.return_value.__enter__.return_value = mock_pool
         
         # double sensor number due to another call of __populate_registry
-        doubled_mock_sensors = [MagicMock() for _ in range(self.num_sensors * 2)]
+        doubled_mock_sensors = [MagicMock() for _ in range(self.num_sensors)]
         
         with patch('Models.SensorFactory.SensorFactory.create_gps_sensor') as mock_create:
             mock_create.side_effect = doubled_mock_sensors
@@ -63,7 +63,7 @@ class TestSensorSimulationManager(unittest.TestCase):
             
             # verify number of sensors passed to call is correct
             args = mock_pool.map.call_args[0]
-            self.assertEqual(len(args[1]), self.num_sensors*2)
+            self.assertEqual(len(args[1]), self.num_sensors)
 
     def test_error_handling(self):
         with patch('Models.SensorSimulationManager.ThreadPool') as mock_thread_pool:

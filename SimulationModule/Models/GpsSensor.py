@@ -9,10 +9,10 @@ class GpsSensor(SensorSubject):
         super().__init__(uuid_creation)
         self.__currentPosition = None
         
-    def notify_observers(self,sensor_istance: "GpsSensor"):
+    def notify_observers(self):
         '''method to notify the observers'''
         for observer in self._observers_list:
-            observer.on_sensor_data_changed(sensor_istance)
+            observer.on_sensor_data_changed(self)
 
     def get_current_data(self):
         '''method to get the current position'''
@@ -21,7 +21,7 @@ class GpsSensor(SensorSubject):
     def set_current_position(self, position_istance: GeoPosition):
         '''method to set the current position'''
         self.__currentPosition = position_istance
-        self.notify_observers(self) 
+        self.notify_observers() 
         
     
     

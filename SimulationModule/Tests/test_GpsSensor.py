@@ -29,7 +29,7 @@ class TestGpsSensor(unittest.TestCase):
     
     def test_notify_observers(self):
         self.test_sensor.register_observer(self.mock_observer)
-        self.test_sensor.notify_observers(self.test_sensor)
+        self.test_sensor.notify_observers()
         self.mock_observer.on_sensor_data_changed.assert_called_once_with(self.test_sensor)
 
     def test_get_current_data(self):

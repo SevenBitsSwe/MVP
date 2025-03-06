@@ -29,7 +29,6 @@ class SensorSimulationManager:
 
 
     def start_simulation(self):
-        self.__populate_registry()
         '''method to start the simulation'''
 
         simulation_with_shared_graph = functools.partial(
