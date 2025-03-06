@@ -1,5 +1,5 @@
 CREATE TABLE nearyou.positionsKafka (
-                           id Int16,
+                           id UUID,
                            latitude Float64,
                            longitude Float64,
                            received_at String
