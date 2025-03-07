@@ -1,0 +1,8 @@
+{
+    "database": {
+        "host": "clickhouse",
+        "port": "8123",
+        "user": "default",
+        "password": "pass"
+    }
+}
