@@ -1,0 +1,80 @@
+name: Docker Tests & Quality Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+          ref: ${{ github.head_ref || github.ref }}  # Ensures proper branch checkout
+          fetch-depth: 0  # Get full git history
+
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build and run tests with Docker Compose
+      run: |
+        docker compose --profile test build
+        docker compose --profile test run test
+
+    - name: Prepare coverage directory
+      run: |
+        mkdir -p ./coverage
+
+    - name: Copy coverage reports from container
+      run: |
+        # Cerca anche container fermati (non solo in esecuzione)
+        container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
+        if [ -n "$container_id" ]; then
+          echo "Copying coverage from container $container_id"
+          docker cp $container_id:/app/coverage.xml ./coverage/coverage.xml || echo "Failed to copy coverage.xml file"
+          docker cp $container_id:/app/pylint_report.txt ./pylint_report.txt || echo "Failed to copy coverage.xml file"
+          # Rimuovi manualmente il container dopo la copia
+          docker rm $container_id
+        else
+          echo "Test container not found!"
+          exit 1
+        fi
+
+    - name: Upload coverage to Coveralls
+      uses: coverallsapp/github-action@v2
+      with:
+        github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        file: ./coverage/coverage.xml
+        format: cobertura
+
+    - name: List files in directory
+      run: |
+        cat ./pylint_report.txt
+
+    - name: Create Pylint Badge and put in README.md
+      uses: actions/setup-python@v5
+      with: 
+        python-version: '3.12.2'
+    - run: |
+        python pylintbadge.py
+      
+    - name: Push README with changed badge to origin
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        if [[ $(git diff --name-only 'README.md') ]]; then
+          git add README.md
+          git commit -m "Update Pylint Badge"
+          git push 
+        else
+          echo "No changes to README.md, skipping commit and push."
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
