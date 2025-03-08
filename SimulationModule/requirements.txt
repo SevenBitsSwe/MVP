@@ -3,3 +3,4 @@ osmnx
 gpxpy
 confluent_kafka==2.2.0
 scikit-learn
+clickhouse-connect
