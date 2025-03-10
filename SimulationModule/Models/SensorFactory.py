@@ -1,8 +1,8 @@
 from Models.SensorSubject import SensorSubject
 from Models.GpsSensor import GpsSensor
 from Models.UserSensorService import UserSensorService
-from Models.SensorRepository import SensorRepository
-from Models.UserRepository import UserRepository
+from Models.ISensorRepository import ISensorRepository
+from Models.IUserRepository import IUserRepository
 import uuid
 
 class SensorFactory:
@@ -11,7 +11,7 @@ class SensorFactory:
     # def initialize(cls, sensor_repo: SensorRepository, user_repo: UserRepository):
     #     cls.__user_sensor_service = UserSensorService(sensor_repo, user_repo)
 
-    def __init__(self, sensor_repo: SensorRepository, user_repo: UserRepository):
+    def __init__(self, sensor_repo: ISensorRepository, user_repo: IUserRepository):
         self.__user_sensor_service = UserSensorService(sensor_repo, user_repo)
 
     def create_gps_sensor(cls) -> SensorSubject:

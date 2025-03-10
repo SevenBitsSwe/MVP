@@ -1,5 +1,5 @@
-from Models.UserRepository import UserRepository
-from Models.SensorRepository import SensorRepository
+from Models.IUserRepository import IUserRepository
+from Models.ISensorRepository import ISensorRepository
 from Models.UserDAO import UserDAO
 from Models.SensorDAO import SensorDAO
 import uuid
@@ -7,7 +7,7 @@ import threading
 
 class UserSensorService:
 
-    def __init__(self, sensor_repository: SensorRepository, user_repository: UserRepository):
+    def __init__(self, sensor_repository: ISensorRepository, user_repository: IUserRepository):
         self.__SensorRepository = sensor_repository
         self.__UserRepository = user_repository
         self.__lock = threading.Lock()  # Add a lock object

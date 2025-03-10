@@ -8,7 +8,10 @@ from Models.GraphWrapper import GraphWrapper
 from Models.SensorFactory import SensorFactory
 from Models.SensorRepository import SensorRepository
 from Models.UserRepository import UserRepository
+from Models.ISensorRepository import ISensorRepository
+from Models.IUserRepository import IUserRepository
 from confluent_kafka import Producer
+
 print("Starting simulation")
 
 json_adapter: PositionJsonAdapter = PositionJsonAdapter()
@@ -20,8 +23,8 @@ kafka_confluent_adapter = KafkaConfluentAdapter(
 strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy()
 map_graph = GraphWrapper(45.3, 11.87, 4000, 'walk')
 
-sensor_repository = SensorRepository()
-user_repository = UserRepository()
+sensor_repository: ISensorRepository = SensorRepository()
+user_repository: IUserRepository = UserRepository()
 sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 
