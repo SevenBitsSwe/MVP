@@ -33,7 +33,7 @@ class TestSensorRepository(unittest.TestCase):
 
         test_uuid = uuid.uuid4()
 
-        self.sensor_repository.mark_sensor_as_occupied(test_uuid)
+        mock_conn.query.return_value.result_rows = [(test_uuid, 0)]
 
         result = self.sensor_repository.get_non_occupied_sensor()
 

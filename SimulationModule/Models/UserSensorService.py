@@ -32,6 +32,6 @@ class UserSensorService:
                 log_file.write(f"Marked sensor {sensor.sensor_uuid} as occupied\n")
 
                 self.__UserRepository.mark_user_as_occupied(user.user_uuid, sensor.sensor_uuid)
-                log_file.write(f"Assigned sensor {sensor.sensor_uuid} to user {user._user_uuid}\n")
+                log_file.write(f"Assigned sensor {sensor.sensor_uuid} to user {user.user_uuid}\n")
 
                 return sensor.sensor_uuid

@@ -24,7 +24,7 @@ class TestSensorFactory(unittest.TestCase):
         self.patcher.stop()
 
     def test_create_gps_sensor_correct_type(self):
-        mock_uuid = "mock-uuid-123"
+        mock_uuid = uuid.uuid4()
         self.mock_user_sensor_service.assign_sensor_to_user.return_value = mock_uuid
 
         sensor_istance = self.sensor_factory.create_gps_sensor()
@@ -32,14 +32,13 @@ class TestSensorFactory(unittest.TestCase):
         self.assertIsInstance(sensor_istance, GpsSensor)
     
     def test_create_gps_sensor_valid_uuid(self):
-        mock_uuid = "mock-uuid-123"
+        mock_uuid = uuid.uuid4()
         self.mock_user_sensor_service.assign_sensor_to_user.return_value = mock_uuid
         sensor_istance = self.sensor_factory.create_gps_sensor()
         self.assertIsNotNone(sensor_istance.get_sensor_uuid())
         sensor_uuid = sensor_istance.get_sensor_uuid()
 
-        uuid_obj = uuid.UUID(str(sensor_uuid))
-        self.assertEqual(str(sensor_uuid), str(uuid_obj))
+        self.assertEqual(str(sensor_uuid), str(mock_uuid))
         
     
     def test_sensor_has_unique_uuid(self):
