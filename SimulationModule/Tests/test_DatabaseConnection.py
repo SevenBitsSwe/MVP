@@ -54,8 +54,8 @@ class TestDatabaseConnection(unittest.TestCase):
 
     def test_disconnect_no_connection(self):
         self.db_connection.connection = None
-
+    
         self.db_connection.disconnect()
-
+    
         self.assertIsNone(self.db_connection.connection)
 

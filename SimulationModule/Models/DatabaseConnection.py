@@ -1,6 +1,4 @@
 from Models.DatabaseConfigParameters import DatabaseConfigParameters
-import json
-from pathlib import Path
 import clickhouse_connect
 
 class DatabaseConnection:
@@ -21,5 +19,6 @@ class DatabaseConnection:
         return self.connection
 
     def disconnect(self):
-        self.connection.close()
-        self.connection = None
+        if self.connection is not None:
+            self.connection.close()
+            self.connection = None
