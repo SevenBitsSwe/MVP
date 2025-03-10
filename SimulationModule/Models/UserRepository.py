@@ -12,12 +12,14 @@ class UserRepository(IUserRepository):
         query = f"ALTER TABLE nearyou.user UPDATE assigned_sensor_uuid = '{sensor_uuid}' WHERE user_uuid = '{user_uuid}'"
         conn = self.__db_conn.connect()
         result = conn.query(query)
+        self.__db_conn.disconnect()
 
     def get_free_user(self) -> UserDAO:
         """Retrieves first user without a sensor from the database"""
         query = "SELECT user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status FROM nearyou.user WHERE assigned_sensor_uuid IS NULL"
         conn = self.__db_conn.connect()
         result = conn.query(query)
+        self.__db_conn.disconnect()
 
         if not result.result_rows:
             return None
