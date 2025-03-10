@@ -5,14 +5,9 @@ from Models.SensorDAO import SensorDAO
 import uuid
 
 class SensorRepository(ISensorRepository):
-    def __init__(self):
-        self.__db_config = DatabaseConfig.load_config()
-        self.__connection = clickhouse_connect.get_client(
-            host=self.__db_config.host,
-            port=self.__db_config.port,
-            user=self.__db_config.user,
-            password=self.__db_config.password
-        )
+    def __init__(self, db_config: DatabaseConfig):
+        self.__db_config = db_config
+        self.__connection = None
 
     def connect(self):
         self.__connection = clickhouse_connect.get_client(

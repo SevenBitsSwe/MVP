@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS nearyou.sensor
+CREATE TABLE nearyou.sensor
 (
     sensor_uuid UUID PRIMARY KEY,
     is_occupied Boolean DEFAULT false

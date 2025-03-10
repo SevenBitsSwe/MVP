@@ -1,10 +1,11 @@
+from Models.UserDAO import UserDAO
+from Models.DatabaseConfig import DatabaseConfig
 from abc import ABC, abstractmethod
 import uuid
-from Models.UserDAO import UserDAO
 
 class IUserRepository(ABC):
     @abstractmethod
-    def connect(self):
+    def connect(self, db_config: DatabaseConfig):
         pass
 
     @abstractmethod

@@ -14,9 +14,9 @@ class SensorFactory:
     def __init__(self, sensor_repo: ISensorRepository, user_repo: IUserRepository):
         self.__user_sensor_service = UserSensorService(sensor_repo, user_repo)
 
-    def create_gps_sensor(cls) -> SensorSubject:
+    def create_gps_sensor(self) -> SensorSubject:
         '''method to create the GPS sensor'''
-        uuid = cls.__user_sensor_service.assign_sensor_to_user()
+        uuid = self.__user_sensor_service.assign_sensor_to_user()
         return GpsSensor(uuid)
         # return GpsSensor(cls.__user_sensor_service.assign_sensor_to_user())
     

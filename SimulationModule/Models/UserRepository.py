@@ -5,8 +5,8 @@ from Models.UserDAO import UserDAO
 import uuid
 
 class UserRepository(IUserRepository):
-    def __init__(self):
-        self.__db_config = DatabaseConfig.load_config()
+    def __init__(self, db_config: DatabaseConfig):
+        self.__db_config = db_config
         self.__connection = None
 
     def connect(self):

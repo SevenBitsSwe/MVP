@@ -1,11 +1,13 @@
+from Models.SensorDAO import SensorDAO
+from Models.DatabaseConfig import DatabaseConfig
 from abc import ABC, abstractmethod
 import uuid
-from Models.SensorDAO import SensorDAO
+
 
 
 class ISensorRepository(ABC):
     @abstractmethod
-    def connect(self):
+    def connect(self, db_config: DatabaseConfig):
         pass
 
     @abstractmethod
