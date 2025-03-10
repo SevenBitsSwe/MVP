@@ -265,7 +265,9 @@
               "options": "D"
             },
             "location": {
-              "mode": "auto"
+              "latitude": "userLatitude",
+				      "longitude": "userLongitude",
+				      "mode": "coords"
             },
             "name": "messaggi",
             "tooltip": true,
@@ -276,13 +278,10 @@
           "mode": "details"
         },
         "view": {
-          "allLayers": false,
           "id": "fit",
-          "lastOnly": false,
-          "lat": 45.407713,
-          "layer": "percorso",
-          "lon": 11.875896,
-          "zoom": 18
+    		  "lat": 45.402748,
+    		  "lon": 11.86733,
+			    "zoom": 18
         }
       },
       "pluginVersion": "11.5.2",

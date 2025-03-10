@@ -111,7 +111,7 @@
 					"mode": "mod"
 				  },
 				  "size": {
-					"fixed": 19,
+					"fixed": 15,
 					"max": 15,
 					"min": 2
 				  },
@@ -251,10 +251,9 @@
 			"mode": "details"
 		  },
 		  "view": {
-			"allLayers": true,
 			"id": "fit",
-			"lat": 45.402748,
-			"lon": 11.86733,
+    		"lat": 45.402748,
+    		"lon": 11.86733,
 			"zoom": 15
 		  }
 		},
@@ -462,7 +461,7 @@
 			},
 			"pluginVersion": "4.8.2",
 			"queryType": "table",
-			"rawSql": "SELECT \n    userID, \n    argMax(longitude, creationTime) AS longitude, \n    argMax(latitude, creationTime) AS latitude, \n    argMax(message, creationTime) AS message\nFROM \"nearyou\".\"messageTable\"\nGROUP BY userID;",
+			"rawSql": "SELECT \n    userID, \n    userLongitude AS longitude, \n    userLatitude AS latitude, \n    message\nFROM (\n    SELECT \n        userID, \n        userLongitude,\n        userLatitude,\n        message,\n        creationTime,\n        ROW_NUMBER() OVER (PARTITION BY userID ORDER BY creationTime DESC) AS row_num\n    FROM \"nearyou\".\"messageTable\"\n) \nWHERE row_num = 1;",
 			"refId": "B"
 		  },
 		  {

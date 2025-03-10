@@ -4,9 +4,11 @@ CREATE TABLE nearyou.messageTableKafka
     attivitaID UUID,
     id UUID,
     message String,
-    latitude Float64,
-    longitude Float64,
-    creationTime String
+    activityLatitude Float64,  -- Latitudine dell'attività
+    activityLongitude Float64, -- Longitudine dell'attività
+    creationTime String,
+    userLatitude Float64,  -- Latitudine dell'utente
+    userLongitude Float64  -- Longitudine dell'utente
 ) 
 ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', 'JSONEachRow')
       SETTINGS kafka_thread_per_consumer = 0, kafka_num_consumers = 1;
@@ -18,9 +20,11 @@ CREATE TABLE nearyou.messageTable
     attivitaID UUID,
     id UUID,
     message String,
-    latitude Float64,
-    longitude Float64,
-    creationTime String
+    activityLatitude Float64,
+    activityLongitude Float64,
+    creationTime String,
+    userLatitude Float64,
+    userLongitude Float64
 )
 ENGINE = MergeTree()
 PARTITION BY toYYYYMM(toDateTime(creationTime))   -- Partizione per mese basato sul timestamp di creazione
@@ -38,10 +42,12 @@ SELECT
     attivitaID,
     id,
     message,
-    latitude,
-    longitude,
-    creationTime
-FROM nearyou.messageTableKafka
+    activityLatitude,
+    activityLongitude,
+    creationTime,
+    userLatitude,
+    userLongitude
+FROM nearyou.messageTableKafka;
 
 -- SELECT 
 --     m.longitude, 

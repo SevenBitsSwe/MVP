@@ -8,7 +8,7 @@ class BatchDatabaseUser():
             username='default', 
             password='pass'
         )
-    
+
     def getFirstUser(self) -> dict:
         utenti = self.databaseClient.query('''
         SELECT
@@ -54,13 +54,12 @@ class BatchDatabaseUser():
             c += 1
 
         return user_dict
-    
+
     def getActivities(self, lon, lat) -> list:
         params = {
             'lon': lon,
             'lat': lat
         }
-
         query = '''
         SELECT
             a.id,
@@ -68,15 +67,14 @@ class BatchDatabaseUser():
             a.indirizzo,
             a.tipologia,
             a.descrizione,
-            geoDistance(%(lon)s, %(lat)s, a.lon, a.lat) as distanza
+            geoDistance(%(lon)s, %(lat)s, a.lon, a.lat) AS distanza
         FROM 
             nearyou.attivita AS a
         WHERE
             geoDistance(%(lon)s, %(lat)s, a.lon, a.lat) <= 300
         '''
-        
         return self.databaseClient.query(query, parameters=params).result_rows
-    
+
     def getActivityCoordinates(self, activityName) -> dict:
         param = {'nome': activityName}
         query = '''
@@ -93,34 +91,50 @@ class BatchDatabaseUser():
             return {"lon": 0, "lat": 0}
         else: 
             return dizionario.first_item
-        
-    def getLastMessageCoordinates(self) -> dict: 
+
+    def getLastMessageActivityCoordinates(self) -> dict:
         query = '''
         SELECT 
-            longitude,
-            latitude
-        FROM nearyou.messageTable
+            m.activityLongitude,
+            m.activityLatitude
+        FROM nearyou.messageTable AS m
         ORDER BY creationTime DESC 
         LIMIT 1
-        '''    
+        '''
         dizionario = self.databaseClient.query(query)
         if len(dizionario.result_set) == 0:
-            return {"longitude": 0, "latitude": 0}
+            return {"activityLongitude": 0, "activityLatitude": 0}
         else: 
             return dizionario.first_item
+
 
     def getActivityID(self, activityName) -> str:
         param = {'nome': activityName}
         query = '''
         SELECT 
-            toString(a.id) as id
+            toString(a.id) AS id
         FROM 
-            nearyou.attivita AS a  
+            nearyou.attivita AS a 
         WHERE
             a.nome = %(nome)s
         '''
         dizionario = self.databaseClient.query(query, parameters=param)
         if len(dizionario.result_set) == 0:
             return "00000000-0000-0000-0000-000000000000"
-        else: 
+        else:
             return dizionario.first_item["id"]
+        
+    def getLastMessageUserCoordinates(self) -> dict:
+        query = '''
+        SELECT 
+            m.userLongitude,
+            m.userLatitude
+        FROM nearyou.messageTable AS m
+        ORDER BY creationTime DESC 
+        LIMIT 1
+        '''
+        dizionario = self.databaseClient.query(query)
+        if len(dizionario.result_set) == 0:
+            return {"userLongitude": 0, "userLatitude": 0}
+        else: 
+            return dizionario.first_item

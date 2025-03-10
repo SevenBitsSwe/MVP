@@ -46,26 +46,12 @@ streamingEnvironment.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 
 row_type_info = Types.ROW_NAMED(
     ['id', 'latitude','longitude', 'receptionTime'],  # i campi principali
-    [
-        Types.STRING(),  # cambiato da INT a STRING per UUID
-        Types.FLOAT(),  
-        Types.FLOAT(),   
-        Types.STRING()
-        
-    ]
+    [Types.STRING(), Types.FLOAT(), Types.FLOAT(), Types.STRING()]
 )
 
 row_type_info_message = Types.ROW_NAMED(
-    ['userID', 'attivitaID', 'id', 'message', 'latitude','longitude','creationTime'],  # aggiunti userID e attivitaID
-    [
-        Types.STRING(),  # userID (UUID)
-        Types.STRING(),  # attivitaID (UUID)
-        Types.STRING(),  # id (UUID)
-        Types.STRING(),
-        Types.FLOAT(),  
-        Types.FLOAT(),
-        Types.STRING()
-    ]
+    ['userID', 'attivitaID', 'id', 'message', 'activityLatitude', 'activityLongitude', 'creationTime', 'userLatitude', 'userLongitude'],
+    [Types.STRING(), Types.STRING(), Types.STRING(), Types.STRING(), Types.FLOAT(), Types.FLOAT(), Types.STRING(), Types.FLOAT(), Types.FLOAT()]
 )
 json_format_serialize_message = JsonRowSerializationSchema.builder()\
                                 .with_type_info(row_type_info_message)\
@@ -75,14 +61,13 @@ json_format_deserialize = JsonRowDeserializationSchema.builder()\
                           .type_info(row_type_info)\
                           .build()
 
-
 class MapDataToMessages(MapFunction):
 
-    class Messaggio(BaseModel): 
+    class Messaggio(BaseModel):
         '''Message returned by LLM'''
 
-        pubblicita: str = Field(descrition="Messaggio pubblicitario prodotto lungo almeno 200 caratteri")
-        attivita: str = Field(descrition="Nome della azienda tra quelle proposte di cui è stato prodotto l'annuncio")
+        pubblicita: str = Field(description="Messaggio pubblicitario prodotto lungo almeno 200 caratteri")
+        attivita: str = Field(description="Nome della azienda tra quelle proposte di cui è stato prodotto l'annuncio")
         #spiegazione: str = Field(description="Spiega perchè hai scelto questo punto di iteresse per l'utente")
 
     def open(self,runtime):
@@ -108,7 +93,6 @@ class MapDataToMessages(MapFunction):
             rate_limiter=rate_limiter,
             # other params...
         )
-        
 
     def map(self, value):
 
@@ -123,56 +107,55 @@ class MapDataToMessages(MapFunction):
         for activityDict in activityDictList:
             prompt += " - " + str(activityDict) + "\n"
         
-        if len(activityDictList) == 0: 
+        if len(activityDictList) == 0:
             return Row("00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000","00000000-0000-0000-0000-000000000000","error",0,0,"2024-12-18 15:45:23")
         prompt += '''Il messaggio deve essere lungo fra i 200 e 300 caratteri e deve riguardare al massimo una fra le attività. Il messaggio deve essere uno solo. La risposta deve essere in lingua italiana.'''
         print(prompt)
         print("\n")
 
-        # Interrogazione LLM
         structured_model = self.chat.with_structured_output(self.Messaggio)
         responseFromLLM = structured_model.invoke(prompt)
-        response_dict = responseFromLLM.model_dump() # Coversione necessaria perchè flink non accetta la classe BaseModel di pydantic
-
+        response_dict = responseFromLLM.model_dump()
         print(time.time())
         print(response_dict["pubblicita"])
         print(response_dict["attivita"])
         print("\n\n")
-
         self.activityCoordinates = self.serviceDb.getActivityCoordinates(response_dict["attivita"])
-        
-        # Recupera l'ID dell'attività selezionata
         activityID = self.serviceDb.getActivityID(response_dict["attivita"])
-        
         print(self.activityCoordinates)
+        user_latitude = value[1]
+        user_longitude = value[2]
         row = Row(
             userID=str(self.userDictionary["id"]),
             attivitaID=str(activityID),
             id=str(uuid.uuid4()),
             message=response_dict["pubblicita"],
-            latitude=self.activityCoordinates["lat"],
-            longitude=self.activityCoordinates["lon"],
-            creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            activityLatitude=self.activityCoordinates["lat"],
+            activityLongitude=self.activityCoordinates["lon"],
+            creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            userLatitude=user_latitude,
+            userLongitude=user_longitude
         )
         return row
 
-    
 class FilterMessagesAlreadyDisplayed(FilterFunction):
-
-    def open(self,runtime):
+    def open(self, runtime):
         ####### Connect to DB service #########
         self.serviceDb = BatchDatabaseUser()
 
-    def filter(self,value):
-        coordinates = self.serviceDb.getLastMessageCoordinates()
-        print(coordinates)
+    def filter(self, value):
+        activity_coordinates = self.serviceDb.getLastMessageActivityCoordinates()
+        user_coordinates = self.serviceDb.getLastMessageUserCoordinates()
+        print(activity_coordinates)
         print("\n valori"+ str(value[4]) + " - " + str(value[5]))  # Indici aggiornati per latitude e longitude
-        if (round(coordinates["latitude"],4) == round(value[4],4) and 
-            round(coordinates["longitude"],4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
+        if (round(activity_coordinates["activityLatitude"],4) == round(value[4],4) and 
+            round(activity_coordinates["activityLongitude"],4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
             print("Filtered")
             return False
-        else: 
+        else:
             return True
+
+
 ####################################Consumer########################################
 
 source = KafkaSource.builder() \
@@ -190,9 +173,6 @@ datastream = datastream.key_by(lambda x: x[0], key_type=Types.STRING()) # Cambia
 
 mappedstream = datastream.map(MapDataToMessages(), output_type=row_type_info_message)
 filteredstream = mappedstream.filter(FilterMessagesAlreadyDisplayed())
-
-
-
 
 
 ####################################Producer########################################
@@ -214,20 +194,6 @@ sink = KafkaSink.builder() \
        .set_bootstrap_servers("kafka:9092") \
        .set_record_serializer(record_serializer) \
        .build()
-
-# testCoordinates = [
-#     {"id": 123, "coordinates": {"latitude": 40.7128, "longitude": -74.0060}},
-#     {"id": 124, "coordinates": {"latitude": 34.0522, "longitude": -118.2437}},
-#     {"id": 125, "coordinates": {"latitude": 51.5074, "longitude": -0.1278}},
-# ]
-
-# Converte il dizionario in un flusso di oggetti JSON
-#stream = streamingEnvironment.from_collection(testCoordinates, type_info=row_type_info)
-
-
-
-#stream = streamingEnvironment.from_source(source,WatermarkStrategy.for_monotonous_timestamps(), "Kafka Source")
-
 
 filteredstream.sink_to(sink)
 
