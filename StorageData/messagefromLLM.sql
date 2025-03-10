@@ -1,7 +1,7 @@
 
 CREATE TABLE nearyou.messageTableKafka
 (
-    id Int16,
+    userID UUID,
     message String,
     latitude Float64,
     longitude Float64,
@@ -14,7 +14,7 @@ ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', '
 
 CREATE TABLE nearyou.messageTable
 (
-    id Int16,
+    userID UUID,
     message String,
     latitude Float64,
     longitude Float64,
@@ -22,7 +22,7 @@ CREATE TABLE nearyou.messageTable
 )
 ENGINE = MergeTree()
 PARTITION BY toYYYYMM(toDateTime(creationTime))   -- Partizione per mese basato sul timestamp di creazione
-PRIMARY KEY (id, toStartOfMinute(toDateTime(creationTime)), creationTime)
+PRIMARY KEY (userID, toStartOfMinute(toDateTime(creationTime)), creationTime)
 TTL toDateTime(creationTime) + INTERVAL 1 MONTH   -- I dati saranno conservati per 1 mese
 SETTINGS index_granularity = 8192;
 
@@ -32,7 +32,7 @@ SETTINGS index_granularity = 8192;
 CREATE MATERIALIZED VIEW nearyou.mv_messageTable TO nearyou.messageTable
 AS
 SELECT
-    id,
+    userID,
     message,
     latitude,
     longitude,
