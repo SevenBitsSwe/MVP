@@ -10,7 +10,8 @@ class SensorSimulationManager:
     def __init__(self, number_of_sensors: int,\
                     sensor_observer_istance: "IPositionObserver",\
                     simulaiton_strategy_istance: "IPositionSimulationStrategy",\
-                    simulation_graph: "GraphWrapper"
+                    simulation_graph: "GraphWrapper",\
+                    sensor_factory: "SensorFactory"
                 ):
         '''constructor to initialize the sensor simulation manager'''
         self.__sensor_registry = []
@@ -18,12 +19,13 @@ class SensorSimulationManager:
         self.__sensor_observer = sensor_observer_istance
         self.__simulation_strategy = simulaiton_strategy_istance
         self.__cached_graph = simulation_graph
+        self.__sensor_factory = sensor_factory
         self.__populate_registry()
 
     def __populate_registry(self):
         '''method to populate the sensor registry with different types of sensors'''
         for i in range(self.__number_of_sensors):
-            temporary_sensor = SensorFactory.create_gps_sensor()
+            temporary_sensor = self.__sensor_factory.create_gps_sensor()
             self.__sensor_registry.append(temporary_sensor)
             temporary_sensor.register_observer(self.__sensor_observer)
 
