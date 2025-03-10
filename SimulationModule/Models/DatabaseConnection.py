@@ -13,7 +13,7 @@ class DatabaseConnection:
         self.connection = clickhouse_connect.get_client(
             host=self.host, 
             port=self.port, 
-            user=self.user, 
+            username=self.user, 
             password=self.password
         )
         return self.connection
