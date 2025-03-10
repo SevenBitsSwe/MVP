@@ -11,7 +11,7 @@ from Models.SensorRepository import SensorRepository
 from Models.UserRepository import UserRepository
 from Models.ISensorRepository import ISensorRepository
 from Models.IUserRepository import IUserRepository
-from Models.DatabaseConfig import DatabaseConfig
+from Models.DatabaseConnection import DatabaseConnection
 from Models.DatabaseConfigParameters import DatabaseConfigParameters
 from confluent_kafka import Producer
 
@@ -26,9 +26,9 @@ kafka_confluent_adapter : KafkaPositionObserver = KafkaConfluentAdapter(
 strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy()
 map_graph = GraphWrapper(45.3, 11.87, 4000, 'walk')
 
-db_config = DatabaseConfig(DatabaseConfigParameters())
-sensor_repository: ISensorRepository = SensorRepository(db_config)
-user_repository: IUserRepository = UserRepository(db_config)
+db_connection = DatabaseConnection(DatabaseConfigParameters())
+sensor_repository: ISensorRepository = SensorRepository(db_connection)
+user_repository: IUserRepository = UserRepository(db_connection)
 sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 
