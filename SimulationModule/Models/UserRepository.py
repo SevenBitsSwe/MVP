@@ -1,6 +1,6 @@
 from Models.IUserRepository import IUserRepository
 from Models.DatabaseConnection import DatabaseConnection
-from Models.UserDAO import UserDAO
+from Models.UserDTO import UserDTO
 import uuid
 
 class UserRepository(IUserRepository):
@@ -14,7 +14,7 @@ class UserRepository(IUserRepository):
         result = conn.query(query)
         self.__db_conn.disconnect()
 
-    def get_free_user(self) -> UserDAO:
+    def get_free_user(self) -> UserDTO:
         """Retrieves first user without a sensor from the database"""
         query = "SELECT user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status FROM nearyou.user WHERE assigned_sensor_uuid IS NULL"
         conn = self.__db_conn.connect()
@@ -24,4 +24,4 @@ class UserRepository(IUserRepository):
         if not result.result_rows:
             return None
         user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status = result.result_rows[0]
-        return UserDAO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status)
+        return UserDTO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status)

@@ -1,4 +1,4 @@
-from Models.SensorDAO import SensorDAO
+from Models.SensorDTO import SensorDTO
 from Models.DatabaseConnection import DatabaseConnection
 from abc import ABC, abstractmethod
 import uuid
@@ -11,5 +11,5 @@ class ISensorRepository(ABC):
         pass
 
     @abstractmethod
-    def get_non_occupied_sensor(self) -> SensorDAO:
+    def get_non_occupied_sensor(self) -> SensorDTO:
         pass

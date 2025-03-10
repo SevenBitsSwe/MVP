@@ -1,7 +1,7 @@
 from Models.IUserRepository import IUserRepository
 from Models.ISensorRepository import ISensorRepository
-from Models.UserDAO import UserDAO
-from Models.SensorDAO import SensorDAO
+from Models.UserDTO import UserDTO
+from Models.SensorDTO import SensorDTO
 import uuid
 import threading
 
@@ -19,19 +19,19 @@ class UserSensorService:
             with self.__lock:  # Use a context manager to acquire and release the lock
                 log_file.write("Lock acquired\n")
                 sensor = self.__SensorRepository.get_non_occupied_sensor()
-                log_file.write(f"Found sensor: {sensor._sensor_uuid if sensor else 'None'}\n")
+                log_file.write(f"Found sensor: {sensor.sensor_uuid if sensor else 'None'}\n")
 
                 user = self.__UserRepository.get_free_user()
-                log_file.write(f"Found user: {user._user_uuid if user else 'None'}\n")
+                log_file.write(f"Found user: {user.user_uuid if user else 'None'}\n")
 
                 if not sensor or not user:
                     log_file.write("Assignment failed: no available sensor or user\n")
                     return None
                 
-                self.__SensorRepository.mark_sensor_as_occupied(sensor._sensor_uuid)
-                log_file.write(f"Marked sensor {sensor._sensor_uuid} as occupied\n")
+                self.__SensorRepository.mark_sensor_as_occupied(sensor.sensor_uuid)
+                log_file.write(f"Marked sensor {sensor.sensor_uuid} as occupied\n")
 
-                self.__UserRepository.mark_user_as_occupied(user._user_uuid, sensor._sensor_uuid)
-                log_file.write(f"Assigned sensor {sensor._sensor_uuid} to user {user._user_uuid}\n")
+                self.__UserRepository.mark_user_as_occupied(user.user_uuid, sensor.sensor_uuid)
+                log_file.write(f"Assigned sensor {sensor.sensor_uuid} to user {user._user_uuid}\n")
 
-                return sensor._sensor_uuid
+                return sensor.sensor_uuid

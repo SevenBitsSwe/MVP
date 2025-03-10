@@ -1,4 +1,4 @@
-from Models.UserDAO import UserDAO
+from Models.UserDTO import UserDTO
 from Models.DatabaseConnection import DatabaseConnection
 from abc import ABC, abstractmethod
 import uuid
@@ -9,5 +9,5 @@ class IUserRepository(ABC):
         pass
 
     @abstractmethod
-    def get_free_user(self) -> UserDAO:
+    def get_free_user(self) -> UserDTO:
         pass
