@@ -251,7 +251,7 @@
 			"mode": "details"
 		  },
 		  "view": {
-			"id": "fit",
+			"id": "coords",
     		"lat": 45.402748,
     		"lon": 11.86733,
 			"zoom": 15
