@@ -1,7 +1,7 @@
 
 CREATE TABLE nearyou.messageTableKafka
 (
-    id Int16,
+    id UUID,
     message String,
     latitude Float64,
     longitude Float64,
@@ -14,7 +14,7 @@ ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', '
 
 CREATE TABLE nearyou.messageTable
 (
-    id Int16,
+    id UUID,
     message String,
     latitude Float64,
     longitude Float64,

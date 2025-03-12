@@ -14,7 +14,7 @@ SETTINGS
 
 CREATE TABLE nearyou.positions
 (
-    id Int16,
+    id UUID,
     latitude Float64,
     longitude Float64,
     received_at String
