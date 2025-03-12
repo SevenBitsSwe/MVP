@@ -20,4 +20,6 @@ class FlinkJobManager :
         self.__mapped_stream = self.__populated_datastream.map(map_function_implementation)
         self.__filtered_stream = self.__mapped_stream.filter(filter_function_implementation)
         self.__filtered_stream.sink_to(message_sender_istance.get_message_writer())
-        self.__streaming_env.execute("Position Elaboration Job")
+    
+    def execute(self):
+        self.__streaming_env.execute("Flink Job")

@@ -10,13 +10,13 @@ class GroqLLMService(LLMService):
     def __init__(self, structured_response):
         super().__init__(structured_response)
         load_dotenv()
-        GROQ_API_KEY = os.getenv('PYTHON_PROGRAM_KEY')
+        self.__groq_api_key = os.getenv('PYTHON_PROGRAM_KEY')
         self.__llm_structured_response = structured_response
         self.__chat = self.set_up_chat()
 
     def set_up_chat(self):
         self.__chat = ChatGroq(
-            groq_api_key=GROQ_API_KEY,
+            groq_api_key=self.__groq_api_key,
             model="Gemma2-9b-it",
             temperature=0.6,
             max_tokens=None,
