@@ -1,6 +1,6 @@
 from Models.SensorSimulationManager import SensorSimulationManager
 from Models.PositionJsonAdapter import PositionJsonAdapter
-from Models.KafkaPositionObserver import KafkaPositionObserver
+from Models.PositionSender import PositionSender
 from Models.KafkaConfluentAdapter import KafkaConfluentAdapter
 from Models.KafkaConfigParameters import KafkaConfigParameters
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
@@ -18,7 +18,7 @@ from confluent_kafka import Producer
 print("Starting simulation")
 
 json_adapter: PositionJsonAdapter = PositionJsonAdapter()
-kafka_confluent_adapter : KafkaPositionObserver = KafkaConfluentAdapter(
+kafka_confluent_adapter : PositionSender = KafkaConfluentAdapter(
                                                 KafkaConfigParameters(),
                                                 json_adapter,
                                                 Producer({'bootstrap.servers': KafkaConfigParameters().bootstrap_servers})
@@ -33,7 +33,7 @@ sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 
 
-sensor_simulation_istance = SensorSimulationManager(10, kafka_confluent_adapter, strategy_simulation, map_graph, sensor_factory)
+sensor_simulation_istance = SensorSimulationManager(10, map_graph, sensor_factory)
 sensor_simulation_istance.start_simulation()
 
 

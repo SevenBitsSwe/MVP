@@ -2,8 +2,7 @@ from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 from Models.GpsSensor import GpsSensor
 from Models.GeoPosition import GeoPosition
 from datetime import datetime
-from geopy.distance import geodesic
-import time
+from SimulationModule.Models.SensorSubject import SensorSubject
 import osmnx
 import random
 
@@ -14,7 +13,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
         self.__bycicle_speed_approximated = 15
         self.__delta_time_between_positions = 10
 
-    def simulate_position_live_update(self, sensor_istance: GpsSensor, graph_istance):
+    def get_route(self, graph_istance) -> list:
         '''method to simulate the position live update'''
         graph_returned = graph_istance
         graph_nodes = list(graph_returned.nodes)
@@ -29,28 +28,13 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
         )
         route_coords = [(graph_returned.nodes[node]["y"], graph_returned.nodes[node]["x"]) for node in shortest_route]
 
-        speed_mps = self.__bycicle_speed_approximated / 3.6
-        total_distance = 0
-        for i in range(len(route_coords)-1):
-            start_point = route_coords[i]
-            end_point = route_coords[i+1]
-            segment_distance = geodesic(start_point, end_point).meters
-            total_distance += segment_distance
-            num_positions = int(segment_distance / (speed_mps * self.__delta_time_between_positions))
+        return route_coords
 
-            for j in range(num_positions):
-                fraction = j / num_positions
 
-                latitude = start_point[0] + fraction * (end_point[0] - start_point[0])
-                longitude = start_point[1] + fraction * (end_point[1] - start_point[1])
-                sensor_istance.set_current_position(
-                    GeoPosition(
-                        sensor_istance.get_sensor_uuid(),
-                        float(latitude),
-                        float(longitude),
-                        datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    )
-                )
-                time.sleep(self.__delta_time_between_positions)
+    def get_delta_time(self) -> float:
+        return self.__delta_time_between_positions
 
+    def get_speed(self) -> float:
+        speed = self.__bycicle_speed_approximated / 3.6
+        return speed
 

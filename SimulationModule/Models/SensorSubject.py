@@ -6,12 +6,15 @@ classes when the sensor data changes.'''
 from abc import ABC, abstractmethod
 import uuid
 
+
 class SensorSubject(ABC):
     '''Abstract Class implementation '''
 
-    def __init__(self, uuid_creation: uuid):
+    def __init__(self, uuid_creation: uuid, simulation_strategy: "IPositionSimulationStrategy"):
         '''constructor to initialize the sensor subject'''
         self._sensor_uuid = uuid_creation
+        self._simulation_strategy = simulation_strategy
+        self._update_time = simulation_strategy.get_delta_time
 
     def get_sensor_uuid(self):
         '''method to get the sensor uuid'''
