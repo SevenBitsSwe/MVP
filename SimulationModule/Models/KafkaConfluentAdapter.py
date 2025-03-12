@@ -14,10 +14,10 @@ class KafkaConfluentAdapter(PositionSender):
         self.__kafka_config = kafka_config
         self.__producer = producer_istance
         
-    def send_data_to_broker(self, json_payload, sensor_key: str):
+    def send_data_to_broker(self, json_payload, sensor_id: str):
         '''method to send the data to the Kafka topic'''
         self.__producer.produce(self.__kafka_config.source_topic, 
-                                key = str(sensor_key),
+                                key = str(sensor_id),
                                 value = json_payload.encode('utf-8'))
         self.__producer.flush()
         
