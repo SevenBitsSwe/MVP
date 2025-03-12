@@ -7,21 +7,14 @@ class GpsSensor(SensorSubject):
     def __init__(self,uuid_creation: uuid):
         '''constructor to initialize the GPS sensor'''
         super().__init__(uuid_creation)
-        self.__currentPosition = None
         
-    def notify_observers(self):
-        '''method to notify the observers'''
-        for observer in self._observers_list:
-            observer.on_sensor_data_changed(self)
-
-    def get_current_data(self):
+    def simulate(self):
         '''method to get the current position'''
-        return self.__currentPosition
+        self.create_geo_position()
 
-    def set_current_position(self, position_istance: GeoPosition):
+    def create_geo_position(self):
         '''method to set the current position'''
-        self.__currentPosition = position_istance
-        self.notify_observers() 
+        pass
         
     
     
