@@ -1,10 +1,10 @@
-from Models.IPositionObserver import IPositionObserver
-from Models.GpsSensor import GpsSensor
+from Models.GeoPosition import GeoPosition
 from Models.IJsonSerializable import IJsonSerializable
 import threading
 from abc import ABC, abstractmethod
 
-class KafkaPositionObserver(IPositionObserver,ABC):
+
+class PositionSender(ABC):
     '''This class implements the observer interface and is used to observe the GPS sensor position and
     write the position to a Kafka topic, note this class will be inherited by a KafkaConfluentAdapter'''
     
@@ -14,15 +14,15 @@ class KafkaPositionObserver(IPositionObserver,ABC):
         self._lock = threading.Lock()
 
     @abstractmethod
-    def send_data_with_kafka(self, json_payload, sensor_key: str):
+    def send_data_to_broker(self, json_payload, sensor_id: str):
         '''abstract method to send the data to the Kafka topic'''
         pass
 
-    def on_sensor_data_changed(self, sensor_istance: GpsSensor):
+    def send_position(self, position: GeoPosition):
         '''function call to send data will automatically be called in the subclass implementation'''
         with self._lock:
-            self.send_data_with_kafka(
-                self.__position_serializator.serialize_to_json(sensor_istance.get_current_data()),
-                sensor_istance.get_sensor_uuid()
+            self.send_data_to_broker(
+                self.__position_serializator.serialize_to_json(position),
+                position.get_sensor_id
             )
         
