@@ -1,15 +1,16 @@
-from LLMService import LLMService
+from Core.LLMService import LLMService
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
+load_dotenv()
+
 class GroqLLMService(LLMService):
     '''Class that implements the GroqLLMService interface'''
     def __init__(self, structured_response):
         super().__init__(structured_response)
-        load_dotenv()
         self.__groq_api_key = os.getenv('PYTHON_PROGRAM_KEY')
         self.__llm_structured_response = structured_response
         self.__chat = self.set_up_chat()

@@ -120,6 +120,12 @@ services:
     build: ./FlinkProcessor
     volumes:
       - .env:/app/.env
+    restart: on-failure:5
+    deploy:
+      resources:
+        limits:
+          cpus: '4.00'
+          memory: 4G
     depends_on:
       kafka:
         condition: service_healthy

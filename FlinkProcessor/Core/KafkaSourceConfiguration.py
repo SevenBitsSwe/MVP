@@ -6,7 +6,7 @@ from pyflink.common.types import Row
 class KafkaSourceConfiguration:
     bootstrap_servers: str = "kafka:9092"
     source_topic: str = "SimulatorPosition"
-    group_id: str = "SimulatorGroup"
+    group_id: str = "pyfinkJob"
     enable_auto_commit: str = "true"
     commit_offsets_on_checkpoint: str = "true"
     row_type = Types.ROW_NAMED( ['id', 'latitude','longitude', 'receptionTime'],
