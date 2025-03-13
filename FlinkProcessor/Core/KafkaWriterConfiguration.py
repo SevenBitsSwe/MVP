@@ -7,17 +7,21 @@ class KafkaWriterConfiguration:
     bootstrap_servers: str = "kafka:9092"
     writable_topic: str = "MessageElaborated"
     key_type = Types.ROW_NAMED(
-                                ['id'],  # i campi principali
+                                ['user_uuid'],  # i campi principali
                                 [
                                     Types.STRING()
                                 ])
     row_type_info_message = Types.ROW_NAMED(
-                                            ['id', 'message', 'latitude','longitude','creationTime'],  # i campi principali
+                                            ['user_uuid', 'activity_uuid', 'message_uuid','message','activity_latitude','activity_longitude','creation_time','user_latitude','user_longitude'],  # i campi principali
                                             [
+                                                Types.STRING(),
+                                                Types.STRING(),
                                                 Types.STRING(),
                                                 Types.STRING(),
                                                 Types.FLOAT(),  
                                                 Types.FLOAT(),
-                                                Types.STRING()
+                                                Types.STRING(),
+                                                Types.FLOAT(),  
+                                                Types.FLOAT()
                                             ]
                                             )

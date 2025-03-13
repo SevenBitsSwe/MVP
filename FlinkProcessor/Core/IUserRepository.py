@@ -14,6 +14,4 @@ class IUserRepository(ABC):
     @abstractmethod
     def get_user_who_owns_sensor(self, sensor_uuid) -> UserDTO:
         pass
-    @abstractmethod
-    def get_user_last_message_coordinates(self) -> dict:
-        pass
+    

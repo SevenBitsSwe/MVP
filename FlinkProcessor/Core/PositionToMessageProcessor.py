@@ -5,8 +5,8 @@ from Core.CustomPrompt import CustomPrompt
 from pyflink.common.types import Row
 from datetime import datetime
 from Core.ActivityDTO import ActivityDTO
-
-
+from Core.MessageDTO import MessageDTO
+import uuid
 from Core.IUserRepository import IUserRepository
 from Core.IActivityRepository import IActivityRepository
 
@@ -28,22 +28,44 @@ class PositionToMessageProcessor(MapFunction):
         activity_dict = self.__activity_repository.get_activities_in_range(value[2], value[1],300)
 
         if len(activity_dict) == 0:
-            return Row(id=str(user_dict.user_uuid), 
-                  message="filter_this_message",
-                  latitude= 0.0,
-                  longitude= 0.0,
-                  creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            return Row(str(user_dict.user_uuid),
+                        str(uuid.uuid4()),
+                        str(uuid.uuid4()),
+                        "skip-this-message",
+                        0.0,
+                        0.0,
+                        datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        value[1], #latitude
+                        value[2])
 
         current_prompt = self.prompt_creator.get_prompt(user_dict, activity_dict)
         ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
 
         activity_info: ActivityDTO = self.__activity_repository.get_activity_spec_from_name(ai_response_dict['attivita'])
    
-        row = Row(id=str(user_dict.user_uuid), 
-                  message=ai_response_dict['pubblicita'],
-                  latitude= float(activity_info.activity_lat),
-                  longitude= float(activity_info.activity_lon),
-                  creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        message_to_send : MessageDTO = MessageDTO(str(user_dict.user_uuid),
+                                                  str(activity_info.activity_id),
+                                                  str(uuid.uuid4()),
+                                                  ai_response_dict['pubblicita'],
+                                                  float(activity_info.activity_lat),
+                                                  float(activity_info.activity_lon),
+                                                  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                                  value[1], #latitude
+                                                  value[2]) #longitude
 
+        # row = Row(id=str(user_dict.user_uuid), 
+        #           message=ai_response_dict['pubblicita'],
+        #           latitude= float(activity_info.activity_lat),
+        #           longitude= float(activity_info.activity_lon),
+        #           creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        row = Row(str(user_dict.user_uuid),
+                                                  str(activity_info.activity_id),
+                                                  str(uuid.uuid4()),
+                                                  ai_response_dict['pubblicita'],
+                                                  float(activity_info.activity_lat),
+                                                  float(activity_info.activity_lon),
+                                                  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                                  value[1], #latitude
+                                                  value[2])
         print(row)
         return row

@@ -22,8 +22,10 @@ from pyflink.common import Configuration
 
 from Core.IUserRepository import IUserRepository
 from Core.IActivityRepository import IActivityRepository
+from Core.IMessageRepository import IMessageRepository
 from Core.ClickhouseUserRepository import ClickhouseUserRepository
 from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
+from Core.ClickhouseMessageRepository import ClickhouseMessageRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.DatabaseConfigParameters import DatabaseConfigParameters
 
@@ -49,9 +51,10 @@ llm_service_istance: LLMService = GroqLLMService(StructuredResponseMessage)
 db_connection = DatabaseConnection(DatabaseConfigParameters())
 user_repository : IUserRepository = ClickhouseUserRepository(db_connection)
 activity_repository: IActivityRepository = ClickhouseActivityRepository(db_connection)
+message_repository: IMessageRepository = ClickhouseMessageRepository(db_connection)
 
 map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository, activity_repository)
-filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed(user_repository)
+filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed(message_repository)
 position_receiver_istance: IPositionReceiver = KafkaPositionReceiver(KafkaSourceConfiguration(),deserialization_adapter)
 message_writer_istance: IMessageWriter = KafkaMessageWriter(KafkaWriterConfiguration(),serialization_adapter)
 
