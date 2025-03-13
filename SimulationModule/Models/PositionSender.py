@@ -23,6 +23,6 @@ class PositionSender(ABC):
         with self._lock:
             self.send_data_to_broker(
                 self.__position_serializator.serialize_to_json(position),
-                position.get_sensor_id
+                position.get_sensor_id()
             )
         
