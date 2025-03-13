@@ -14,11 +14,14 @@ class SensorSubject(ABC):
         '''constructor to initialize the sensor subject'''
         self._sensor_uuid = uuid_creation
         self._simulation_strategy = simulation_strategy
-        self._update_time = simulation_strategy.get_delta_time
+        self._update_time = simulation_strategy.get_delta_time()
 
     def get_sensor_uuid(self):
         '''method to get the sensor uuid'''
         return self._sensor_uuid
+
+    def get_update_time(self) -> float:
+        return self._update_time
     
     @abstractmethod
     def simulate(self):

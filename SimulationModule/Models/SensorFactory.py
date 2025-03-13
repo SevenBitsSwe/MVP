@@ -1,3 +1,4 @@
+from typing import List
 from Models.SensorSubject import SensorSubject
 from Models.GpsSensor import GpsSensor
 from Models.UserSensorService import UserSensorService
@@ -22,6 +23,6 @@ class SensorFactory:
         return GpsSensor(uuid, position_sender, simulation_strategy)
         # return GpsSensor(cls.__user_sensor_service.assign_sensor_to_user())
 
-    def create_gps_sensor_list(self, position_sender: PositionSender, simulation_strategy: IPositionSimulationStrategy, number_of_sensors: int) -> list[SensorSubject]:
+    def create_gps_sensor_list(self, position_sender: PositionSender, simulation_strategy: IPositionSimulationStrategy, number_of_sensors: int) -> List[SensorSubject]:
         sensor_list = [self.create_gps_sensor(position_sender, simulation_strategy) for i in range(number_of_sensors)]
         return sensor_list

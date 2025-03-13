@@ -5,6 +5,7 @@ from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 from geopy.distance import geodesic
 import uuid
 import time
+from datetime import datetime
 
 class GpsSensor(SensorSubject):
     '''This class inherit from the SensorSubject class and implements the GPS sensor '''
