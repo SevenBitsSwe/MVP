@@ -1,4 +1,4 @@
-from Core.LLMService import LLMService
+from Core.LLMService import ILLMService
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.rate_limiters import InMemoryRateLimiter
@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class GroqLLMService(LLMService):
+class GroqLLMService(ILLMService):
     '''Class that implements the GroqLLMService interface'''
     def __init__(self, structured_response):
         super().__init__(structured_response)

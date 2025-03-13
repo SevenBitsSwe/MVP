@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from pydantic import BaseModel
 
-class LLMService(ABC):
+class ILLMService(ABC):
     '''Interface class which represent the inbound port, also known as the position receiver'''
     def __init__(self,structured_response: BaseModel):
         self.__llm_structured_response = structured_response

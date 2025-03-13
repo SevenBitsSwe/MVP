@@ -1,5 +1,5 @@
 from pyflink.datastream.functions import MapFunction
-from Core.LLMService import LLMService
+from Core.LLMService import ILLMService
 from Core.StructuredResponseMessage import StructuredResponseMessage
 from Core.CustomPrompt import CustomPrompt
 from pyflink.common.types import Row
@@ -13,7 +13,7 @@ from Core.IActivityRepository import IActivityRepository
 
 class PositionToMessageProcessor(MapFunction):
     '''Map function to transform a position into a message'''
-    def __init__(self, ai_chatbot_service: LLMService, user_repository: IUserRepository, activity_repository: IActivityRepository):
+    def __init__(self, ai_chatbot_service: ILLMService, user_repository: IUserRepository, activity_repository: IActivityRepository):
         self.ai_service = ai_chatbot_service
         self.__user_repository = user_repository
         self.__activity_repository = activity_repository
