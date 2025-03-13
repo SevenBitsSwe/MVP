@@ -1,37 +1,14 @@
-from Models.SensorFactory import SensorFactory 
- 
 from multiprocessing.pool import ThreadPool
-import functools
-
-
 
 class SensorSimulationManager:
     '''This class implements all the logic to simulate the sensors and send the data to a Kafka topic'''
-    def __init__(self, number_of_sensors: int,\
-                    simulation_graph: "GraphWrapper",\
-                    sensor_factory: "SensorFactory"
-                ):
+    def __init__(self, list_of_sensors: list["SensorSubject"]):
         '''constructor to initialize the sensor simulation manager'''
-        self.__sensor_registry = []
-        self.__number_of_sensors = number_of_sensors     
-        self.__cached_graph = simulation_graph
-        self.__sensor_factory = sensor_factory
-        self.__populate_registry()
-
-    def __populate_registry(self):
-        '''method to populate the sensor registry with different types of sensors'''
-        for i in range(self.__number_of_sensors):
-            temporary_sensor = self.__sensor_factory.create_gps_sensor()
-            self.__sensor_registry.append(temporary_sensor)
-
+        self.__sensor_registry = list_of_sensors
 
     def start_simulation(self):
         '''method to start the simulation'''
 
-        simulation_with_shared_graph = functools.partial(
-            self.__simulation_strategy.simulate_position_live_update,
-            graph_istance = self.__cached_graph.get_graph()
-        )
-        with ThreadPool(self.__number_of_sensors) as pool:
-            pool.map(simulation_with_shared_graph, self.__sensor_registry)
+        with ThreadPool(len(self.__sensor_registry)) as pool:
+            pool.map(lambda sensor: sensor.simulate(), self.__sensor_registry)
             
