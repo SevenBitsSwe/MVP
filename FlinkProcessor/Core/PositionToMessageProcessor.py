@@ -22,7 +22,8 @@ class PositionToMessageProcessor(MapFunction):
     def map(self, value):
         
         user_dict = self.__local_repository.get_user_who_owns_sensor(str(value[0]))
-        activity_dict = self.__local_repository.getActivities(value[2], value[1], 300)
+        activity_dict = self.__local_repository.getActivities(value[2], value[1],300)
+        print("Coordinates dict: ", activity_dict)
         current_prompt = self.prompt_creator.get_prompt(user_dict, activity_dict)
         ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
 
@@ -33,5 +34,6 @@ class PositionToMessageProcessor(MapFunction):
                   latitude= float(activity_coordinates['lat']),
                   longitude= float(activity_coordinates['lon']),
                   creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
         print(row)
         return row

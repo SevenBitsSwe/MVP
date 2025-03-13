@@ -24,7 +24,7 @@ kafka_confluent_adapter : KafkaPositionObserver = KafkaConfluentAdapter(
                                                 Producer({'bootstrap.servers': KafkaConfigParameters().bootstrap_servers})
                                                 )
 strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy()
-map_graph = GraphWrapper(45.3, 11.87, 4000, 'walk')
+map_graph = GraphWrapper(45.39, 11.87, 4000, 'walk')
 
 db_connection = DatabaseConnection(DatabaseConfigParameters())
 sensor_repository: ISensorRepository = SensorRepository(db_connection)

@@ -4,6 +4,7 @@ from Models.UserDTO import UserDTO
 from Models.SensorDTO import SensorDTO
 import uuid
 import threading
+import time
 
 class UserSensorService:
 
@@ -14,6 +15,7 @@ class UserSensorService:
 
     def assign_sensor_to_user(self) -> uuid:
         """Assigns a sensor to a user"""
+        time.sleep(1)
         with open('sensor_assignment.log', 'a') as log_file:
             log_file.write("Starting sensor assignment process...\n")
             with self.__lock:  # Use a context manager to acquire and release the lock
