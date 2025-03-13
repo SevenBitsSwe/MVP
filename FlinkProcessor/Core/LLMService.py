@@ -7,5 +7,9 @@ class LLMService(ABC):
         self.__llm_structured_response = structured_response
 
     @abstractmethod
+    def set_up_chat(self):
+        pass
+    
+    @abstractmethod
     def get_llm_structured_response(self,prompt):
         pass

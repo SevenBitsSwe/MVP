@@ -116,7 +116,6 @@ services:
     profiles: ["test","develop","prod"]
   flink:
     container_name: flink
-
     build: ./FlinkProcessor
     volumes:
       - .env:/app/.env

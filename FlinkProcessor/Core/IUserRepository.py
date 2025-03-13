@@ -1,5 +1,5 @@
-from Models.UserDTO import UserDTO
-from Models.DatabaseConnection import DatabaseConnection
+from Core.UserDTO import UserDTO
+from Core.DatabaseConnection import DatabaseConnection
 from abc import ABC, abstractmethod
 import uuid
 
@@ -12,7 +12,7 @@ class IUserRepository(ABC):
     def get_free_user(self) -> UserDTO:
         pass
 
-    def get_user_who_owns_sensor(self, sensor_uuid: uuid.UUID) -> UserDTO:
+    def get_user_who_owns_sensor(self, sensor_uuid) -> UserDTO:
         pass
 
     def getActivityCoordinates(self, activityName) -> dict:
