@@ -461,7 +461,7 @@
 			},
 			"pluginVersion": "4.8.2",
 			"queryType": "table",
-			"rawSql": "SELECT \n    userID, \n    userLongitude AS longitude, \n    userLatitude AS latitude, \n    message\nFROM (\n    SELECT \n        userID, \n        userLongitude,\n        userLatitude,\n        message,\n        creationTime,\n        ROW_NUMBER() OVER (PARTITION BY userID ORDER BY creationTime DESC) AS row_num\n    FROM \"nearyou\".\"messageTable\"\n) \nWHERE row_num = 1;",
+			"rawSql": "SELECT \n    m.userID, \n    m.userLongitude AS longitude, \n    m.userLatitude AS latitude, \n    m.message\nFROM (\n    SELECT \n        userID, \n        message,\n        userLongitude,\n        userLatitude,\n        activityLongitude,\n        activityLatitude,\n        creationTime,\n        ROW_NUMBER() OVER (PARTITION BY userID ORDER BY creationTime DESC) AS row_num\n    FROM \"nearyou\".\"messageTable\"\n) m\nJOIN (\n    SELECT \n        userID, \n        longitude, \n        latitude,\n        ROW_NUMBER() OVER (PARTITION BY userID ORDER BY received_at DESC) AS row_num\n    FROM \"nearyou\".\"positions\"\n) p ON m.userID = p.userID AND p.row_num = 1\nWHERE m.row_num = 1\nAND 6371000 * acos(\n    cos(radians(m.activityLatitude)) * cos(radians(p.latitude)) * \n    cos(radians(p.longitude) - radians(m.activityLongitude)) + \n    sin(radians(m.activityLatitude)) * sin(radians(p.latitude))\n) <= 300;",
 			"refId": "B"
 		  },
 		  {
