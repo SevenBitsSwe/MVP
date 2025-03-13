@@ -4,16 +4,19 @@ from Core.StructuredResponseMessage import StructuredResponseMessage
 from Core.CustomPrompt import CustomPrompt
 from pyflink.common.types import Row
 from datetime import datetime
+from Core.ActivityDTO import ActivityDTO
 
 
 from Core.IUserRepository import IUserRepository
+from Core.IActivityRepository import IActivityRepository
 
 
 class PositionToMessageProcessor(MapFunction):
     '''Map function to transform a position into a message'''
-    def __init__(self, ai_chatbot_service: LLMService, user_repository: IUserRepository):
+    def __init__(self, ai_chatbot_service: LLMService, user_repository: IUserRepository, activity_repository: IActivityRepository):
         self.ai_service = ai_chatbot_service
-        self.__local_repository = user_repository
+        self.__user_repository = user_repository
+        self.__activity_repository = activity_repository
 
     def open(self, runtime_context):
         self.ai_service.set_up_chat()
@@ -21,18 +24,25 @@ class PositionToMessageProcessor(MapFunction):
 
     def map(self, value):
         
-        user_dict = self.__local_repository.get_user_who_owns_sensor(str(value[0]))
-        activity_dict = self.__local_repository.getActivities(value[2], value[1],300)
-        print("Coordinates dict: ", activity_dict)
+        user_dict = self.__user_repository.get_user_who_owns_sensor(str(value[0]))
+        activity_dict = self.__activity_repository.get_activities_in_range(value[2], value[1],300)
+
+        if len(activity_dict) == 0:
+            return Row(id=str(user_dict.user_uuid), 
+                  message="filter_this_message",
+                  latitude= 0.0,
+                  longitude= 0.0,
+                  creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
         current_prompt = self.prompt_creator.get_prompt(user_dict, activity_dict)
         ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
 
-        activity_coordinates = self.__local_repository.getActivityCoordinates(ai_response_dict['attivita'])
-
+        activity_info: ActivityDTO = self.__activity_repository.get_activity_spec_from_name(ai_response_dict['attivita'])
+   
         row = Row(id=str(user_dict.user_uuid), 
                   message=ai_response_dict['pubblicita'],
-                  latitude= float(activity_coordinates['lat']),
-                  longitude= float(activity_coordinates['lon']),
+                  latitude= float(activity_info.activity_lat),
+                  longitude= float(activity_info.activity_lon),
                   creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
         print(row)

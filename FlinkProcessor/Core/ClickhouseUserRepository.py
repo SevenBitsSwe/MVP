@@ -3,7 +3,7 @@ from Core.DatabaseConnection import DatabaseConnection
 from Core.UserDTO import UserDTO
 import uuid
 
-class UserRepository(IUserRepository):
+class ClickhouseUserRepository(IUserRepository):
     def __init__(self, db_connection: DatabaseConnection):
         self.__db_conn = db_connection
 
@@ -39,42 +39,19 @@ class UserRepository(IUserRepository):
             return None
         user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status = result.result_rows[0]
         return UserDTO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status)
-    
-    def getActivities(self, lon, lat, max_distance) -> list:
-        params = {
-            'lon': lon,
-            'lat': lat,
-            'max_distance': max_distance
-        }
 
-        query ='''
-        SELECT
-            a.nome,
-            a.indirizzo,
-            a.tipologia,
-            a.descrizione,
-            geoDistance( %(lon)s , %(lat)s  ,a.lon ,a.lat) as distanza
-        FROM 
-            nearyou.attivita AS a
-        WHERE
-            geoDistance( %(lon)s , %(lat)s  ,a.lon ,a.lat) <= %(max_distance)s
-        '''
-        conn = self.__db_conn.connect()
-        return conn.query(query,parameters=params).result_rows
-    
-    def getActivityCoordinates(self, activityName) -> dict:
-        param = {'nome':activityName}
-        query = '''
+    def get_user_last_message_coordinates(self, user_id) -> dict:
+        param = {'user_id':user_id}
+        query= '''
         SELECT 
-            a.lon,
-            a.lat
-        FROM 
-            nearyou.attivita AS a  
-        WHERE
-            a.nome = %(nome)s
-        '''
+            longitude,
+            latitude
+        FROM nearyou.messageTable
+        WHERE id = %(user_id)s
+        ORDER BY creationTime DESC LIMIT 1
+        '''    
         conn = self.__db_conn.connect()
         dizionario = conn.query(query, parameters=param)
         if len(dizionario.result_set) == 0:
-            return {"lon" : 0, "lat" : 0}
+            return {"longitude" : 0, "latitude" : 0}
         else: return dizionario.first_item

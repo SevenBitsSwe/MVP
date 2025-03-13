@@ -11,12 +11,9 @@ class IUserRepository(ABC):
     @abstractmethod
     def get_free_user(self) -> UserDTO:
         pass
-
+    @abstractmethod
     def get_user_who_owns_sensor(self, sensor_uuid) -> UserDTO:
         pass
-
-    def getActivityCoordinates(self, activityName) -> dict:
-        pass
-
-    def getActivities(self, lon, lat, max_distance) -> list:
+    @abstractmethod
+    def get_user_last_message_coordinates(self) -> dict:
         pass

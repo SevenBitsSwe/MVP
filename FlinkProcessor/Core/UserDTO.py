@@ -1,7 +1,7 @@
 import uuid
 
 class UserDTO:
-    '''This class is a Data Access Object for the User class. It is used to abstract the user'''
+    '''This class is a Data Transfer Object for the User class. It is used to abstract the user'''
 
     def __init__(self, user_uuid: uuid, assigned_sensor_uuid: uuid, name: str, surname: str, email: str, gender: str, birthdate: str, civil_status: str):
         '''constructor to initialize the user data access object'''

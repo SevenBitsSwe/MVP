@@ -12,7 +12,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
     def __init__(self):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
-        self.__delta_time_between_positions = 10
+        self.__delta_time_between_positions = 20
 
     def simulate_position_live_update(self, sensor_istance: GpsSensor, graph_istance):
         '''method to simulate the position live update'''

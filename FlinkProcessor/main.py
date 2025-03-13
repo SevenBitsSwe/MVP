@@ -21,7 +21,9 @@ from pyflink.common import Configuration
 
 
 from Core.IUserRepository import IUserRepository
-from Core.UserRepository import UserRepository
+from Core.IActivityRepository import IActivityRepository
+from Core.ClickhouseUserRepository import ClickhouseUserRepository
+from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.DatabaseConfigParameters import DatabaseConfigParameters
 
@@ -37,7 +39,7 @@ time.sleep(9)
 streaming_env = StreamExecutionEnvironment.get_execution_environment(config)
 
 streaming_env.add_jars("file:///opt/flink/usrlib/flink-sql-connector-kafka-3.2.0-1.18.jar")
-streaming_env.set_parallelism(17)
+streaming_env.set_parallelism(20)
 streaming_env.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 
 serialization_adapter = JsonRowSerializationAdapter(KafkaWriterConfiguration().row_type_info_message)
@@ -45,10 +47,11 @@ deserialization_adapter = JsonRowDeserializationAdapter(KafkaSourceConfiguration
 
 llm_service_istance: LLMService = GroqLLMService(StructuredResponseMessage)
 db_connection = DatabaseConnection(DatabaseConfigParameters())
-user_repository : IUserRepository = UserRepository(db_connection)
+user_repository : IUserRepository = ClickhouseUserRepository(db_connection)
+activity_repository: IActivityRepository = ClickhouseActivityRepository(db_connection)
 
-map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository)
-filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed()
+map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository, activity_repository)
+filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed(user_repository)
 position_receiver_istance: IPositionReceiver = KafkaPositionReceiver(KafkaSourceConfiguration(),deserialization_adapter)
 message_writer_istance: IMessageWriter = KafkaMessageWriter(KafkaWriterConfiguration(),serialization_adapter)
 
