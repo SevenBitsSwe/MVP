@@ -1,17 +1,19 @@
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
+from Models.GraphWrapper import GraphWrapper
 import osmnx
 import random
 
 class BycicleSimulationStrategy(IPositionSimulationStrategy):
 
-    def __init__(self):
+    def __init__(self, graph_istance: GraphWrapper):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
         self.__delta_time_between_positions = 10
+        self.__graph_istance = graph_istance.get_graph()
 
-    def get_route(self, graph_istance) -> list:
+    def get_route(self) -> list:
         '''method to simulate the position live update'''
-        graph_returned = graph_istance
+        graph_returned = self.__graph_istance
         graph_nodes = list(graph_returned.nodes)
         starting_node = random.choice(graph_nodes)
         destination_node = random.choice(graph_nodes)

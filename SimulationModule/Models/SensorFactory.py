@@ -25,5 +25,3 @@ class SensorFactory:
     def create_gps_sensor_list(self, position_sender: PositionSender, simulation_strategy: IPositionSimulationStrategy, number_of_sensors: int) -> list[SensorSubject]:
         sensor_list = [self.create_gps_sensor(position_sender, simulation_strategy) for i in range(number_of_sensors)]
         return sensor_list
-        
-    
