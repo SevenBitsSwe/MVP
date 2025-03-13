@@ -1,8 +1,4 @@
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
-from Models.GpsSensor import GpsSensor
-from Models.GeoPosition import GeoPosition
-from datetime import datetime
-from SimulationModule.Models.SensorSubject import SensorSubject
 import osmnx
 import random
 
