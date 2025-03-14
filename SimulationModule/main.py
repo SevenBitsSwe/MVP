@@ -33,7 +33,7 @@ sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 
 
-sensor_simulation_istance = SensorSimulationManager(10, kafka_confluent_adapter, strategy_simulation, map_graph, sensor_factory)
+sensor_simulation_istance = SensorSimulationManager(8, kafka_confluent_adapter, strategy_simulation, map_graph, sensor_factory)
 sensor_simulation_istance.start_simulation()
 
 
