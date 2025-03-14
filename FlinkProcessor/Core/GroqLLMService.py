@@ -1,6 +1,7 @@
 from Core.ILLMService import ILLMService
 import os
 from langchain_core.prompts import ChatPromptTemplate
+from Core.PromptTemplate import PromptTemplate
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
