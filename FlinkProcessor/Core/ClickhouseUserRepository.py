@@ -4,6 +4,7 @@ from Core.UserDTO import UserDTO
 import uuid
 
 class ClickhouseUserRepository(IUserRepository):
+    '''Class to access the user repository through clickhouse'''
     def __init__(self, db_connection: DatabaseConnection):
         self.__db_conn = db_connection
 
@@ -27,7 +28,7 @@ class ClickhouseUserRepository(IUserRepository):
         return UserDTO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status)
 
     def get_user_who_owns_sensor(self, sensor_uuid) -> UserDTO:
-        """Retrieves the user who owns a sensor from the database"""
+        """Retrieves the user who owns a sensor and their interests from the database"""
         params = {
             "sensor_uuid": sensor_uuid
         }

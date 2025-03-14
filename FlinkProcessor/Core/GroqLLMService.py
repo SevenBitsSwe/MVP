@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class GroqLLMService(ILLMService):
-    '''Class that implements the GroqLLMService interface'''
+    '''Class to generate messages through the groqLLService'''
     def __init__(self, structured_response,template:PromptTemplate):
         super().__init__(structured_response,template)
         self.__groq_api_key = os.getenv('PYTHON_PROGRAM_KEY')
@@ -16,6 +16,7 @@ class GroqLLMService(ILLMService):
         self.__chat = None
 
     def set_up_chat(self):
+        '''initializes the service'''
         rate_limiter = InMemoryRateLimiter(
             requests_per_second=0.065,  # Quante richieste fare al secondo, in pratica qui posso farne una ogni 10s
             check_every_n_seconds=0.1,  # Controlla ogni 100ms (0.1s) se è possibile inviare la richiesta
@@ -34,5 +35,6 @@ class GroqLLMService(ILLMService):
             )
         
     def get_llm_structured_response(self,user_dict, activity_dict):
+        '''allows to generate a message through the service'''
         structured_model = self.__chat.with_structured_output(self.__llm_structured_response)
         return structured_model.invoke(super().__get_template().generate_prompt(user_dict, activity_dict))

@@ -1,11 +1,13 @@
 
 
-class PromptTemplate:   #sostituisce LLMPrompt/ CustomPrompt Potrebbe essere diviso in interfaccia ed implmntazione specifica
+class PromptTemplate:
+    '''Class to rappresent a template for LLMPromps'''   #sostituisce LLMPrompt/ CustomPrompt Potrebbe essere diviso in interfaccia ed implmntazione specifica
     def __init__(self):
         pass
         #self.__prompt = ""
 
     def generate_prompt(self,user_info_dict, activity_dict):
+        '''generates the prompt to be sent to the llm'''
         prompt = "Genera un messaggio pubblicitario personalizzato per attirare l'utente:\n"
         prompt += str(user_info_dict) + "\n"
         prompt += '''La pubblicità deve riguardare una sola attività o nessuna tra quelle elencate. Nella scelta considera 

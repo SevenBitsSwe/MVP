@@ -2,6 +2,7 @@ from Core.DatabaseConfigParameters import DatabaseConfigParameters
 import clickhouse_connect
 
 class DatabaseConnection:
+    '''Class to handle connections to a clickhouse database'''
     def __init__(self, config_parameters: DatabaseConfigParameters):
         self.host = config_parameters.host
         self.port = config_parameters.port
@@ -10,6 +11,7 @@ class DatabaseConnection:
         self.connection = None
 
     def connect(self):
+        '''opens the connection to the database'''
         self.connection = clickhouse_connect.get_client(
             host=self.host, 
             port=self.port, 
@@ -19,6 +21,7 @@ class DatabaseConnection:
         return self.connection
 
     def disconnect(self):
+        '''closes the connection to the database'''
         if self.connection is not None:
             self.connection.close()
             self.connection = None
