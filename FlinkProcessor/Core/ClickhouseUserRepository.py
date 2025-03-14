@@ -32,34 +32,39 @@ class ClickhouseUserRepository(IUserRepository):
             "sensor_uuid": sensor_uuid
         }
         conn = self.__db_conn.connect()
+
+        query = """SELECT 
+                    user.user_uuid, 
+                    user.assigned_sensor_uuid, 
+                    user.name, 
+                    user.surname, 
+                    user.email, 
+                    user.gender, 
+                    user.birthdate, 
+                    user.civil_status,
+                FROM nearyou.user
+                WHERE user.assigned_sensor_uuid = %(sensor_uuid)s
+                """
+        result = conn.query(query, parameters=params)
+        if not result.result_rows:
+            return None
+        user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status = result.result_rows[0]
+        params = {
+            "user_uuid": user_uuid
+        }
         query = """
                 SELECT 
-                    user.user_uuid, 
-                    user.assigned_sensor_uuid, 
-                    user.name, 
-                    user.surname, 
-                    user.email, 
-                    user.gender, 
-                    user.birthdate, 
-                    user.civil_status, 
-                    groupArray(u.interest) as interests
-                FROM nearyou.user 
-                INNER JOIN nearyou.user_interest as u on user.user_uuid = u.user_uuid  
-                WHERE user.assigned_sensor_uuid = %(sensor_uuid)s  
-                GROUP BY 
-                    user.user_uuid, 
-                    user.assigned_sensor_uuid, 
-                    user.name, 
-                    user.surname, 
-                    user.email, 
-                    user.gender, 
-                    user.birthdate, 
-                    user.civil_status
+                    user_interest.
+                    
+                FROM nearyou.user_interest
+                WHERE user_interest= %(user_uuid)s  
                 """
         result = conn.query(query, parameters=params)
 
         if not result.result_rows:
             return None
-        user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status, interest_list = result.result_rows[0]
+
+        interest_list=result.result_rows#TODO Verificare formato output query sia identico a precedente
+
         return UserDTO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status, interest_list)
 

@@ -6,5 +6,5 @@ from pyflink.common.types import Row
 class IMessageRepository(ABC):
     '''Interface class which represent the ability to be serialized as a flink Row'''
     @abstractmethod
-    def toRow(self) -> Row:
+    def to_row(self) -> Row:
         pass

@@ -1,4 +1,3 @@
-from Core.MessageDTO import MessageDTO
 from Core.DatabaseConnection import DatabaseConnection
 from abc import ABC, abstractmethod
 import uuid
