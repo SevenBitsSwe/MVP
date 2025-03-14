@@ -1,16 +1,16 @@
-from Core.LLMService import ILLMService
+from Core.ILLMService import ILLMService
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-
+from PromptTemplate import PromptTemplate
 load_dotenv()
 
 class GroqLLMService(ILLMService):
     '''Class that implements the GroqLLMService interface'''
-    def __init__(self, structured_response):
-        super().__init__(structured_response)
+    def __init__(self, structured_response,template:PromptTemplate):
+        super().__init__(structured_response,template)
         self.__groq_api_key = os.getenv('PYTHON_PROGRAM_KEY')
         self.__llm_structured_response = structured_response
         self.__chat = None
@@ -33,6 +33,6 @@ class GroqLLMService(ILLMService):
             rate_limiter=rate_limiter
             )
         
-    def get_llm_structured_response(self, prompt ):
+    def get_llm_structured_response(self,user_dict, activity_dict):
         structured_model = self.__chat.with_structured_output(self.__llm_structured_response)
-        return structured_model.invoke(prompt)
+        return structured_model.invoke(super().__get_template().generate_prompt(user_dict, activity_dict))

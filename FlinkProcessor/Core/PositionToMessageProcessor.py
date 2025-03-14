@@ -1,7 +1,6 @@
 from pyflink.datastream.functions import MapFunction
-from Core.LLMService import ILLMService
+from Core.ILLMService import ILLMService
 from Core.StructuredResponseMessage import StructuredResponseMessage
-from Core.CustomPrompt import CustomPrompt
 from pyflink.common.types import Row
 from datetime import datetime
 from Core.ActivityDTO import ActivityDTO
@@ -20,7 +19,7 @@ class PositionToMessageProcessor(MapFunction):
 
     def open(self, runtime_context):
         self.ai_service.set_up_chat()
-        self.prompt_creator = CustomPrompt()
+        #self.prompt_creator = CustomPrompt()# gestione del prompt è previsto sia di ILLMService/GroqLLMService
 
     def map(self, value):
         
@@ -37,9 +36,7 @@ class PositionToMessageProcessor(MapFunction):
                         datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         value[1], #latitude
                         value[2])
-
-        current_prompt = self.prompt_creator.get_prompt(user_dict, activity_dict)
-        ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
+        ai_response_dict = self.ai_service.get_llm_structured_response(user_dict, activity_dict).model_dump()
 
         activity_info: ActivityDTO = self.__activity_repository.get_activity_spec_from_name(ai_response_dict['attivita'])
    

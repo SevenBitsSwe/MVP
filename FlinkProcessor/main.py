@@ -28,6 +28,7 @@ from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
 from Core.ClickhouseMessageRepository import ClickhouseMessageRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.DatabaseConfigParameters import DatabaseConfigParameters
+from Core.PromptTemplate import PromptTemplate
 
 
 config = Configuration()
@@ -47,7 +48,7 @@ streaming_env.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 serialization_adapter = JsonRowSerializationAdapter(KafkaWriterConfiguration().row_type_info_message)
 deserialization_adapter = JsonRowDeserializationAdapter(KafkaSourceConfiguration().row_type)
 
-llm_service_istance: LLMService = GroqLLMService(StructuredResponseMessage)
+llm_service_istance: LLMService = GroqLLMService(StructuredResponseMessage,PromptTemplate())
 db_connection = DatabaseConnection(DatabaseConfigParameters())
 user_repository : IUserRepository = ClickhouseUserRepository(db_connection)
 activity_repository: IActivityRepository = ClickhouseActivityRepository(db_connection)
