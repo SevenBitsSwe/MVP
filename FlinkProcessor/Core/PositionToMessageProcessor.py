@@ -9,14 +9,18 @@ from Core.MessageDTO import MessageDTO
 import uuid
 from Core.IUserRepository import IUserRepository
 from Core.IActivityRepository import IActivityRepository
-
+from Core.IFlinkSerializable import IFlinkSerializable
 
 class PositionToMessageProcessor(MapFunction):
     '''Map function to transform a position into a message'''
-    def __init__(self, ai_chatbot_service: LLMService, user_repository: IUserRepository, activity_repository: IActivityRepository):
+    def __init__(self, ai_chatbot_service: LLMService,
+                  user_repository: IUserRepository,
+                  activity_repository: IActivityRepository,
+                  message_serializer : IFlinkSerializable):
         self.ai_service = ai_chatbot_service
         self.__user_repository = user_repository
         self.__activity_repository = activity_repository
+        self.__message_serializer = message_serializer
 
     def open(self, runtime_context):
         self.ai_service.set_up_chat()
@@ -53,19 +57,15 @@ class PositionToMessageProcessor(MapFunction):
                                                   value[1], #latitude
                                                   value[2]) #longitude
 
-        # row = Row(id=str(user_dict.user_uuid), 
-        #           message=ai_response_dict['pubblicita'],
-        #           latitude= float(activity_info.activity_lat),
-        #           longitude= float(activity_info.activity_lon),
-        #           creationTime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         row = Row(str(user_dict.user_uuid),
-                                                  str(activity_info.activity_id),
-                                                  str(uuid.uuid4()),
-                                                  ai_response_dict['pubblicita'],
-                                                  float(activity_info.activity_lat),
-                                                  float(activity_info.activity_lon),
-                                                  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                                  value[1], #latitude
-                                                  value[2])
+                    str(activity_info.activity_id),
+                    str(uuid.uuid4()),
+                    ai_response_dict['pubblicita'],
+                    float(activity_info.activity_lat),
+                    float(activity_info.activity_lon),
+                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    value[1], #latitude
+                    value[2])
         print(row)
         return row
+        # return self.__message_serializer.create_row_from_message(message_to_send)

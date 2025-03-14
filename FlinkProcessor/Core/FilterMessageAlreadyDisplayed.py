@@ -10,10 +10,10 @@ class FilterMessageAlreadyDisplayed(FilterFunction):
         pass
 
     def filter(self, value):
-        coordinates = self.__local_repository.get_user_last_message(value[0])
+        last_message = self.__local_repository.get_user_last_message(value[0])
 
 
-        if (round(coordinates["latitude"],4) == round(value[4],4) and round(coordinates["longitude"],4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
+        if (round(last_message.activity_lat,4) == round(value[4],4) and round(last_message.activity_lon,4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
             print("Filtered")
             return False
         else: 

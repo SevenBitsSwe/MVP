@@ -28,7 +28,8 @@ from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
 from Core.ClickhouseMessageRepository import ClickhouseMessageRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.DatabaseConfigParameters import DatabaseConfigParameters
-
+from Core.IFlinkSerializable import IFlinkSerializable
+from Core.MessageSerializer import MessageSerializer
 
 config = Configuration()
 config.set_string("python.execution-mode", "thread")
@@ -52,8 +53,9 @@ db_connection = DatabaseConnection(DatabaseConfigParameters())
 user_repository : IUserRepository = ClickhouseUserRepository(db_connection)
 activity_repository: IActivityRepository = ClickhouseActivityRepository(db_connection)
 message_repository: IMessageRepository = ClickhouseMessageRepository(db_connection)
+message_serializer: IFlinkSerializable = MessageSerializer()
 
-map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository, activity_repository)
+map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository, activity_repository,message_serializer)
 filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed(message_repository)
 position_receiver_istance: IPositionReceiver = KafkaPositionReceiver(KafkaSourceConfiguration(),deserialization_adapter)
 message_writer_istance: IMessageWriter = KafkaMessageWriter(KafkaWriterConfiguration(),serialization_adapter)

@@ -1,5 +1,5 @@
 CREATE TABLE nearyou.positionsKafka (
-                           id UUID,
+                           userID UUID,
                            latitude Float64,
                            longitude Float64,
                            received_at String
@@ -14,14 +14,14 @@ SETTINGS
 
 CREATE TABLE nearyou.positions
 (
-    id UUID,
+    userID UUID,
     latitude Float64,
     longitude Float64,
     received_at String
 )
 ENGINE = MergeTree()
 PARTITION BY toYYYYMM(toDateTime(received_at))  -- Partizioniamo per mese in base al campo received_at
-PRIMARY KEY (id, toStartOfMinute(toDateTime(received_at)), received_at)
+PRIMARY KEY (userID, toStartOfMinute(toDateTime(received_at)), received_at)
 TTL toDateTime(received_at) + INTERVAL 1 MONTH  -- I dati vengono conservati per un mese
 SETTINGS index_granularity = 8192;
 
@@ -29,7 +29,7 @@ SETTINGS index_granularity = 8192;
 CREATE MATERIALIZED VIEW nearyou.mv_positions TO nearyou.positions
 AS
 SELECT
-    id,
+    userID,
     latitude,
     longitude,
     received_at

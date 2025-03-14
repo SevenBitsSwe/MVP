@@ -5,7 +5,7 @@ import uuid
 
 class IMessageRepository(ABC):
     @abstractmethod
-    def get_user_last_message(self,user_id) -> dict:
+    def get_user_last_message(self, user_id : str) -> MessageDTO:
         pass
 
 

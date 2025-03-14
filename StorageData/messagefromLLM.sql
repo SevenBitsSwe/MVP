@@ -9,9 +9,14 @@ CREATE TABLE nearyou.messageTableKafka
     creationTime String,
     userLatitude Float64,
     userLongitude Float64
-) 
-ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', 'JSONEachRow')
-      SETTINGS kafka_thread_per_consumer = 0, kafka_num_consumers = 1;
+) ENGINE = Kafka()
+SETTINGS 
+    kafka_broker_list = 'kafka:9092',
+    kafka_topic_list = 'MessageElaborated',
+    kafka_group_name = 'clickhouseConsumerMessage',
+    kafka_format = 'JSONEachRow';
+--ENGINE = Kafka('kafka:9092', 'MessageElaborated', 'clickhouseConsumerMessage', 'JSONEachRow')
+      --SETTINGS kafka_thread_per_consumer = 0, kafka_num_consumers = 1;
 
 
 CREATE TABLE nearyou.messageTable

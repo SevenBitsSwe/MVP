@@ -14,9 +14,9 @@ class MessageDTO:
                  user_lat: float = 0.0,
                  user_lon: float = 0.0):
         '''constructor to initialize the user data access object'''
-        self.user_id = user_id
-        self.activity_id = activity_id
-        self.message_id = message_id
+        self.user_id = str(user_id)
+        self.activity_id = str(activity_id)
+        self.message_id = str(message_id)
         self.message_text = message_text
         self.activity_lat = activity_lat
         self.activity_lon = activity_lon

@@ -12,7 +12,7 @@ class KafkaWriterConfiguration:
                                     Types.STRING()
                                 ])
     row_type_info_message = Types.ROW_NAMED(
-                                            ['user_uuid', 'activity_uuid', 'message_uuid','message','activity_latitude','activity_longitude','creation_time','user_latitude','user_longitude'],  # i campi principali
+                                            ['user_uuid', 'activity_uuid', 'message_uuid','message','activityLatitude','activityLongitude','creationTime','userLatitude','userLongitude'], 
                                             [
                                                 Types.STRING(),
                                                 Types.STRING(),
