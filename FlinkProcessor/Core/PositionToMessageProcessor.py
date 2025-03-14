@@ -28,7 +28,7 @@ class PositionToMessageProcessor(MapFunction):
 
         if len(activity_dict) == 0:
             return Row(str(user_dict.user_uuid),
-                        str(uuid.uuid4()),
+                        str(uuid.uuid4()),  #non andrebbe un segnaposto che indichi null invece che un casuale?
                         str(uuid.uuid4()),
                         "skip-this-message",
                         0.0,

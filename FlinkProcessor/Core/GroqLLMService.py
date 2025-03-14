@@ -4,7 +4,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-from PromptTemplate import PromptTemplate
 load_dotenv()
 
 class GroqLLMService(ILLMService):

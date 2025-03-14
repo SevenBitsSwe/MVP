@@ -11,7 +11,7 @@ class ILLMService(ABC):
     def set_up_chat(self):
         pass
 
-    def __get_template(self):
+    def __get_template(self):#TODO potenzialmente convertire in generazione del promp invece che i figli chiedano il template e generino loro
         return self.template
 
     @abstractmethod
