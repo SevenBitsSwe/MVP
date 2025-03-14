@@ -57,15 +57,4 @@ class PositionToMessageProcessor(MapFunction):
                                                   value[1], #latitude
                                                   value[2]) #longitude
 
-        row = Row(str(user_dict.user_uuid),
-                    str(activity_info.activity_id),
-                    str(uuid.uuid4()),
-                    ai_response_dict['pubblicita'],
-                    float(activity_info.activity_lat),
-                    float(activity_info.activity_lon),
-                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    value[1], #latitude
-                    value[2])
-        print(row)
-        return row
-        # return self.__message_serializer.create_row_from_message(message_to_send)
+        return self.__message_serializer.create_row_from_message(message_to_send)
