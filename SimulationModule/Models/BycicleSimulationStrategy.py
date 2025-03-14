@@ -11,7 +11,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
         self.__delta_time_between_positions = 10
         self.__graph_istance = graph_istance.get_graph()
 
-    def get_route(self) -> list:
+    def get_route(self):
         '''method to simulate the position live update'''
         graph_returned = self.__graph_istance
         graph_nodes = list(graph_returned.nodes)
