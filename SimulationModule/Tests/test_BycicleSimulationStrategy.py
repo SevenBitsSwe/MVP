@@ -12,7 +12,8 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
     def setUp(self):
         # graph mock
         self.mock_graph_wrapper = MagicMock(spec=GraphWrapper)
-        self.mock_graph = {
+        self.mock_graph = MagicMock()
+        self.mock_graph.nodes = {
             1: {"y": 45.0, "x": 9.0},
             2: {"y": 45.1, "x": 9.1}
         }

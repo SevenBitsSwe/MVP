@@ -5,7 +5,6 @@ from Models.GeoPosition import GeoPosition
 from Models.GpsSensor import GpsSensor
 from Models.PositionSender import PositionSender
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
-from datetime import datetime
 
 class TestGpsSensor(unittest.TestCase):
     def setUp(self):
@@ -42,10 +41,8 @@ class TestGpsSensor(unittest.TestCase):
         self.mock_position_sender.send_position.assert_called()
         mock_sleep.assert_called()
 
-    @patch('datetime.datetime')
+    @patch('Models.GpsSensor.datetime')
     def test_create_geo_position(self, mock_datetime):
-        """Test del metodo create_geo_position per verificare che crei correttamente un oggetto GeoPosition"""
-        # datetime mock
         mock_now = MagicMock()
         mock_now.strftime.return_value = "2023-01-01 12:00:00"
         mock_datetime.now.return_value = mock_now
@@ -53,8 +50,6 @@ class TestGpsSensor(unittest.TestCase):
         latitude = 45.0
         longitude = 9.0
         position = self.test_sensor.create_geo_position(longitude, latitude)
-        
-        # verify the create of a GeoPosition
         self.assertIsInstance(position, GeoPosition)
         self.assertEqual(position.get_sensor_id(), str(self.test_uuid))
         self.assertEqual(position.get_latitude(), latitude)

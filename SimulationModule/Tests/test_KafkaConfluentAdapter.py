@@ -44,8 +44,9 @@ class TestKafkaConfluentAdapter(unittest.TestCase):
         # Arrange
         sensor_uuid = uuid.uuid4()
         mock_position = MagicMock(spec=GeoPosition)
+        mock_position.get_sensor_id.return_value = str(sensor_uuid)
+
         serialized_json = '{"data": "serialized"}'
-        
         self.mock_json_adapter.serialize_to_json.return_value = serialized_json
         
         self.adapter.send_position(mock_position)

@@ -37,7 +37,7 @@ class TestSensorSimulationAdministrator(unittest.TestCase):
         self.assertEqual(args[1], self.mock_sensors)
 
     def test_error_handling(self):
-        with patch('Models.SensorSimulationManager.ThreadPool') as mock_thread_pool:
+        with patch('Models.SensorSimulationAdministrator.ThreadPool') as mock_thread_pool:
             mock_thread_pool.side_effect = Exception("Errore simulato")
             
             manager = SensorSimulationAdministrator(self.mock_sensors)
