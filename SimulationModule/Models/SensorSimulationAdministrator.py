@@ -1,7 +1,7 @@
 from multiprocessing.pool import ThreadPool
 from typing import List
 
-class SensorSimulationManager:
+class SensorSimulationAdministrator:
     '''This class implements all the logic to simulate the sensors and send the data to a Kafka topic'''
     def __init__(self, list_of_sensors: List["SensorSubject"]):
         '''constructor to initialize the sensor simulation manager'''

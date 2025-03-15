@@ -22,7 +22,7 @@ class TestKafkaConfluentAdapter(unittest.TestCase):
             self.mock_producer
         )
     
-    def test_send_data_with_kafka(self):
+    def test_send_data_to_broker(self):
         # Arrange
         json_payload = '{"id": "test_id", "latitude": 0.0, "longitude": 0.0, "received_at": "2025-03-05 14:30:00"}'
         sensor_id = "test_id"
@@ -41,7 +41,6 @@ class TestKafkaConfluentAdapter(unittest.TestCase):
     
 
     def test_send_position(self):
-        """Testa che on_sensor_data_changed chiami correttamente send_data_with_kafka"""
         # Arrange
         sensor_uuid = uuid.uuid4()
         mock_position = MagicMock(spec=GeoPosition)
@@ -51,6 +50,7 @@ class TestKafkaConfluentAdapter(unittest.TestCase):
         
         self.adapter.send_position(mock_position)
         
+        # Assert
         mock_position.get_sensor_id.assert_called_once()
         
         self.mock_json_adapter.serialize_to_json.assert_called_once_with(mock_position)
@@ -60,9 +60,9 @@ class TestKafkaConfluentAdapter(unittest.TestCase):
             key=str(sensor_uuid),
             value=serialized_json.encode('utf-8')
         )
+        self.mock_producer.flush.assert_called_once()
 
     def test_thread_safety(self):
-    
         with patch('threading.Lock') as mock_lock_class:
             mock_lock = MagicMock()
             mock_lock_class.return_value = mock_lock
