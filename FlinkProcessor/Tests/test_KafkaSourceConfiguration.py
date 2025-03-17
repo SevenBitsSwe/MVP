@@ -1,5 +1,5 @@
 import unittest
-from ..Core.KafkaSourceConfiguration import KafkaSourceConfiguration
+from Core.KafkaSourceConfiguration import KafkaSourceConfiguration
 
 class TestKafkaSourceConfiguration(unittest.TestCase):
     
