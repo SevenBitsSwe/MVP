@@ -20,6 +20,7 @@ WORKDIR /app
 COPY Tests/requirements.txt .
 COPY Tests/.coveragerc .
 COPY Tests/pylintrc .
+COPY Tests/pytest.ini .
 RUN mkdir -p app/SimulationModule
 RUN mkdir -p app/FlinkProcessor
 RUN mkdir -p app/IntegrationTests
@@ -49,7 +50,7 @@ RUN chmod -R 777 /app
 
 RUN ls -la /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; rm SimulationModule/__init__.py ; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/ FlinkProcessor/Tests/ --cov-branch --cov-config=.coveragerc"]
+CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest -c=pytest.ini --cov-report=xml:coverage.xml SimulationModule/Tests/ FlinkProcessor/Tests/ --cov-branch --cov-config=.coveragerc"]
 
 
 # # Costruisci l'immagine
