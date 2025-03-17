@@ -30,7 +30,7 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
         """Verifica che il costruttore inizializzi correttamente i valori predefiniti"""
         # verify private values
         self.assertEqual(self.strategy._BycicleSimulationStrategy__bycicle_speed_approximated, 15)
-        self.assertEqual(self.strategy._BycicleSimulationStrategy__delta_time_between_positions, 10)
+        self.assertEqual(self.strategy._BycicleSimulationStrategy__delta_time_between_positions, 20)
     
     @patch('random.choice')
     @patch('osmnx.shortest_path')
