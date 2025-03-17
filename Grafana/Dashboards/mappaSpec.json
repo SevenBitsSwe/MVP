@@ -358,7 +358,7 @@
           },
           "pluginVersion": "4.8.2",
           "queryType": "table",
-          "rawSql": "SELECT * FROM nearyou.positions WHERE ( userID = toUUID('${user_id}') ) LIMIT 1000",
+          "rawSql": "SELECT * FROM nearyou.positions WHERE ( user_uuid = toUUID('${user_id}') ) LIMIT 1000",
           "refId": "A"
         },
         {
@@ -433,7 +433,7 @@
           },
           "pluginVersion": "4.8.2",
           "queryType": "table",
-          "rawSql": "(\n    SELECT * \n    FROM nearyou.positions \n    WHERE userID = toUUID('${user_id}') \n    ORDER BY received_at ASC \n    LIMIT 1\n)\nUNION ALL\n(\n    SELECT * \n    FROM nearyou.positions \n    WHERE userID = toUUID('${user_id}') \n    ORDER BY received_at DESC \n    LIMIT 1\n);",
+          "rawSql": "(\n    SELECT * \n    FROM nearyou.positions \n    WHERE user_uuid = toUUID('${user_id}') \n    ORDER BY received_at ASC \n    LIMIT 1\n)\nUNION ALL\n(\n    SELECT * \n    FROM nearyou.positions \n    WHERE user_uuid = toUUID('${user_id}') \n    ORDER BY received_at DESC \n    LIMIT 1\n);",
           "refId": "B"
         },
         {
@@ -465,7 +465,7 @@
           "format": 1,
           "hide": false,
           "pluginVersion": "4.8.2",
-          "rawSql": "SELECT * FROM \"nearyou\".\"attivita\" LIMIT 1000",
+          "rawSql": "SELECT * FROM \"nearyou\".\"activity\" LIMIT 1000",
           "refId": "C"
         },
         {
@@ -506,7 +506,7 @@
           },
           "pluginVersion": "4.8.2",
           "queryType": "table",
-          "rawSql": "SELECT * FROM \"nearyou\".\"messageTable\" WHERE ( userID = toUUID('${user_id}') ) LIMIT 1000",
+          "rawSql": "SELECT m.* \nFROM nearyou.messageTable m\nINNER JOIN nearyou.user u ON m.user_uuid = u.user_uuid\nWHERE u.assigned_sensor_uuid = toUUID('${user_id}')\nLIMIT 1000",
           "refId": "D"
         }
       ],
