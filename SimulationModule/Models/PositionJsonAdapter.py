@@ -6,7 +6,7 @@ class PositionJsonAdapter(IJsonSerializable):
         '''method to serialize the position to JSON'''
 
         return json.dumps({
-            'userID': position_istance.get_sensor_id(),
+            'user_uuid': position_istance.get_sensor_id(),
             'latitude': float(position_istance.get_latitude()),
             'longitude': float(position_istance.get_longitude()),
             'received_at': position_istance.get_timestamp(),
