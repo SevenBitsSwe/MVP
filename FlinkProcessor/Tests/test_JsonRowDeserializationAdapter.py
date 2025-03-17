@@ -10,7 +10,7 @@ class TestJsonRowDeserializationAdapter(unittest.TestCase):
     def setUp(self):
         # Create type info as position schema
         self.sample_type_info = Types.ROW_NAMED(
-            ['user_uuid', 'latitude','longitude', 'receptionTime']
+            ['user_uuid', 'latitude','longitude', 'receptionTime'],
             [Types.STRING(), Types.DOUBLE(), Types.DOUBLE(), Types.STRING()]
         )
         
