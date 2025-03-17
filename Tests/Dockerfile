@@ -43,12 +43,13 @@ RUN pip install pytest pytest-cov coveralls pylint
 # Crea directory per i report
 COPY ./__init__.py /app/
 COPY ./__init__.py /app/SimulationModule/
+COPY ./__init__.py /app/FlinkProcessor/
 
 RUN chmod -R 777 /app
 
 RUN ls -la /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; rm SimulationModule/__init__.py ; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/ FlinkProcessor/Tests/  --cov-branch --cov-config=.coveragerc "]
+CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; rm SimulationModule/__init__.py ; pytest --cov=SimulationModule --cov=FlinkProcessor --cov-report=xml:coverage.xml SimulationModule/Tests/ FlinkProcessor/Tests/ --cov-branch --cov-config=.coveragerc"]
 
 
 # # Costruisci l'immagine
