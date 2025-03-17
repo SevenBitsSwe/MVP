@@ -52,4 +52,4 @@ SELECT
     creationTime,
     userLatitude,
     userLongitude
-FROM nearyou.messageTableKafka;,
+FROM nearyou.messageTableKafka;
