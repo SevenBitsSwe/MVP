@@ -1,7 +1,7 @@
+import uuid
 from Models.IUserRepository import IUserRepository
 from Models.DatabaseConnection import DatabaseConnection
 from Models.UserDTO import UserDTO
-import uuid
 
 class UserRepository(IUserRepository):
     def __init__(self, db_connection: DatabaseConnection):
