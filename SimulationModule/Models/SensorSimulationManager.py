@@ -1,5 +1,4 @@
 from Models.SensorFactory import SensorFactory 
- 
 from multiprocessing.pool import ThreadPool
 import functools
 
