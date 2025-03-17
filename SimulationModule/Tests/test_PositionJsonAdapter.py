@@ -16,4 +16,4 @@ class TestPositionJsonAdapter(unittest.TestCase):
 
     def test_serialize_to_json(self):
         json_position = self.adapter.serialize_to_json(self.mock_position)
-        self.assertEqual(json_position, '{"id": "test_id", "latitude": 0.0, "longitude": 0.0, "received_at": "2025-03-05 14:30:00"}')
+        self.assertEqual(json_position, '{"user_uuid": "test_id", "latitude": 0.0, "longitude": 0.0, "received_at": "2025-03-05 14:30:00"}')
