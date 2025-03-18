@@ -11,3 +11,6 @@ omit =
     */pytest.ini
     */pylintbadge.py
     */Tests/*
+    */__init__.py
+    */IntegrationTests/*
+    */SystemTests/*

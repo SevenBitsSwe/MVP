@@ -147,6 +147,8 @@ services:
     build: 
       context: ./
       dockerfile: Tests/Dockerfile
+    volumes:
+      - ./.github/reports:/app/reports:rw
     depends_on:
       kafka:
         condition: service_healthy

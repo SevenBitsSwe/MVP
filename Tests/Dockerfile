@@ -46,11 +46,22 @@ COPY ./__init__.py /app/
 COPY ./__init__.py /app/SimulationModule/
 COPY ./__init__.py /app/FlinkProcessor/
 
+# Crea directory /app/test-results per i report
+RUN mkdir -p /app/reports && \
+    chmod -R 777 /app/reports
+
 RUN chmod -R 777 /app
 
 RUN ls -la /app
 # Esegue i test con coverage
-CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > pylint_report.txt; pytest -c=pytest.ini --cov=./ --cov-report=xml:coverage.xml SimulationModule/Tests/ FlinkProcessor/Tests/ --cov-branch --cov-config=.coveragerc "]
+CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > /app/reports/pylint_report.txt; \
+    pytest -c=pytest.ini \
+    --cov=./ \
+    --cov-report=xml:/app/reports/coverage.xml \
+    SimulationModule/Tests/ \
+    FlinkProcessor/Tests/ \
+    --cov-branch \
+    --cov-config=.coveragerc "]
 
 
 # # Costruisci l'immagine
