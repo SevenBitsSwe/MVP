@@ -23,7 +23,7 @@ kafka_confluent_adapter : PositionSender = KafkaConfluentAdapter(
                                                 json_adapter,
                                                 Producer({'bootstrap.servers': KafkaConfigParameters().bootstrap_servers})
                                                 )
-map_graph = GraphWrapper(45.3, 11.87, 4000, 'walk')
+map_graph = GraphWrapper(45.39, 11.87, 4000, 'walk')
 strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy(map_graph)
 
 db_connection = DatabaseConnection(DatabaseConfigParameters())
