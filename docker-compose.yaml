@@ -143,6 +143,7 @@ services:
     profiles: ["test","develop","prod"]
 
   test:
+    options: --user root
     container_name: test
     build: 
       context: ./

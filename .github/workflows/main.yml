@@ -2,9 +2,9 @@ name: Docker Tests & Quality Checks
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, action_test ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, action_test ]
 
 permissions:
   contents: write  
