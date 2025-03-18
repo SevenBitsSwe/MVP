@@ -8,8 +8,8 @@ from pyflink.common.types import Row
 class TestMessageSerializer(unittest.TestCase):
     
     def setUp(self):
-        """Setup per i test con un MessageDTO di esempio"""
-        # Crea un oggetto MessageDTO di esempio
+        """Setup for tests with a sample MessageDTO"""
+        # Create a sample MessageDTO object
         self.sample_message = MessageDTO(
             user_id="user123",
             activity_id="activity456",
@@ -22,18 +22,18 @@ class TestMessageSerializer(unittest.TestCase):
             user_lon=9.1904
         )
         
-        # Istanza del serializzatore da testare
+        # Instance of the serializer to be tested
         self.serializer = MessageSerializer()
     
     def test_create_row_from_message(self):
-        """Verifica che il metodo create_row_from_message crei correttamente un oggetto Row"""
-        # Chiama il metodo da testare
+        """Verify that the create_row_from_message method correctly creates a Row object"""
+        # Call the method to be tested
         result = self.serializer.create_row_from_message(self.sample_message)
         
-        # Verifica che il risultato sia un oggetto Row
+        # Verify that the result is a Row object
         self.assertIsInstance(result, Row)
         
-        # Verifica che i valori nel Row siano quelli attesi
+        # Verify that the values in the Row are the expected ones
         self.assertEqual(result[0], "user123")
         self.assertEqual(result[1], "activity456")
         self.assertEqual(result[2], "message789")
@@ -44,5 +44,5 @@ class TestMessageSerializer(unittest.TestCase):
         self.assertEqual(result[7], 45.4646)
         self.assertEqual(result[8], 9.1904)
         
-        # Verifica che l'oggetto Row contenga il numero corretto di elementi
+        # Verify that the Row object contains the correct number of elements
         self.assertEqual(len(result), 9)

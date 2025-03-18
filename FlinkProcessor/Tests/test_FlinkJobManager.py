@@ -63,13 +63,13 @@ class TestFlinkJobManager:
                            mock_position_receiver, mock_message_writer,
                            mock_datastream, mock_keyed_stream, mock_mapped_stream, 
                            mock_filtered_stream):
-        # Configurazione del comportamento dei mock
+        # Configure mock behavior
         mock_env.from_source.return_value = mock_datastream
         mock_datastream.key_by.return_value = mock_keyed_stream
         mock_keyed_stream.map.return_value = mock_mapped_stream
         mock_mapped_stream.filter.return_value = mock_filtered_stream
         
-        # Creazione dell'istanza da testare
+        # Create instance to test
         job_manager = FlinkJobManager(
             mock_env,
             mock_map_function,
@@ -78,10 +78,10 @@ class TestFlinkJobManager:
             mock_message_writer
         )
         
-        # Verifica che i metodi siano stati chiamati correttamente
+        # Verify that the methods were called correctly
         mock_env.from_source.assert_called_once_with(
             mock_position_receiver.get_position_receiver(),
-            ANY,  # Usiamo ANY invece di pytest.approx(match=True)
+            ANY,  # Use ANY instead of pytest.approx(match=True)
             "Positions Source"
         )
         mock_datastream.key_by.assert_called_once()
@@ -96,13 +96,13 @@ class TestFlinkJobManager:
                     mock_position_receiver, mock_message_writer,
                     mock_datastream, mock_keyed_stream, mock_mapped_stream, 
                     mock_filtered_stream):
-        # Configurazione del comportamento dei mock
+        # Configure mock behavior
         mock_env.from_source.return_value = mock_datastream
         mock_datastream.key_by.return_value = mock_keyed_stream
         mock_keyed_stream.map.return_value = mock_mapped_stream
         mock_mapped_stream.filter.return_value = mock_filtered_stream
         
-        # Creazione dell'istanza da testare
+        # Create instance to test
         job_manager = FlinkJobManager(
             mock_env,
             mock_map_function,
@@ -111,8 +111,8 @@ class TestFlinkJobManager:
             mock_message_writer
         )
         
-        # Chiamata al metodo da testare
+        # Call method to test
         job_manager.execute()
         
-        # Verifica che il metodo execute dell'ambiente sia stato chiamato
+        # Verify that the execute method of the environment was called
         mock_env.execute.assert_called_once_with("Flink Job")
