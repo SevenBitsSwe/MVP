@@ -28,28 +28,28 @@ jobs:
         docker compose --profile test build
         docker compose --profile test run test
 
-    # - name: Prepare coverage directory
-    #   run: |
-    #     mkdir -p ./coverage
+    - name: Prepare coverage directory
+      run: |
+        mkdir -p ./.github/reports
 
-    # - name: Copy coverage reports from container
-    #   run: |
-    #     # Cerca anche container fermati (non solo in esecuzione)
-    #     container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
-    #     if [ -n "$container_id" ]; then
-    #       echo "Copying coverage from container $container_id"
-    #       docker cp $container_id:/app/coverage.xml ./coverage/coverage.xml || echo "Failed to copy coverage.xml file"
-    #       docker cp $container_id:/app/pylint_report.txt ./pylint_report.txt || echo "Failed to copy coverage.xml file"
-    #       # Rimuovi manualmente il container dopo la copia
-    #       docker rm $container_id
-    #     else
-    #       echo "Test container not found!"
-    #       exit 1
-    #     fi
+    - name: Copy coverage reports from container
+      run: |
+        # Cerca anche container fermati (non solo in esecuzione)
+        container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
+        if [ -n "$container_id" ]; then
+          echo "Copying coverage from container $container_id"
+          docker cp $container_id:/app/reports/coverage.xml ./.github/reports/coverage.xml || echo "Failed to copy coverage.xml file"
+          docker cp $container_id:/app/reports//pylint_report.txt ./.github/reports || echo "Failed to copy pylint_report.txt file"
+            docker cp $container_id:/app/reports/report*.json ./.github/reports/ || echo "Failed to copy report json files"
+          # Rimuovi manualmente il container dopo la copia
+          docker rm $container_id
+        else
+          echo "Test container not found!"
+          exit 1
+        fi
 
     - name: Push reports to .github/reports
       run: |
-        mkdir -p ./.github/reports
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add .github/reports/coverage.xml 
