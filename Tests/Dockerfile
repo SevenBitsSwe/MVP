@@ -21,6 +21,7 @@ COPY Tests/requirements.txt .
 COPY Tests/.coveragerc .
 COPY Tests/pylintrc .
 COPY Tests/pytest.ini .
+COPY Tests/getReports.py .
 RUN mkdir -p app/SimulationModule
 RUN mkdir -p app/FlinkProcessor
 RUN mkdir -p app/IntegrationTests
@@ -61,7 +62,8 @@ CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > /app/repo
     SimulationModule/Tests/ \
     FlinkProcessor/Tests/ \
     --cov-branch \
-    --cov-config=.coveragerc "]
+    --cov-config=.coveragerc; \
+    python getReports.py"]
 
 
 # # Costruisci l'immagine
