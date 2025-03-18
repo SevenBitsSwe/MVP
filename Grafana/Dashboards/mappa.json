@@ -570,7 +570,7 @@
 			},
 			"pluginVersion": "4.8.2",
 			"queryType": "table",
-			"rawSql": "SELECT \n    a.name AS nome_attivita,\n    a.type AS tipologia,\n    a.address AS indirizzo,\n    COUNT(m.message_uuid) AS numero_messaggi\nFROM nearyou.activity a\nLEFT JOIN nearyou.messageTable m ON a.activity_uuid = m.activity_uuid\nGROUP BY a.activity_uuid, a.name, a.type, a.address\nHAVING COUNT(m.message_uuid) > 0\nORDER BY numero_messaggi DESC",
+			"rawSql": "SELECT \n    a.name AS nome_attivita,\n    a.type AS tipologia,\n    a.address AS indirizzo,\n    COUNT(m.message_uuid) AS numero_messaggi\nFROM nearyou.activity a\nINNER JOIN nearyou.messageTable m ON a.activity_uuid = m.activity_uuid\nGROUP BY a.activity_uuid, a.name, a.type, a.address\nHAVING COUNT(m.message_uuid) > 0\nORDER BY numero_messaggi DESC",
 			"refId": "A"
 		  }
 		],

@@ -35,7 +35,7 @@ class GpsSensor(SensorSubject):
                 self.__position_sender.send_position(position)
                 time.sleep(self._update_time)
 
-    def create_geo_position(self,longitude: float, latitude: float) -> GeoPosition:
+    def create_geo_position(self,latitude: float, longitude: float) -> GeoPosition:
         '''method to set the current position'''
         return GeoPosition(
             self._sensor_uuid,
