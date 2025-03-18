@@ -38,9 +38,11 @@ jobs:
         container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
         if [ -n "$container_id" ]; then
           echo "Copying coverage from container $container_id"
+          # List contents of /app/reports directory in container
+          docker exec $container_id ls -la /app/reports || echo "Failed to list contents of /app/reports"
           docker cp $container_id:/app/reports/coverage.xml ./.github/reports/coverage.xml || echo "Failed to copy coverage.xml file"
-          docker cp $container_id:/app/reports//pylint_report.txt ./.github/reports || echo "Failed to copy pylint_report.txt file"
-            docker cp $container_id:/app/reports/report*.json ./.github/reports/ || echo "Failed to copy report json files"
+          docker cp $container_id:/app/reports/pylint_report.txt ./.github/reports || echo "Failed to copy pylint_report.txt file"
+          docker cp $container_id:/app/reports/report*.json ./.github/reports/ || echo "Failed to copy report json files"
           # Rimuovi manualmente il container dopo la copia
           docker rm $container_id
         else

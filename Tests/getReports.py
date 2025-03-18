@@ -165,5 +165,5 @@ if __name__ == "__main__":
     data["fan_out"] = fan_out_dict
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    with open(f"reports/report_{timestamp}.json", 'w') as f:
+    with open(f"reports/report.json", 'w') as f:
         json.dump(data, f, indent=4)
