@@ -42,7 +42,7 @@ jobs:
           docker exec $container_id ls -la /app/reports || echo "Failed to list contents of /app/reports"
           docker cp $container_id:/app/reports/coverage.xml ./.github/reports/coverage.xml || echo "Failed to copy coverage.xml file"
           docker cp $container_id:/app/reports/pylint_report.txt ./.github/reports || echo "Failed to copy pylint_report.txt file"
-          docker cp $container_id:/app/reports/report*.json ./.github/reports/ || echo "Failed to copy report json files"
+          docker cp $container_id:/app/reports/report.json ./.github/reports/ || echo "Failed to copy report json files"
           # Rimuovi manualmente il container dopo la copia
           docker rm $container_id
         else
@@ -56,7 +56,7 @@ jobs:
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add .github/reports/coverage.xml 
         git add .github/reports/pylint_report.txt
-        git add .github/reports/report*.json
+        git add .github/reports/report.json
         git commit -m "Aggiunta report"
         git push 
 
