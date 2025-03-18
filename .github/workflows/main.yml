@@ -64,12 +64,12 @@ jobs:
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        file: ./github/reports/coverage.xml
+        file: .github/reports/coverage.xml
         format: cobertura
 
     - name: List files in directory
       run: |
-        cat ./github/reports/pylint_report.txt
+        cat .github/reports/pylint_report.txt
 
     - name: Create Pylint Badge and put in README.md
       uses: actions/setup-python@v5
