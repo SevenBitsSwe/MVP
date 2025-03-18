@@ -22,6 +22,7 @@ COPY Tests/.coveragerc .
 COPY Tests/pylintrc .
 COPY Tests/pytest.ini .
 COPY Tests/getReports.py .
+RUN chmod 777 getReports.py
 RUN mkdir -p app/SimulationModule
 RUN mkdir -p app/FlinkProcessor
 RUN mkdir -p app/IntegrationTests

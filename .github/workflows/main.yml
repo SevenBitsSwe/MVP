@@ -28,35 +28,46 @@ jobs:
         docker compose --profile test build
         docker compose --profile test run test
 
-    - name: Prepare coverage directory
-      run: |
-        mkdir -p ./coverage
+    # - name: Prepare coverage directory
+    #   run: |
+    #     mkdir -p ./coverage
 
-    - name: Copy coverage reports from container
+    # - name: Copy coverage reports from container
+    #   run: |
+    #     # Cerca anche container fermati (non solo in esecuzione)
+    #     container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
+    #     if [ -n "$container_id" ]; then
+    #       echo "Copying coverage from container $container_id"
+    #       docker cp $container_id:/app/coverage.xml ./coverage/coverage.xml || echo "Failed to copy coverage.xml file"
+    #       docker cp $container_id:/app/pylint_report.txt ./pylint_report.txt || echo "Failed to copy coverage.xml file"
+    #       # Rimuovi manualmente il container dopo la copia
+    #       docker rm $container_id
+    #     else
+    #       echo "Test container not found!"
+    #       exit 1
+    #     fi
+
+    - name: Push reports to .github/reports
       run: |
-        # Cerca anche container fermati (non solo in esecuzione)
-        container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
-        if [ -n "$container_id" ]; then
-          echo "Copying coverage from container $container_id"
-          docker cp $container_id:/app/coverage.xml ./coverage/coverage.xml || echo "Failed to copy coverage.xml file"
-          docker cp $container_id:/app/pylint_report.txt ./pylint_report.txt || echo "Failed to copy coverage.xml file"
-          # Rimuovi manualmente il container dopo la copia
-          docker rm $container_id
-        else
-          echo "Test container not found!"
-          exit 1
-        fi
+        mkdir -p ./.github/reports
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add .github/reports/coverage.xml 
+        git add .github/reports/pylint_report.txt
+        git add .github/reports/report*.json
+        git commit -m "Aggiunta report"
+        git push 
 
     - name: Upload coverage to Coveralls
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        file: ./coverage/coverage.xml
+        file: ./github/reports/coverage.xml
         format: cobertura
 
     - name: List files in directory
       run: |
-        cat ./pylint_report.txt
+        cat ./github/reports/pylint_report.txt
 
     - name: Create Pylint Badge and put in README.md
       uses: actions/setup-python@v5
