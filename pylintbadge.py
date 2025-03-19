@@ -1,7 +1,7 @@
 import os.path
 import re
 
-def get_pylintScore(file_path = "pylint_report.txt"):
+def get_pylintScore(file_path = ".github/reports/pylint_report.txt"):
     # Verifica che il file esista
     if not os.path.isfile(file_path):
         raise FileNotFoundError(f"Pylint output file not found at {file_path}")

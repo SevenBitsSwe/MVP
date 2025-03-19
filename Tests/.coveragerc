@@ -4,3 +4,14 @@ exclude_lines =
     def __repr__
     raise NotImplementedError
     pass
+
+[run]
+omit = 
+    */main.py
+    */pytest.ini
+    */pylintbadge.py
+    */getReports.py
+    */Tests/*
+    */__init__.py
+    */IntegrationTests/*
+    */SystemTests/*

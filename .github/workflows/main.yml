@@ -30,7 +30,7 @@ jobs:
 
     - name: Prepare coverage directory
       run: |
-        mkdir -p ./coverage
+        mkdir -p ./.github/reports
 
     - name: Copy coverage reports from container
       run: |
@@ -38,8 +38,11 @@ jobs:
         container_id=$(docker ps -a -q --filter "name=.*test.*" --latest)
         if [ -n "$container_id" ]; then
           echo "Copying coverage from container $container_id"
-          docker cp $container_id:/app/coverage.xml ./coverage/coverage.xml || echo "Failed to copy coverage.xml file"
-          docker cp $container_id:/app/pylint_report.txt ./pylint_report.txt || echo "Failed to copy coverage.xml file"
+          # List contents of /app/reports directory in container
+          docker exec $container_id ls -la /app/reports || echo "Failed to list contents of /app/reports"
+          docker cp $container_id:/app/reports/coverage.xml ./.github/reports/coverage.xml || echo "Failed to copy coverage.xml file"
+          docker cp $container_id:/app/reports/pylint_report.txt ./.github/reports || echo "Failed to copy pylint_report.txt file"
+          docker cp $container_id:/app/reports/report.json ./.github/reports/ || echo "Failed to copy report json files"
           # Rimuovi manualmente il container dopo la copia
           docker rm $container_id
         else
@@ -47,16 +50,26 @@ jobs:
           exit 1
         fi
 
+    - name: Push reports to .github/reports
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add .github/reports/coverage.xml 
+        git add .github/reports/pylint_report.txt
+        git add .github/reports/report.json
+        git commit -m "Aggiunta report"
+        git push 
+
     - name: Upload coverage to Coveralls
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        file: ./coverage/coverage.xml
+        file: .github/reports/coverage.xml
         format: cobertura
 
     - name: List files in directory
       run: |
-        cat ./pylint_report.txt
+        cat .github/reports/pylint_report.txt
 
     - name: Create Pylint Badge and put in README.md
       uses: actions/setup-python@v5
