@@ -1,6 +1,6 @@
-from Models.SensorSimulationManager import SensorSimulationManager
+from Models.SensorSimulationAdministrator import SensorSimulationAdministrator
 from Models.PositionJsonAdapter import PositionJsonAdapter
-from Models.KafkaPositionObserver import KafkaPositionObserver
+from Models.PositionSender import PositionSender
 from Models.KafkaConfluentAdapter import KafkaConfluentAdapter
 from Models.KafkaConfigParameters import KafkaConfigParameters
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
@@ -18,13 +18,13 @@ from confluent_kafka import Producer
 print("Starting simulation")
 
 json_adapter: PositionJsonAdapter = PositionJsonAdapter()
-kafka_confluent_adapter : KafkaPositionObserver = KafkaConfluentAdapter(
+kafka_confluent_adapter : PositionSender = KafkaConfluentAdapter(
                                                 KafkaConfigParameters(),
                                                 json_adapter,
                                                 Producer({'bootstrap.servers': KafkaConfigParameters().bootstrap_servers})
                                                 )
-strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy()
 map_graph = GraphWrapper(45.39, 11.87, 4000, 'walk')
+strategy_simulation : IPositionSimulationStrategy = BycicleSimulationStrategy(map_graph)
 
 db_connection = DatabaseConnection(DatabaseConfigParameters())
 sensor_repository: ISensorRepository = SensorRepository(db_connection)
@@ -33,7 +33,7 @@ sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 
 
-sensor_simulation_istance = SensorSimulationManager(8, kafka_confluent_adapter, strategy_simulation, map_graph, sensor_factory)
+sensor_simulation_istance = SensorSimulationAdministrator(sensor_factory.create_gps_sensor_list(kafka_confluent_adapter, strategy_simulation, 10))
 sensor_simulation_istance.start_simulation()
 
 

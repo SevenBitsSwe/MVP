@@ -1,7 +1,5 @@
 import osmnx
 
-
-
 class GraphWrapper:
     ''' This class  hides the implementation of a graph wiht osmnx'''
 
