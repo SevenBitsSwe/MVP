@@ -211,4 +211,4 @@ INSERT INTO nearyou.activity (activity_uuid, name, longitude, latitude, address,
 (generateUUIDv4(), 'Babbo-Bombieri Group', 11.848661, 45.4055084, 'Stretto Stefano, Argentiera, Molvena, Biella, 05039, Italia', 'Moda', 'Negozio di scarpe'),
 (generateUUIDv4(), 'Guarato-Cassar Group', 11.8685542, 45.4102083, 'Incrocio Ruggero, Casale Monferrato, Planei, Rieti, 30171, Italia', 'Fitness', 'Centro di arti marziali'),
 (generateUUIDv4(), 'Montessori s.r.l.', 11.8818534, 45.3922052, 'Canale Dionigi, Buronzo, Maratea, Messina, 33070, Italia', 'Tecnologia', 'Centro riparazioni'),
-(generateUUIDv4(), 'Infantino SPA', 11.8209432, 45.4106375, 'Viale Riccardo, Baraggia, Castelnuovo Vallo Stazione, Barletta Andria Trani, 20070, Italia', 'Sport', 'Centro fitness');;
+(generateUUIDv4(), 'Infantino SPA', 11.8209432, 45.4106375, 'Viale Riccardo, Baraggia, Castelnuovo Vallo Stazione, Barletta Andria Trani, 20070, Italia', 'Sport', 'Centro fitness');

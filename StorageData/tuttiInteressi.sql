@@ -20,4 +20,4 @@ INSERT INTO nearyou.interest (interest) VALUES
 ('Giochi'),
 ('Fotografia'),
 ('Cinema'),
-('Teatro');;
+('Teatro');
