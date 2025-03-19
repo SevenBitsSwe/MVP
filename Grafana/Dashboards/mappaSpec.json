@@ -52,7 +52,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -71,6 +72,11 @@
       },
       "id": 1,
       "options": {
+        "basemap": {
+          "config": {},
+          "name": "Layer 0",
+          "type": "osm-standard"
+        },
         "controls": {
           "mouseWheelZoom": true,
           "showAttribution": true,
@@ -85,17 +91,17 @@
               "showLegend": true,
               "style": {
                 "color": {
-                  "fixed": "dark-green"
+                  "fixed": "dark-purple"
                 },
-                "opacity": 0.4,
+                "opacity": 1,
                 "rotation": {
                   "fixed": 0,
                   "max": 360,
                   "min": -360,
-                  "mode": "mod"
+                  "mode": "clamped"
                 },
                 "size": {
-                  "fixed": 5,
+                  "fixed": 3,
                   "max": 15,
                   "min": 2
                 },
@@ -116,10 +122,154 @@
                 }
               }
             },
+            "filterData": {
+              "id": "byRefId",
+              "options": "A"
+            },
+            "name": "percorso",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 8,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "B"
+            },
             "location": {
               "mode": "auto"
             },
-            "name": "Layer 1",
+            "name": "primaUltima",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-red"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 3,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "C"
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "attività",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "orange"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 8,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/square.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "D"
+            },
+            "location": {
+              "latitude": "userLatitude",
+				      "longitude": "userLongitude",
+				      "mode": "coords"
+            },
+            "name": "messaggi",
             "tooltip": true,
             "type": "markers"
           }
@@ -128,14 +278,13 @@
           "mode": "details"
         },
         "view": {
-          "allLayers": true,
           "id": "coords",
-          "lat": 45.407713,
-          "lon": 11.875896,
-          "zoom": 13.88
+    		  "lat": 45.402748,
+    		  "lon": 11.86733,
+			    "zoom": 15
         }
       },
-      "pluginVersion": "11.5.1",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "builderOptions": {
@@ -174,6 +323,7 @@
           },
           "editorType": "sql",
           "format": 1,
+          "hide": false,
           "meta": {
             "builderOptions": {
               "aggregates": [],
@@ -206,9 +356,9 @@
               "table": "attivita"
             }
           },
-          "pluginVersion": "4.7.0",
+          "pluginVersion": "4.8.2",
           "queryType": "table",
-          "rawSql": "SELECT * FROM \"nearyou\".\"attivita\" WHERE ( id = ${location_id} ) LIMIT 1000",
+          "rawSql": "SELECT * FROM nearyou.positions WHERE ( user_uuid = toUUID('${user_id}') ) LIMIT 1000",
           "refId": "A"
         },
         {
@@ -246,12 +396,118 @@
             "type": "grafana-clickhouse-datasource",
             "uid": "ee5wustcp8zr4b"
           },
+          "editorType": "sql",
+          "format": 1,
+          "hide": false,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [],
+              "columns": [
+                {
+                  "alias": "*",
+                  "custom": false,
+                  "name": "*",
+                  "type": "String"
+                }
+              ],
+              "database": "nearyou",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "id",
+                  "label": "id",
+                  "operator": "=",
+                  "type": "Int16",
+                  "value": 1
+                }
+              ],
+              "groupBy": [],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [],
+              "queryType": "table",
+              "table": "positions"
+            }
+          },
+          "pluginVersion": "4.8.2",
+          "queryType": "table",
+          "rawSql": "(\n    SELECT * \n    FROM nearyou.positions \n    WHERE user_uuid = toUUID('${user_id}') \n    ORDER BY received_at ASC \n    LIMIT 1\n)\nUNION ALL\n(\n    SELECT * \n    FROM nearyou.positions \n    WHERE user_uuid = toUUID('${user_id}') \n    ORDER BY received_at DESC \n    LIMIT 1\n);",
+          "refId": "B"
+        },
+        {
+          "builderOptions": {
+            "aggregates": [],
+            "columns": [
+              {
+                "alias": "*",
+                "custom": false,
+                "name": "*",
+                "type": "String"
+              }
+            ],
+            "database": "nearyou",
+            "filters": [],
+            "groupBy": [],
+            "limit": 1000,
+            "meta": {},
+            "mode": "list",
+            "orderBy": [],
+            "queryType": "table",
+            "table": "attivita"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "ee5wustcp8zr4b"
+          },
           "editorType": "builder",
           "format": 1,
           "hide": false,
-          "pluginVersion": "4.7.0",
-          "rawSql": "SELECT * FROM \"nearyou\".\"positions\" WHERE ( id = 1 ) LIMIT 1000",
-          "refId": "B"
+          "pluginVersion": "4.8.2",
+          "rawSql": "SELECT * FROM \"nearyou\".\"activity\" LIMIT 1000",
+          "refId": "C"
+        },
+        {
+          "builderOptions": {
+            "aggregates": [],
+            "columns": [
+              {
+                "name": "*"
+              }
+            ],
+            "database": "nearyou",
+            "limit": 1000,
+            "mode": "list",
+            "queryType": "table",
+            "table": "messageTable"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "ee5wustcp8zr4b"
+          },
+          "editorType": "sql",
+          "format": 1,
+          "hide": false,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [],
+              "columns": [
+                {
+                  "name": "*"
+                }
+              ],
+              "database": "nearyou",
+              "limit": 1000,
+              "mode": "list",
+              "queryType": "table",
+              "table": "messageTable"
+            }
+          },
+          "pluginVersion": "4.8.2",
+          "queryType": "table",
+          "rawSql": "SELECT m.* \nFROM nearyou.messageTable m\nINNER JOIN nearyou.user u ON m.user_uuid = u.user_uuid\nWHERE u.assigned_sensor_uuid = toUUID('${user_id}')\nLIMIT 1000",
+          "refId": "D"
         }
       ],
       "title": "Panel Title",
@@ -259,7 +515,7 @@
     }
   ],
   "preload": false,
-  "refresh": "",
+  "refresh": "10s",
   "schemaVersion": 40,
   "tags": [],
   "templating": {
@@ -270,8 +526,8 @@
           "value": "1"
         },
         "hide": 2,
-        "label": "location_id",
-        "name": "location_id",
+        "label": "user_id",
+        "name": "user_id",
         "options": [
           {
             "selected": true,
@@ -279,7 +535,7 @@
             "value": "1"
           }
         ],
-        "query": "1",
+        "query": "306ef53f-9222-4e9f-bb47-07ed6c2009ab",
         "type": "textbox"
       }
     ]
@@ -292,7 +548,6 @@
   "timezone": "browser",
   "title": "mappa specifica",
   "uid": "cec5m2txm1fr4a",
-  "version": 11,
+  "version": 1,
   "weekStart": ""
 }
-

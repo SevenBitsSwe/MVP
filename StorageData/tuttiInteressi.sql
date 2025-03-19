@@ -1,15 +1,23 @@
-CREATE TABLE nearyou.tuttiInteressi(
-       categoria String,
-       PRIMARY KEY(categoria)
+CREATE TABLE nearyou.interest(
+       interest String,
+       PRIMARY KEY(interest)
 ) ENGINE = MergeTree()
-ORDER BY (categoria);
+ORDER BY (interest);
 
 
-
-INSERT INTO nearyou.tuttiInteressi (categoria) VALUES
+INSERT INTO nearyou.interest (interest) VALUES
 ('Ristorazione'),
 ('Cultura'),
 ('Natura'),
 ('Sport'),
 ('Tecnologia'),
-('Moda');
+('Moda'),
+('Arte'),
+('Musica'),
+('Viaggi'),
+('Fitness'),
+('Educazione'),
+('Giochi'),
+('Fotografia'),
+('Cinema'),
+('Teatro');;
