@@ -26,4 +26,4 @@ INSERT INTO nearyou.user_interest (user_uuid, interest) VALUES
 ('aac055b2-b691-460b-9b93-68a9c9c70ed7', 'Educazione'),
 ('aac055b2-b691-460b-9b93-68a9c9c70ed7', 'Musica'),
 ('714e07c1-5b72-43a1-994e-d60e0d1eda6d', 'Giochi'),
-('714e07c1-5b72-43a1-994e-d60e0d1eda6d', 'Cinema');;
+('714e07c1-5b72-43a1-994e-d60e0d1eda6d', 'Cinema');

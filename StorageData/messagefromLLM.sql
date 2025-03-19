@@ -53,3 +53,4 @@ SELECT
     userLatitude,
     userLongitude
 FROM nearyou.messageTableKafka;
+
