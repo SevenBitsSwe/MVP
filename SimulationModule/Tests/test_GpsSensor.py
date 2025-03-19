@@ -49,7 +49,7 @@ class TestGpsSensor(unittest.TestCase):
         
         latitude = 45.0
         longitude = 9.0
-        position = self.test_sensor.create_geo_position(longitude, latitude)
+        position = self.test_sensor.create_geo_position(latitude, longitude)
         self.assertIsInstance(position, GeoPosition)
         self.assertEqual(position.get_sensor_id(), str(self.test_uuid))
         self.assertEqual(position.get_latitude(), latitude)
