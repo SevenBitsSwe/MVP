@@ -4,7 +4,7 @@ from pydantic import BaseModel
 class LLMService(ABC):
     '''Interface class which represent the inbound port, also known as the position receiver'''
     def __init__(self,structured_response: BaseModel):
-        self.__llm_structured_response = structured_response
+        self._llm_structured_response = structured_response
 
     @abstractmethod
     def set_up_chat(self):

@@ -1,6 +1,5 @@
 from pyflink.datastream.functions import MapFunction
 from Core.LLMService import LLMService
-from Core.StructuredResponseMessage import StructuredResponseMessage
 from Core.CustomPrompt import CustomPrompt
 from pyflink.common.types import Row
 from datetime import datetime
