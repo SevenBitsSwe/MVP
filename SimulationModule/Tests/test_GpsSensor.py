@@ -59,3 +59,9 @@ class TestGpsSensor(unittest.TestCase):
     def test_get_sensor_uuid(self):
         """Verifica che il metodo get_sensor_uuid restituisca l'UUID corretto"""
         self.assertEqual(self.test_sensor.get_sensor_uuid(), self.test_uuid)
+
+    def test_get_update_time(self):
+        """Verifica che il metodo get_update_time restituisca il tempo di aggiornamento della SimulationStrategy assegnata"""
+        expected_update_time = 20
+        self.mock_simulation_strategy.get_delta_time.return_value = expected_update_time
+        self.assertEqual(self.test_sensor.get_update_time(), expected_update_time)
