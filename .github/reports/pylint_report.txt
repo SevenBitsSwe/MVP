@@ -129,6 +129,16 @@ FlinkProcessor/Tests/test_GroqLLMService.py:84: [C0303(trailing-whitespace), ] T
 FlinkProcessor/Tests/test_GroqLLMService.py:88: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_GroqLLMService.py:91: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_GroqLLMService.py:94: [C0303(trailing-whitespace), ] Trailing whitespace
+************* Module app.FlinkProcessor.Tests.test_DatabaseConnection
+FlinkProcessor/Tests/test_DatabaseConnection.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_DatabaseConnection.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_DatabaseConnection.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_DatabaseConnection.py:58: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_DatabaseConnection.py:60: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_DatabaseConnection.py:6: [W0404(reimported), ] Reimport 'DatabaseConfigParameters' (imported line 3)
+FlinkProcessor/Tests/test_DatabaseConnection.py:5: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Core.DatabaseConnection import DatabaseConnection"
+FlinkProcessor/Tests/test_DatabaseConnection.py:6: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
+FlinkProcessor/Tests/test_DatabaseConnection.py:4: [W0611(unused-import), ] Unused import clickhouse_connect
 ************* Module app.FlinkProcessor.Tests.test_JsonRowDeserializationAdapter
 FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
@@ -199,20 +209,12 @@ FlinkProcessor/Tests/test_KafkaPositionReceiver.py:74: [C0304(missing-final-newl
 FlinkProcessor/Tests/test_KafkaPositionReceiver.py:38: [W0612(unused-variable), TestKafkaPositionReceiver.test_build_kafka_source] Unused variable 'receiver'
 ************* Module app.FlinkProcessor.Tests.test_ClickhouseUserRepository
 FlinkProcessor/Tests/test_ClickhouseUserRepository.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:78: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:95: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:101: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:114: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:117: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:121: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:6: [W0611(unused-import), ] Unused UserDTO imported from Core.UserDTO
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:59: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:62: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_ClickhouseUserRepository.py:66: [C0305(trailing-newlines), ] Trailing newlines
 ************* Module app.FlinkProcessor.Tests.test_CustomPrompt
 FlinkProcessor/Tests/test_CustomPrompt.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_CustomPrompt.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
@@ -278,16 +280,6 @@ FlinkProcessor/Tests/test_DataTransferObject.py:192: [C0303(trailing-whitespace)
 FlinkProcessor/Tests/test_DataTransferObject.py:200: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_DataTransferObject.py:204: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_DataTransferObject.py:211: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Tests.test_DatabaseConnenction
-FlinkProcessor/Tests/test_DatabaseConnenction.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:58: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:60: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:6: [W0404(reimported), ] Reimport 'DatabaseConfigParameters' (imported line 3)
-FlinkProcessor/Tests/test_DatabaseConnenction.py:5: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Core.DatabaseConnection import DatabaseConnection"
-FlinkProcessor/Tests/test_DatabaseConnenction.py:6: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/Tests/test_DatabaseConnenction.py:4: [W0611(unused-import), ] Unused import clickhouse_connect
 ************* Module app.FlinkProcessor.Tests.test_KafkaMessageWriter
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
@@ -611,5 +603,5 @@ SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init
 SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 
 -----------------------------------
-Your code has been rated at 7.28/10
+Your code has been rated at 7.30/10
 
