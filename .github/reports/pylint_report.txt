@@ -611,5 +611,5 @@ SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init
 SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 
 -----------------------------------
-Your code has been rated at 7.30/10
+Your code has been rated at 7.28/10
 
