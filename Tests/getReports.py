@@ -108,7 +108,22 @@ def calculate_fan_in_out(dependencies):
         'osmnx',
         'confluent_kafka',
         'geopy.distance',
-        'clickhouse_connect'
+        'clickhouse_connect',
+        'pyflink.datastream.functions',
+        'pyflink.common.types',
+        'pyflink.common',
+        'pyflink.datastream.formats.json',
+        'pyflink.datastream.connectors.kafka',
+        'langchain_groq',
+        'dotenv',
+        'langchain_core.rate_limiters',
+        'langchain_core.prompts',
+        'pydantic',
+        'string',
+        'typing',
+        'pyflink.common.watermark_strategy',
+        'pyflink.datastream',
+        'pyflink.datastream.execution_mode'
     }
     fan_in = defaultdict(int)
     fan_out = defaultdict(int)
