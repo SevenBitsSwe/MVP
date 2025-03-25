@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 import uuid
 from Core.ClickhouseMessageRepository import ClickhouseMessageRepository
 from Core.DatabaseConnection import DatabaseConnection
@@ -20,7 +20,7 @@ class TestClickhouseMessageRepository(unittest.TestCase):
         test_user_id = uuid.uuid4()
         test_activity_id = uuid.uuid4()
         test_message_id = uuid.uuid4()
-        
+
         # Create a mock for query result
         mock_result = Mock()
         mock_result.result_set = [{}]  # Necessary for length check
@@ -35,12 +35,12 @@ class TestClickhouseMessageRepository(unittest.TestCase):
             'user_lat': '45.4641',
             'user_lon': '9.1901'
         }
-        
+
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute the method to test
         result = self.repository.get_user_last_message(test_user_id)
-        
+
         # Verify results
         self.assertEqual(result.user_id, str(test_user_id))
         self.assertEqual(result.activity_id, str(test_activity_id))
@@ -51,7 +51,7 @@ class TestClickhouseMessageRepository(unittest.TestCase):
         self.assertEqual(result.creation_time, '2025-03-17 10:30:00')
         self.assertEqual(result.user_lat, 45.4641)
         self.assertEqual(result.user_lon, 9.1901)
-        
+
         # Verify that the query is executed with correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
@@ -63,18 +63,17 @@ class TestClickhouseMessageRepository(unittest.TestCase):
         test_user_id = uuid.uuid4()
         mock_result = Mock()
         mock_result.result_set = []  # No results found
-        
+
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute the method to test
         result = self.repository.get_user_last_message(test_user_id)
-        
+
         # Verify that an empty MessageDTO is returned
         self.assertIsInstance(result, MessageDTO)
         self.assertEqual(result.user_lat, 0.0)
         self.assertEqual(result.user_lon, 0.0)
 
-        
         # Verify that the query was executed with correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args

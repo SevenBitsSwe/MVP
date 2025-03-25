@@ -20,7 +20,7 @@ class TestClickhouseUserRepository(unittest.TestCase):
         test_user_uuid = uuid.uuid4()
         test_sensor_uuid = uuid.uuid4()
         interests = ["sport", "music", "books"]
-        
+
         mock_result = Mock()
         mock_result.result_rows = [(
             test_user_uuid,  # user_uuid
@@ -34,16 +34,16 @@ class TestClickhouseUserRepository(unittest.TestCase):
             interests  # interest_list
         )]
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute the method to test
         result = self.repository.get_user_who_owns_sensor(test_sensor_uuid)
-        
+
         # Verify the results
         self.assertIsNotNone(result)
         self.assertEqual(result.user_uuid, test_user_uuid)
         self.assertEqual(result.assigned_sensor_uuid, test_sensor_uuid)
         self.assertEqual(result.interests, interests)
-        
+
         # Verify that the query is executed with the correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
@@ -56,11 +56,9 @@ class TestClickhouseUserRepository(unittest.TestCase):
         mock_result.result_rows = []
         self.mock_connection.query.return_value = mock_result
         test_sensor_uuid = uuid.uuid4()
-        
+
         # Execute the method to test
         result = self.repository.get_user_who_owns_sensor(test_sensor_uuid)
-        
+
         # Verify the results
         self.assertIsNone(result)
-
-
