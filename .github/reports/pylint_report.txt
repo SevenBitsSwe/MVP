@@ -300,128 +300,23 @@ FlinkProcessor/Tests/test_KafkaMessageWriter.py:6: [W0611(unused-import), ] Unus
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:6: [W0611(unused-import), ] Unused KafkaRecordSerializationSchema imported from pyflink.datastream.connectors.kafka
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:7: [W0611(unused-import), ] Unused JsonRowSerializationSchema imported from pyflink.datastream.formats.json
 ************* Module app.FlinkProcessor.Core.PositionToMessageProcessor
-FlinkProcessor/Core/PositionToMessageProcessor.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/PositionToMessageProcessor.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Core/PositionToMessageProcessor.py:26: [W0201(attribute-defined-outside-init), PositionToMessageProcessor.open] Attribute 'prompt_creator' defined outside __init__
-FlinkProcessor/Core/PositionToMessageProcessor.py:5: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from pyflink.datastream.functions import MapFunction"
-FlinkProcessor/Core/PositionToMessageProcessor.py:8: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from pyflink.datastream.functions import MapFunction"
-FlinkProcessor/Core/PositionToMessageProcessor.py:4: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-FlinkProcessor/Core/PositionToMessageProcessor.py:6: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-************* Module app.FlinkProcessor.Core.IMessageWriter
-FlinkProcessor/Core/IMessageWriter.py:7: [C0304(missing-final-newline), ] Final newline missing
 ************* Module app.FlinkProcessor.Core.ClickhouseMessageRepository
-FlinkProcessor/Core/ClickhouseMessageRepository.py:12: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:13: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:27: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseMessageRepository.py:28: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:29: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:30: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:31: [W0311(bad-indentation), ] Bad indentation. Found 16 spaces, expected 12
-FlinkProcessor/Core/ClickhouseMessageRepository.py:32: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:40: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/ClickhouseMessageRepository.py:30: [R1705(no-else-return), ClickhouseMessageRepository.get_user_last_message] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-FlinkProcessor/Core/ClickhouseMessageRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IMessageRepository import IMessageRepository"
-FlinkProcessor/Core/ClickhouseMessageRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.KafkaPositionReceiver
-FlinkProcessor/Core/KafkaPositionReceiver.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:3: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-************* Module app.FlinkProcessor.Core.GroqLLMService
-FlinkProcessor/Core/GroqLLMService.py:33: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/GroqLLMService.py:2: [C0411(wrong-import-order), ] standard import "import os" should be placed before "from Core.LLMService import LLMService"
+FlinkProcessor/Core/ClickhouseMessageRepository.py:29: [R1705(no-else-return), ClickhouseMessageRepository.get_user_last_message] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 ************* Module app.FlinkProcessor.Core.ActivityDTO
 FlinkProcessor/Core/ActivityDTO.py:3: [R0903(too-few-public-methods), ActivityDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.IPositionReceiver
-FlinkProcessor/Core/IPositionReceiver.py:7: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.StructuredResponseMessage
-FlinkProcessor/Core/StructuredResponseMessage.py:6: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.CustomPrompt
-FlinkProcessor/Core/CustomPrompt.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/CustomPrompt.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/CustomPrompt.py:27: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Core.KafkaSourceConfiguration
-FlinkProcessor/Core/KafkaSourceConfiguration.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:19: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaSourceConfiguration.py:3: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-************* Module app.FlinkProcessor.Core.KafkaMessageWriter
-FlinkProcessor/Core/KafkaMessageWriter.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaMessageWriter.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaMessageWriter.py:32: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaMessageWriter.py:4: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/Core/KafkaMessageWriter.py:5: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-************* Module app.FlinkProcessor.Core.IUserRepository
-FlinkProcessor/Core/IUserRepository.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/IUserRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.UserDTO import UserDTO"
-FlinkProcessor/Core/IUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.UserDTO import UserDTO"
-FlinkProcessor/Core/IUserRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-FlinkProcessor/Core/IUserRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.LLMService
-FlinkProcessor/Core/LLMService.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.FlinkProcessor.Core.FilterMessageAlreadyDisplayed
-FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:20: [C0304(missing-final-newline), ] Final newline missing
 FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:16: [R1705(no-else-return), FilterMessageAlreadyDisplayed.filter] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-************* Module app.FlinkProcessor.Core.IMessageRepository
-FlinkProcessor/Core/IMessageRepository.py:11: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Core/IMessageRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.MessageDTO import MessageDTO"
-FlinkProcessor/Core/IMessageRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.MessageDTO import MessageDTO"
-FlinkProcessor/Core/IMessageRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-FlinkProcessor/Core/IMessageRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.MessageSerializer
-FlinkProcessor/Core/MessageSerializer.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.FlinkProcessor.Core.ClickhouseActivityRepository
-FlinkProcessor/Core/ClickhouseActivityRepository.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:48: [W0311(bad-indentation), ] Bad indentation. Found 11 spaces, expected 12
-FlinkProcessor/Core/ClickhouseActivityRepository.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:61: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/ClickhouseActivityRepository.py:45: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-FlinkProcessor/Core/ClickhouseActivityRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IActivityRepository import IActivityRepository"
-FlinkProcessor/Core/ClickhouseActivityRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.DatabaseConfigParameters
-FlinkProcessor/Core/DatabaseConfigParameters.py:8: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.ClickhouseUserRepository
-FlinkProcessor/Core/ClickhouseUserRepository.py:46: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Core/ClickhouseUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IUserRepository import IUserRepository"
-FlinkProcessor/Core/ClickhouseUserRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.IActivityRepository
-FlinkProcessor/Core/IActivityRepository.py:3: [C0411(wrong-import-order), ] standard import "from typing import List" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:4: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:5: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-FlinkProcessor/Core/IActivityRepository.py:3: [W0611(unused-import), ] Unused List imported from typing
-FlinkProcessor/Core/IActivityRepository.py:5: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.KafkaWriterConfiguration
-FlinkProcessor/Core/KafkaWriterConfiguration.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:27: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaWriterConfiguration.py:3: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-************* Module app.FlinkProcessor.Core.DatabaseConnection
-FlinkProcessor/Core/DatabaseConnection.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/DatabaseConnection.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/DatabaseConnection.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Core.IFlinkSerializable
-FlinkProcessor/Core/IFlinkSerializable.py:10: [C0305(trailing-newlines), ] Trailing newlines
+FlinkProcessor/Core/ClickhouseActivityRepository.py:43: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 ************* Module app.FlinkProcessor.Core.UserDTO
 FlinkProcessor/Core/UserDTO.py:3: [R0902(too-many-instance-attributes), UserDTO] Too many instance attributes (9/8)
 FlinkProcessor/Core/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (10/8)
 FlinkProcessor/Core/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 ************* Module app.FlinkProcessor.Core.MessageDTO
-FlinkProcessor/Core/MessageDTO.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/MessageDTO.py:27: [C0305(trailing-newlines), ] Trailing newlines
 FlinkProcessor/Core/MessageDTO.py:3: [R0902(too-many-instance-attributes), MessageDTO] Too many instance attributes (9/8)
 FlinkProcessor/Core/MessageDTO.py:6: [R0913(too-many-arguments), MessageDTO.__init__] Too many arguments (10/8)
 FlinkProcessor/Core/MessageDTO.py:3: [R0903(too-few-public-methods), MessageDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.FlinkJobManager
-FlinkProcessor/Core/FlinkJobManager.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:2: [W0611(unused-import), ] Unused RuntimeExecutionMode imported from pyflink.datastream.execution_mode
 ************* Module app.SimulationModule.main
 SimulationModule/main.py:41: [C0305(trailing-newlines), ] Trailing newlines
 ************* Module app.SimulationModule.Tests.test_UserSensorService
@@ -603,5 +498,5 @@ SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init
 SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 
 -----------------------------------
-Your code has been rated at 7.30/10
+Your code has been rated at 7.73/10
 
