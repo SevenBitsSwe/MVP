@@ -1,7 +1,6 @@
 from Core.IUserRepository import IUserRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.UserDTO import UserDTO
-import uuid
 
 class ClickhouseUserRepository(IUserRepository):
     def __init__(self, db_connection: DatabaseConnection):
@@ -43,4 +42,3 @@ class ClickhouseUserRepository(IUserRepository):
             return None
         user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status, interest_list = result.result_rows[0]
         return UserDTO(user_uuid, assigned_sensor_uuid, name, surname, email, gender, birthdate, civil_status, interest_list)
-

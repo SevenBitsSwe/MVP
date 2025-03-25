@@ -9,7 +9,7 @@ class LLMService(ABC):
     @abstractmethod
     def set_up_chat(self):
         pass
-    
+
     @abstractmethod
     def get_llm_structured_response(self,prompt):
         pass

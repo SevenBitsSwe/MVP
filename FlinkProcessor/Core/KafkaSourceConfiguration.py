@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from pyflink.common import Types
-from pyflink.common.types import Row
 
 @dataclass
 class KafkaSourceConfiguration:
@@ -11,9 +10,8 @@ class KafkaSourceConfiguration:
     commit_offsets_on_checkpoint: str = "true"
     row_type = Types.ROW_NAMED( ['user_uuid', 'latitude','longitude', 'receptionTime'],
                                 [
-                                    Types.STRING(), 
-                                    Types.FLOAT(),  
-                                    Types.FLOAT(),   
+                                    Types.STRING(),
+                                    Types.FLOAT(),
+                                    Types.FLOAT(),
                                     Types.STRING()
-                                    
                                 ])

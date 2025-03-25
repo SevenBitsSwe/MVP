@@ -1,11 +1,11 @@
+import uuid
+from datetime import datetime
 from pyflink.datastream.functions import MapFunction
+from pyflink.common.types import Row
 from Core.LLMService import LLMService
 from Core.CustomPrompt import CustomPrompt
-from pyflink.common.types import Row
-from datetime import datetime
 from Core.ActivityDTO import ActivityDTO
 from Core.MessageDTO import MessageDTO
-import uuid
 from Core.IUserRepository import IUserRepository
 from Core.IActivityRepository import IActivityRepository
 from Core.IFlinkSerializable import IFlinkSerializable
@@ -26,7 +26,7 @@ class PositionToMessageProcessor(MapFunction):
         self.prompt_creator = CustomPrompt()
 
     def map(self, value):
-        
+
         user_dict = self.__user_repository.get_user_who_owns_sensor(str(value[0]))
         activity_dict = self.__activity_repository.get_activities_in_range(value[2], value[1],300)
 
@@ -45,7 +45,7 @@ class PositionToMessageProcessor(MapFunction):
         ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
 
         activity_info: ActivityDTO = self.__activity_repository.get_activity_spec_from_name(ai_response_dict['attivita'])
-   
+
         message_to_send : MessageDTO = MessageDTO(str(user_dict.user_uuid),
                                                   str(activity_info.activity_id),
                                                   str(uuid.uuid4()),

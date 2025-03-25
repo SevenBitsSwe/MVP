@@ -16,5 +16,5 @@ class FilterMessageAlreadyDisplayed(FilterFunction):
         if (round(last_message.activity_lat,4) == round(value[4],4) and round(last_message.activity_lon,4) == round(value[5],4)) or value[4] == 0 and value[5]==0:
             print("Filtered")
             return False
-        else: 
+        else:
             return True

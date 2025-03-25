@@ -1,5 +1,7 @@
+from dataclasses import dataclass
 from pydantic import BaseModel, Field
 
+@dataclass
 class StructuredResponseMessage(BaseModel):
     '''Class to represent the structured response message'''
     pubblicita: str = Field(descrition="Messaggio pubblicitario prodotto lungo almeno 200 caratteri")

@@ -1,8 +1,8 @@
-from Core.LLMService import LLMService
 import os
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+from Core.LLMService import LLMService
 
 load_dotenv()
 
@@ -30,7 +30,7 @@ class GroqLLMService(LLMService):
             cache=False,
             rate_limiter=rate_limiter
             )
-        
+
     def get_llm_structured_response(self, prompt ):
         structured_model = self.__chat.with_structured_output(self._llm_structured_response)
         return structured_model.invoke(prompt)

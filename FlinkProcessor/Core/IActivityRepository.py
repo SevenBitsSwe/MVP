@@ -1,8 +1,5 @@
-from Core.ActivityDTO import ActivityDTO
-from Core.DatabaseConnection import DatabaseConnection
-from typing import List
 from abc import ABC, abstractmethod
-import uuid
+from Core.ActivityDTO import ActivityDTO
 
 class IActivityRepository(ABC):
     @abstractmethod

@@ -1,8 +1,8 @@
+from pyflink.datastream.connectors.kafka import KafkaSink,KafkaRecordSerializationSchema
+from pyflink.datastream.formats.json import JsonRowSerializationSchema
 from Core.IMessageWriter import IMessageWriter
 from Core.JsonRowSerializationAdapter import JsonRowSerializationAdapter
-from pyflink.datastream.connectors.kafka import KafkaSink,KafkaRecordSerializationSchema
 from Core.KafkaWriterConfiguration import KafkaWriterConfiguration
-from pyflink.datastream.formats.json import JsonRowSerializationSchema
 
 class KafkaMessageWriter(IMessageWriter):
     '''Adapter for writing messages to Kafka'''
@@ -20,13 +20,14 @@ class KafkaMessageWriter(IMessageWriter):
                                                         .with_type_info(self.__current_configuration.key_type)\
                                                         .build())\
                                             .set_value_serialization_schema(self.__position_serializer) \
-                                            .build() 
-                    
+                                            .build()
+
     def build_kafka_sink(self):
         return KafkaSink.builder() \
                         .set_bootstrap_servers(self.__current_configuration.bootstrap_servers) \
                         .set_record_serializer(self.__record_serializer) \
                         .build()
+
     def get_message_writer(self):
         '''interface implementation'''
         return self.__kafka_sink

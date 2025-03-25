@@ -1,8 +1,6 @@
 from Core.IActivityRepository import IActivityRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.ActivityDTO import ActivityDTO
-import uuid
-
 
 class ClickhouseActivityRepository(IActivityRepository):
     def __init__(self, db_connection: DatabaseConnection):
@@ -29,7 +27,7 @@ class ClickhouseActivityRepository(IActivityRepository):
         '''
         conn = self.__db_conn.connect()
         return conn.query(query,parameters=params).result_rows
-    
+
     def get_activity_spec_from_name(self, activity_name) -> ActivityDTO:
         param = {'nome':activity_name}
         query = '''
@@ -44,8 +42,8 @@ class ClickhouseActivityRepository(IActivityRepository):
         dizionario = conn.query(query, parameters=param)
         if len(dizionario.result_set) == 0:
             return ActivityDTO()
-        else: 
-           return ActivityDTO(dizionario.first_item['activity_uuid'],
+        else:
+            return ActivityDTO(dizionario.first_item['activity_uuid'],
                               dizionario.first_item['name'],
                               float(dizionario.first_item['longitude']),
                               float(dizionario.first_item['latitude']),
@@ -53,8 +51,7 @@ class ClickhouseActivityRepository(IActivityRepository):
                               dizionario.first_item['type'],
                               dizionario.first_item['description'])
 
-
-# {'activity_uuid': UUID('a61e3f8d-098e-442b-996f-02fd849bb1b1'), 
+# {'activity_uuid': UUID('a61e3f8d-098e-442b-996f-02fd849bb1b1'),
 # 'name': 'Gasperi, Almagi e Lollobrigida SPA',
 #  'longitude': 11.8444214, 'latitude': 45.3785957,
 #  'address': 'Contrada Altera, Montegallo, Bellamonte, Grosseto, 51021, Italia',
