@@ -1,10 +1,8 @@
-from Models.IUserRepository import IUserRepository
-from Models.ISensorRepository import ISensorRepository
-from Models.UserDTO import UserDTO
-from Models.SensorDTO import SensorDTO
 import uuid
 import threading
 import time
+from Models.IUserRepository import IUserRepository
+from Models.ISensorRepository import ISensorRepository
 
 class UserSensorService:
 
@@ -29,7 +27,7 @@ class UserSensorService:
                 if not sensor or not user:
                     log_file.write("Assignment failed: no available sensor or user\n")
                     return None
-                
+
                 self.__SensorRepository.mark_sensor_as_occupied(sensor.sensor_uuid)
                 log_file.write(f"Marked sensor {sensor.sensor_uuid} as occupied\n")
 

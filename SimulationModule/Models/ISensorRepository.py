@@ -1,9 +1,6 @@
-from Models.SensorDTO import SensorDTO
-from Models.DatabaseConnection import DatabaseConnection
-from abc import ABC, abstractmethod
 import uuid
-
-
+from abc import ABC, abstractmethod
+from Models.SensorDTO import SensorDTO
 
 class ISensorRepository(ABC):
     @abstractmethod

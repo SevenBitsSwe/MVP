@@ -1,6 +1,7 @@
+import json
 from Models.IJsonSerializable import IJsonSerializable
 from Models.GeoPosition import GeoPosition
-import json
+
 class PositionJsonAdapter(IJsonSerializable):
     def serialize_to_json(self, position_istance: GeoPosition):
         '''method to serialize the position to JSON'''
@@ -11,4 +12,3 @@ class PositionJsonAdapter(IJsonSerializable):
             'longitude': float(position_istance.get_longitude()),
             'received_at': position_istance.get_timestamp(),
         })
-    

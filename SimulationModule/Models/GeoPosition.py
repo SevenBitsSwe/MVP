@@ -7,20 +7,19 @@ class GeoPosition:
         self.__latitude = latitude
         self.__longitude = longitude
         self.__timestamp = timestamp
-        
+
     def get_sensor_id(self) -> str:
         '''method to get the sensor id'''
         return str(self.__sensor_id)
 
     def get_latitude(self) -> float:
         '''method to get the latitude'''
-        return self.__latitude      
-    
-    def get_longitude(self) -> float:       
+        return self.__latitude
+
+    def get_longitude(self) -> float:
         '''method to get the longitude'''
-        return self.__longitude 
-    
+        return self.__longitude
+
     def get_timestamp(self) -> str:
         '''method to get the timestamp'''
-        return self.__timestamp 
-    
+        return self.__timestamp

@@ -1,10 +1,9 @@
+import uuid
 import unittest
+from unittest.mock import Mock
 from Models.UserRepository import UserRepository
-from Models.IUserRepository import IUserRepository
 from Models.DatabaseConnection import DatabaseConnection
 from Models.UserDTO import UserDTO
-import uuid
-from unittest.mock import Mock
 
 class TestUserRepository(unittest.TestCase):
 
@@ -75,4 +74,3 @@ class TestUserRepository(unittest.TestCase):
         mock_conn.query.assert_called_once_with(expected_query)
 
         self.assertIsNone(result)
-

@@ -11,15 +11,15 @@ class TestGpsSensor(unittest.TestCase):
         #PositionSender and IPositionSimulationStrategy mock
         self.mock_position_sender = MagicMock(spec=PositionSender)
         self.mock_simulation_strategy = MagicMock(spec=IPositionSimulationStrategy)
-        
+
         #IPositionSimulationStrategy mock
         self.mock_simulation_strategy.get_speed.return_value = 4.1667
         self.mock_simulation_strategy.get_route.return_value = [(45.0, 9.0), (45.1, 9.1)]
-        
+
         # Inizializziamo il sensore GPS con i mock
         self.test_uuid = uuid.uuid4()
         self.test_sensor = GpsSensor(self.test_uuid, self.mock_position_sender, self.mock_simulation_strategy)
-    
+
     def test_initialization(self):
         """Verifica che il costruttore inizializzi correttamente i valori"""
         self.assertEqual(self.test_sensor._sensor_uuid, self.test_uuid)
@@ -34,9 +34,9 @@ class TestGpsSensor(unittest.TestCase):
         mock_distance = MagicMock()
         mock_distance.meters = 1000  # 1 km tra i punti
         mock_geodesic.return_value = mock_distance
-        
+
         self.test_sensor.simulate()
-        
+
         self.mock_simulation_strategy.get_route.assert_called_once()
         self.mock_position_sender.send_position.assert_called()
         mock_sleep.assert_called()
@@ -46,7 +46,7 @@ class TestGpsSensor(unittest.TestCase):
         mock_now = MagicMock()
         mock_now.strftime.return_value = "2023-01-01 12:00:00"
         mock_datetime.now.return_value = mock_now
-        
+
         latitude = 45.0
         longitude = 9.0
         position = self.test_sensor.create_geo_position(latitude, longitude)
