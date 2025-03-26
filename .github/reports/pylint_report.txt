@@ -13,11 +13,23 @@ getReports.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
 getReports.py:77: [C0303(trailing-whitespace), ] Trailing whitespace
 getReports.py:84: [C0303(trailing-whitespace), ] Trailing whitespace
 getReports.py:87: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:115: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:121: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:143: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:169: [C0304(missing-final-newline), ] Final newline missing
-getReports.py:14: [W0621(redefined-outer-name), write_coverage_report] Redefining name 'data' from outer scope (line 160)
+getReports.py:130: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:136: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:159: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:176: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:178: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:185: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:192: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:194: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:200: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:218: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:223: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:226: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:229: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:232: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:241: [C0303(trailing-whitespace), ] Trailing whitespace
+getReports.py:244: [C0304(missing-final-newline), ] Final newline missing
+getReports.py:14: [W0621(redefined-outer-name), write_coverage_report] Redefining name 'data' from outer scope (line 225)
 getReports.py:11: [E0601(used-before-assignment), write_coverage_report] Using variable 'xml_file' before assignment
 getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 158)
 getReports.py:125: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
