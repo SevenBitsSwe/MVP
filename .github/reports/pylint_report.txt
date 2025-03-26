@@ -37,58 +37,29 @@ getReports.py:168: [W1514(unspecified-encoding), ] Using open without explicitly
 getReports.py:168: [W1309(f-string-without-interpolation), ] Using an f-string that does not have any interpolated variables
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
-************* Module app.FlinkProcessor.Tests.test_ClickhouseMessageRepository
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:18: [R0915(too-many-statements), TestClickhouseMessageRepository.test_get_user_last_message_found] Too many statements (22/20)
 ************* Module app.FlinkProcessor.Tests.test_FlinkJobManager
-FlinkProcessor/Tests/test_FlinkJobManager.py:60: [R0913(too-many-arguments), TestFlinkJobManager.test_initialization] Too many arguments (10/8)
 FlinkProcessor/Tests/test_FlinkJobManager.py:71: [W0612(unused-variable), TestFlinkJobManager.test_initialization] Unused variable 'job_manager'
-FlinkProcessor/Tests/test_FlinkJobManager.py:93: [R0913(too-many-arguments), TestFlinkJobManager.test_execute] Too many arguments (10/8)
 ************* Module app.FlinkProcessor.Tests.test_KafkaPositionReceiver
 FlinkProcessor/Tests/test_KafkaPositionReceiver.py:38: [W0612(unused-variable), TestKafkaPositionReceiver.test_build_kafka_source] Unused variable 'receiver'
 ************* Module app.FlinkProcessor.Tests.test_CustomPrompt
 FlinkProcessor/Tests/test_CustomPrompt.py:38: [C0201(consider-iterating-dictionary), TestCustomPrompt.test_get_prompt_formatting] Consider iterating the dictionary directly instead of calling .keys()
 ************* Module app.FlinkProcessor.Tests.test_PositionToMessageProcessor
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:77: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_with_activities] Too many statements (29/20)
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:77: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_with_activities] Too many statements (29/25)
 ************* Module app.FlinkProcessor.Tests.test_KafkaMessageWriter
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:12: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/20)
+FlinkProcessor/Tests/test_KafkaMessageWriter.py:12: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/25)
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:44: [W0612(unused-variable), TestKafkaMessageWriter.test_initialization] Unused variable 'writer'
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:65: [W0612(unused-variable), TestKafkaMessageWriter.test_get_message_writer] Unused variable 'mock_build_record'
 ************* Module app.FlinkProcessor.Core.PositionToMessageProcessor
 FlinkProcessor/Core/PositionToMessageProcessor.py:26: [W0201(attribute-defined-outside-init), PositionToMessageProcessor.open] Attribute 'prompt_creator' defined outside __init__
 ************* Module app.FlinkProcessor.Core.ClickhouseMessageRepository
 FlinkProcessor/Core/ClickhouseMessageRepository.py:29: [R1705(no-else-return), ClickhouseMessageRepository.get_user_last_message] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-************* Module app.FlinkProcessor.Core.ActivityDTO
-FlinkProcessor/Core/ActivityDTO.py:3: [R0903(too-few-public-methods), ActivityDTO] Too few public methods (0/1)
 ************* Module app.FlinkProcessor.Core.FilterMessageAlreadyDisplayed
 FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:16: [R1705(no-else-return), FilterMessageAlreadyDisplayed.filter] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 ************* Module app.FlinkProcessor.Core.ClickhouseActivityRepository
 FlinkProcessor/Core/ClickhouseActivityRepository.py:43: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-************* Module app.FlinkProcessor.Core.UserDTO
-FlinkProcessor/Core/UserDTO.py:3: [R0902(too-many-instance-attributes), UserDTO] Too many instance attributes (9/8)
-FlinkProcessor/Core/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (10/8)
-FlinkProcessor/Core/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.MessageDTO
-FlinkProcessor/Core/MessageDTO.py:3: [R0902(too-many-instance-attributes), MessageDTO] Too many instance attributes (9/8)
-FlinkProcessor/Core/MessageDTO.py:6: [R0913(too-many-arguments), MessageDTO.__init__] Too many arguments (10/8)
-FlinkProcessor/Core/MessageDTO.py:3: [R0903(too-few-public-methods), MessageDTO] Too few public methods (0/1)
-************* Module app.SimulationModule.Tests.test_UserRepository
-SimulationModule/Tests/test_UserRepository.py:30: [R0915(too-many-statements), TestUserRepository.test_get_free_user] Too many statements (25/20)
 ************* Module app.SimulationModule.Models.UserSensorService
 SimulationModule/Models/UserSensorService.py:16: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
-************* Module app.SimulationModule.Models.IPositionSimulationStrategy
-SimulationModule/Models/IPositionSimulationStrategy.py:8: [W0107(unnecessary-pass), IPositionSimulationStrategy.get_route] Unnecessary pass statement
-************* Module app.SimulationModule.Models.IJsonSerializable
-SimulationModule/Models/IJsonSerializable.py:8: [W0107(unnecessary-pass), IJsonSerializable.serialize_to_json] Unnecessary pass statement
-************* Module app.SimulationModule.Models.SensorSubject
-SimulationModule/Models/SensorSubject.py:29: [W0107(unnecessary-pass), SensorSubject.simulate] Unnecessary pass statement
-************* Module app.SimulationModule.Models.SensorDTO
-SimulationModule/Models/SensorDTO.py:3: [R0903(too-few-public-methods), SensorDTO] Too few public methods (0/1)
-************* Module app.SimulationModule.Models.PositionSender
-SimulationModule/Models/PositionSender.py:18: [W0107(unnecessary-pass), PositionSender.send_data_to_broker] Unnecessary pass statement
-************* Module app.SimulationModule.Models.UserDTO
-SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (9/8)
-SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 
 -----------------------------------
-Your code has been rated at 9.69/10
+Your code has been rated at 9.79/10
 
