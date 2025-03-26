@@ -95,7 +95,7 @@ result = re.sub(patt, badge_url, content)
 
 ### Write line-coverage result
 COVERAGE_SCORE = get_lineCoverageScore()
-coverage_query = f"coverage-{COVERAGE_SCORE}%25-{get_color(COVERAGE_SCORE/10)}?logo=python&logoColor=white"
+coverage_query = f"Line%20coverage-{COVERAGE_SCORE}%25-{get_color(COVERAGE_SCORE/10)}?logo=python&logoColor=white"
 coverage_badge_url = f"https://img.shields.io/badge/{coverage_query}"
 
 # Update coverage badge
@@ -109,7 +109,7 @@ with open(README_PATH, "w", encoding="utf8") as f:
 
 ### Write branch-coverage result
 COVERAGE_SCORE = get_branchCoverageScore()
-coverage_query = f"coverage-{COVERAGE_SCORE}%25-{get_color(COVERAGE_SCORE/10)}?logo=python&logoColor=white"
+coverage_query = f"Branch%20coverage-{COVERAGE_SCORE}%25-{get_color(COVERAGE_SCORE/10)}?logo=python&logoColor=white"
 coverage_badge_url = f"https://img.shields.io/badge/{coverage_query}"
 
 # Update coverage badge
