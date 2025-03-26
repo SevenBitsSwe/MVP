@@ -1,5 +1,6 @@
 [MASTER]
 disable = similarities, protected-access, no-member, missing-docstring, import-error, invalid-name
+ignore = getReports.py,readmeBadges.py
 
 [FORMAT]
 max-line-length = 270
