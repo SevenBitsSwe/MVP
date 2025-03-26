@@ -25,20 +25,20 @@ def get_pylintScore(file_path = ".github/reports/pylint_report.txt"):
     return float(match.group(1))
 
 def get_lineCoverageScore(file_path = ".github/reports/report.json"):
-        # Verify file exists
-        if not os.path.isfile(file_path):
-            raise FileNotFoundError(f"Coverage report file not found at {file_path}")
+    # Verify file exists
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f"Coverage report file not found at {file_path}")
 
-        # Read JSON content
-        with open(file_path, "r", encoding="utf8") as f:
-            data = json.load(f)
-            
-        # Extract line coverage percentage (you could also use branch_coverage if preferred)
-        coverage = data.get("line_coverage")
-        if coverage is None:
-            raise ValueError("Coverage data not found in the JSON report")
-            
-        return round(float(coverage), 2)
+    # Read JSON content
+    with open(file_path, "r", encoding="utf8") as f:
+        data = json.load(f)
+        
+    # Extract line coverage percentage from the new format
+    coverage = data.get("coverage", {}).get("line_coverage")
+    if coverage is None:
+        raise ValueError("Line coverage data not found in the JSON report")
+        
+    return round(float(coverage), 2)
 
 def get_branchCoverageScore(file_path = ".github/reports/report.json"):
         # Verify file exists
@@ -49,8 +49,8 @@ def get_branchCoverageScore(file_path = ".github/reports/report.json"):
         with open(file_path, "r", encoding="utf8") as f:
             data = json.load(f)
             
-        # Extract line coverage percentage (you could also use branch_coverage if preferred)
-        coverage = data.get("branch_coverage")
+        # Extract branch coverage percentage
+        coverage = data.get("coverage", {}).get("line_coverage")
         if coverage is None:
             raise ValueError("Coverage data not found in the JSON report")
             
