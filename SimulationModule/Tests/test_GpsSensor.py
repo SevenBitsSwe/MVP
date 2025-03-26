@@ -64,4 +64,7 @@ class TestGpsSensor(unittest.TestCase):
         """Verifica che il metodo get_update_time restituisca il tempo di aggiornamento della SimulationStrategy assegnata"""
         expected_update_time = 20
         self.mock_simulation_strategy.get_delta_time.return_value = expected_update_time
-        self.assertEqual(self.test_sensor.get_update_time(), expected_update_time)
+
+        actual_update_time = self.test_sensor.get_update_time()
+        self.assertEqual(actual_update_time, expected_update_time)
+        self.mock_simulation_strategy.get_delta_time.assert_called_once()

@@ -22,7 +22,7 @@ class TestGroqLLMService(unittest.TestCase):
         self.assertEqual(service._GroqLLMService__groq_api_key, "test-api-key")
 
         # Verify structured_response is stored
-        self.assertEqual(service._GroqLLMService_llm_structured_response, self.structured_response)
+        self.assertEqual(service._llm_structured_response, self.structured_response)
 
         # Verify chat is initially None
         self.assertIsNone(service._GroqLLMService__chat)

@@ -28,7 +28,7 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
         """Verifica che il costruttore inizializzi correttamente i valori predefiniti"""
         # verify private values
         self.assertEqual(self.strategy._BycicleSimulationStrategy__bycicle_speed_approximated, 15)
-        self.assertEqual(self.strategy._BycicleSimulationStrategy__delta_time_between_positions, 10)
+        self.assertEqual(self.strategy._BycicleSimulationStrategy__delta_time_between_positions, 21)
         self.assertEqual(self.strategy._BycicleSimulationStrategy__graph_istance, self.mock_graph)
 
     @patch('random.choice')
@@ -59,7 +59,7 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
     def test_get_delta_time(self):
         """Verifica che il metodo get_delta_time restituisca il valore corretto"""
         delta_time = self.strategy.get_delta_time()
-        self.assertEqual(delta_time, 10)
+        self.assertEqual(delta_time, 21)
 
     def test_get_speed(self):
         """Verifica che il metodo get_speed restituisca il valore corretto"""
