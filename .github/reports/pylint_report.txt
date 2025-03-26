@@ -24,7 +24,6 @@ getReports.py:125: [R0912(too-many-branches), write_fan_report] Too many branche
 getReports.py:168: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
 getReports.py:168: [W1309(f-string-without-interpolation), ] Using an f-string that does not have any interpolated variables
 ************* Module app.FlinkProcessor.main
-FlinkProcessor/main.py:72: [C0304(missing-final-newline), ] Final newline missing
 FlinkProcessor/main.py:7: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
 FlinkProcessor/main.py:20: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
 FlinkProcessor/main.py:23: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
@@ -182,10 +181,11 @@ SimulationModule/Models/KafkaConfluentAdapter.py:16: [C0303(trailing-whitespace)
 SimulationModule/Models/KafkaConfluentAdapter.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
 SimulationModule/Models/KafkaConfluentAdapter.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.SimulationModule.Models.UserSensorService
-SimulationModule/Models/UserSensorService.py:30: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/UserSensorService.py:17: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
+SimulationModule/Models/UserSensorService.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
+SimulationModule/Models/UserSensorService.py:18: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
 SimulationModule/Models/UserSensorService.py:5: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.IUserRepository import IUserRepository"
 SimulationModule/Models/UserSensorService.py:6: [C0411(wrong-import-order), ] standard import "import threading" should be placed before "from Models.IUserRepository import IUserRepository"
+SimulationModule/Models/UserSensorService.py:7: [C0411(wrong-import-order), ] standard import "import time" should be placed before "from Models.IUserRepository import IUserRepository"
 SimulationModule/Models/UserSensorService.py:3: [W0611(unused-import), ] Unused UserDTO imported from Models.UserDTO
 SimulationModule/Models/UserSensorService.py:4: [W0611(unused-import), ] Unused SensorDTO imported from Models.SensorDTO
 ************* Module app.SimulationModule.Models.GeoPosition
