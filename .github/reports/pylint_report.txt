@@ -31,10 +31,17 @@ getReports.py:241: [C0303(trailing-whitespace), ] Trailing whitespace
 getReports.py:244: [C0304(missing-final-newline), ] Final newline missing
 getReports.py:14: [W0621(redefined-outer-name), write_coverage_report] Redefining name 'data' from outer scope (line 225)
 getReports.py:11: [E0601(used-before-assignment), write_coverage_report] Using variable 'xml_file' before assignment
-getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 158)
-getReports.py:125: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
-getReports.py:168: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
-getReports.py:168: [W1309(f-string-without-interpolation), ] Using an f-string that does not have any interpolated variables
+getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 222)
+getReports.py:140: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
+getReports.py:181: [W0621(redefined-outer-name), analyze_module_metrics] Redefining name 'class_metrics' from outer scope (line 231)
+getReports.py:182: [R1701(consider-merging-isinstance), analyze_module_metrics] Consider merging these isinstance calls to isinstance(n, (ast.AnnAssign, ast.Assign))
+getReports.py:199: [W0621(redefined-outer-name), get_class_metrics] Redefining name 'class_metrics' from outer scope (line 231)
+getReports.py:215: [E0601(used-before-assignment), get_class_metrics] Using variable 'fan_in_dict' before assignment
+getReports.py:216: [E0601(used-before-assignment), get_class_metrics] Using variable 'fan_out_dict' before assignment
+getReports.py:197: [R0912(too-many-branches), get_class_metrics] Too many branches (9/4)
+getReports.py:202: [R1702(too-many-nested-blocks), get_class_metrics] Too many nested blocks (9/5)
+getReports.py:243: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
+getReports.py:5: [W0611(unused-import), ] Unused datetime imported from datetime
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
 ************* Module app.FlinkProcessor.Tests.test_FlinkJobManager
@@ -61,5 +68,5 @@ FlinkProcessor/Core/ClickhouseActivityRepository.py:43: [R1705(no-else-return), 
 SimulationModule/Models/UserSensorService.py:16: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
 
 -----------------------------------
-Your code has been rated at 9.79/10
+Your code has been rated at 9.65/10
 
