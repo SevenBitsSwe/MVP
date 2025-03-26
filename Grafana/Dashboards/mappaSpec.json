@@ -266,8 +266,8 @@
             },
             "location": {
               "latitude": "userLatitude",
-				      "longitude": "userLongitude",
-				      "mode": "coords"
+              "longitude": "userLongitude",
+              "mode": "coords"
             },
             "name": "messaggi",
             "tooltip": true,
@@ -278,13 +278,14 @@
           "mode": "details"
         },
         "view": {
+          "allLayers": true,
           "id": "coords",
-    		  "lat": 45.402748,
-    		  "lon": 11.86733,
-			    "zoom": 15
+          "lat": 45.402748,
+          "lon": 11.86733,
+          "zoom": 15
         }
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.5.1",
       "targets": [
         {
           "builderOptions": {
@@ -455,7 +456,7 @@
             "mode": "list",
             "orderBy": [],
             "queryType": "table",
-            "table": "attivita"
+            "table": "activity"
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
@@ -506,12 +507,193 @@
           },
           "pluginVersion": "4.8.2",
           "queryType": "table",
-          "rawSql": "SELECT m.* \nFROM nearyou.messageTable m\nINNER JOIN nearyou.user u ON m.user_uuid = u.user_uuid\nWHERE u.assigned_sensor_uuid = toUUID('${user_id}')\nLIMIT 1000",
+          "rawSql": "SELECT     \n    m.userLatitude, \n    m.userLongitude, \n    m.creationTime, \n    u.name, \n    u.surname, \n    a.name, \n    m.message \nFROM nearyou.messageTable m\nINNER JOIN nearyou.user u ON m.user_uuid = u.user_uuid \nINNER JOIN nearyou.activity a ON m.activity_uuid = a.activity_uuid \nWHERE u.assigned_sensor_uuid = toUUID('${user_id}')\nLIMIT 1000;\n",
           "refId": "D"
         }
       ],
       "title": "Panel Title",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:D)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "userLatitude": false,
+              "userLongitude": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "a.name": 5,
+              "creationTime": 2,
+              "message": 6,
+              "surname": 4,
+              "u.name": 3,
+              "userLatitude": 0,
+              "userLongitude": 1
+            },
+            "renameByName": {
+              "a.name": "activityName",
+              "surname": "userSurname",
+              "u.name": "userName",
+              "userLatitude": "messageLatitude",
+              "userLongitude": "messageLongitude"
+            }
+          },
+          "topic": "series"
+        }
+      ],
       "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "ee5wustcp8zr4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": true
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true
+      },
+      "pluginVersion": "11.5.1",
+      "targets": [
+        {
+          "builderOptions": {
+            "aggregates": [],
+            "columns": [
+              {
+                "alias": "*",
+                "custom": false,
+                "name": "*",
+                "type": "String"
+              }
+            ],
+            "database": "nearyou",
+            "filters": [],
+            "groupBy": [],
+            "limit": 1000,
+            "meta": {},
+            "mode": "list",
+            "orderBy": [],
+            "queryType": "table",
+            "table": "user"
+          },
+          "editorType": "sql",
+          "format": 1,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [],
+              "columns": [
+                {
+                  "alias": "*",
+                  "custom": false,
+                  "name": "*",
+                  "type": "String"
+                }
+              ],
+              "database": "nearyou",
+              "filters": [],
+              "groupBy": [],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [],
+              "queryType": "table",
+              "table": "user"
+            }
+          },
+          "pluginVersion": "4.8.2",
+          "queryType": "table",
+          "rawSql": "SELECT \n    u.name, \n    u.surname, \n    u.email, \n    u.gender, \n    u.birthdate, \n    u.civil_status, \n    ARRAY_AGG(ui.interest) AS interests_json\nFROM \n    nearyou.user u\nJOIN \n    nearyou.user_interest ui ON u.user_uuid = ui.user_uuid\nWHERE \n    u.assigned_sensor_uuid = toUUID('${user_id}')\nGROUP BY \n    u.name, u.surname, u.email, u.gender, u.birthdate, u.civil_status, u.user_uuid;\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Anagrafica utente",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "auto",
+            "jsonPaths": [
+              {
+                "alias": "interest",
+                "path": ""
+              }
+            ],
+            "keepTime": false,
+            "replace": false,
+            "source": "interests_json"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "interests_json": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "^(\\d+)$",
+            "renamePattern": "interesse $1"
+          }
+        }
+      ],
+      "type": "table"
     }
   ],
   "preload": false,
@@ -535,7 +717,7 @@
             "value": "1"
           }
         ],
-        "query": "306ef53f-9222-4e9f-bb47-07ed6c2009ab",
+        "query": "52d61c2a-475a-45d7-999d-bc9ff711556c",
         "type": "textbox"
       }
     ]
@@ -548,6 +730,6 @@
   "timezone": "browser",
   "title": "mappa specifica",
   "uid": "cec5m2txm1fr4a",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }

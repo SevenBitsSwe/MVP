@@ -4,6 +4,7 @@ from Models.UserDTO import UserDTO
 from Models.SensorDTO import SensorDTO
 import uuid
 import threading
+import time
 
 class UserSensorService:
 
@@ -16,6 +17,7 @@ class UserSensorService:
         """Assigns a sensor to a user"""
         with open('sensor_assignment.log', 'a') as log_file:
             log_file.write("Starting sensor assignment process...\n")
+            time.sleep(1)
             with self.__lock:  # Use a context manager to acquire and release the lock
                 log_file.write("Lock acquired\n")
                 sensor = self.__SensorRepository.get_non_occupied_sensor()

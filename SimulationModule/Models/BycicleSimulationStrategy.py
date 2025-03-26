@@ -8,7 +8,7 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
     def __init__(self, graph_istance: GraphWrapper):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
-        self.__delta_time_between_positions = 10
+        self.__delta_time_between_positions = 21
         self.__graph_istance = graph_istance.get_graph()
 
     def get_route(self):
