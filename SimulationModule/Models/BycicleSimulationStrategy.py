@@ -1,7 +1,7 @@
+import random
+import osmnx
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 from Models.GraphWrapper import GraphWrapper
-import osmnx
-import random
 
 class BycicleSimulationStrategy(IPositionSimulationStrategy):
 
@@ -35,4 +35,3 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
     def get_speed(self) -> float:
         speed = self.__bycicle_speed_approximated / 3.6
         return speed
-

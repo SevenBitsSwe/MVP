@@ -31,22 +31,10 @@ getReports.py:241: [C0303(trailing-whitespace), ] Trailing whitespace
 getReports.py:244: [C0304(missing-final-newline), ] Final newline missing
 getReports.py:14: [W0621(redefined-outer-name), write_coverage_report] Redefining name 'data' from outer scope (line 225)
 getReports.py:11: [E0601(used-before-assignment), write_coverage_report] Using variable 'xml_file' before assignment
-getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 222)
-getReports.py:140: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
-getReports.py:181: [W0621(redefined-outer-name), analyze_module_metrics] Redefining name 'class_metrics' from outer scope (line 231)
-getReports.py:182: [R1701(consider-merging-isinstance), analyze_module_metrics] Consider merging these isinstance calls to isinstance(n, (ast.AnnAssign, ast.Assign))
-getReports.py:199: [W0621(redefined-outer-name), get_class_metrics] Redefining name 'class_metrics' from outer scope (line 231)
-getReports.py:215: [E0601(used-before-assignment), get_class_metrics] Using variable 'fan_in_dict' before assignment
-getReports.py:216: [E0601(used-before-assignment), get_class_metrics] Using variable 'fan_out_dict' before assignment
-getReports.py:197: [R0912(too-many-branches), get_class_metrics] Too many branches (9/4)
-getReports.py:202: [R1702(too-many-nested-blocks), get_class_metrics] Too many nested blocks (9/5)
-getReports.py:243: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
-getReports.py:5: [W0611(unused-import), ] Unused datetime imported from datetime
-************* Module app.FlinkProcessor.main
-FlinkProcessor/main.py:7: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/main.py:20: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-FlinkProcessor/main.py:23: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/main.py:6: [W0611(unused-import), ] Unused WatermarkStrategy imported from pyflink.common.watermark_strategy
+getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 158)
+getReports.py:125: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
+getReports.py:168: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
+getReports.py:168: [W1309(f-string-without-interpolation), ] Using an f-string that does not have any interpolated variables
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
 ************* Module app.FlinkProcessor.Tests.test_ClickhouseMessageRepository
@@ -83,187 +71,24 @@ FlinkProcessor/Core/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too f
 FlinkProcessor/Core/MessageDTO.py:3: [R0902(too-many-instance-attributes), MessageDTO] Too many instance attributes (9/8)
 FlinkProcessor/Core/MessageDTO.py:6: [R0913(too-many-arguments), MessageDTO.__init__] Too many arguments (10/8)
 FlinkProcessor/Core/MessageDTO.py:3: [R0903(too-few-public-methods), MessageDTO] Too few public methods (0/1)
-************* Module app.SimulationModule.main
-SimulationModule/main.py:41: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.SimulationModule.Tests.test_UserSensorService
-SimulationModule/Tests/test_UserSensorService.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_UserSensorService.py:8: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserSensorService import UserSensorService"
-************* Module app.SimulationModule.Tests.test_SensorFactory
-SimulationModule/Tests/test_SensorFactory.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:64: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:10: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock, patch" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Tests/test_SensorFactory.py:11: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorSubject import SensorSubject"
-************* Module app.SimulationModule.Tests.test_GraphWrapper
-SimulationModule/Tests/test_GraphWrapper.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:44: [C0304(missing-final-newline), ] Final newline missing
-SimulationModule/Tests/test_GraphWrapper.py:3: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.GraphWrapper import GraphWrapper"
-SimulationModule/Tests/test_GraphWrapper.py:4: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.GraphWrapper import GraphWrapper"
-SimulationModule/Tests/test_GraphWrapper.py:2: [W0611(unused-import), ] Unused import osmnx
-************* Module app.SimulationModule.Tests.test_DatabaseConnection
-SimulationModule/Tests/test_DatabaseConnection.py:11: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:59: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:61: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Tests/test_DatabaseConnection.py:5: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.DatabaseConnection import DatabaseConnection"
-SimulationModule/Tests/test_DatabaseConnection.py:4: [W0611(unused-import), ] Unused import clickhouse_connect
-************* Module app.SimulationModule.Tests.test_SensorRepository
-SimulationModule/Tests/test_SensorRepository.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorRepository import SensorRepository"
-SimulationModule/Tests/test_SensorRepository.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock" should be placed before "from Models.SensorRepository import SensorRepository"
-SimulationModule/Tests/test_SensorRepository.py:3: [W0611(unused-import), ] Unused ISensorRepository imported from Models.ISensorRepository
-************* Module app.SimulationModule.Tests.test_BycicleSimulationStrategy
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:6: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:11: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:60: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:6: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:8: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:1: [W0611(unused-import), ] Unused IPositionSimulationStrategy imported from Models.IPositionSimulationStrategy
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:3: [W0611(unused-import), ] Unused GeoPosition imported from Models.GeoPosition
-************* Module app.SimulationModule.Tests.test_SensorSimulationAdministrator
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:33: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:47: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.SimulationModule.Tests.test_KafkaConfigParameters
-SimulationModule/Tests/test_KafkaConfigParameters.py:9: [C0304(missing-final-newline), ] Final newline missing
 ************* Module app.SimulationModule.Tests.test_UserRepository
-SimulationModule/Tests/test_UserRepository.py:78: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Tests/test_UserRepository.py:31: [R0915(too-many-statements), TestUserRepository.test_get_free_user] Too many statements (25/20)
-SimulationModule/Tests/test_UserRepository.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserRepository import UserRepository"
-SimulationModule/Tests/test_UserRepository.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock" should be placed before "from Models.UserRepository import UserRepository"
-SimulationModule/Tests/test_UserRepository.py:3: [W0611(unused-import), ] Unused IUserRepository imported from Models.IUserRepository
-************* Module app.SimulationModule.Tests.test_GeoPosition
-SimulationModule/Tests/test_GeoPosition.py:7: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GeoPosition.py:31: [C0304(missing-final-newline), ] Final newline missing
-SimulationModule/Tests/test_GeoPosition.py:2: [W0611(unused-import), ] Unused MagicMock imported from unittest.mock
-************* Module app.SimulationModule.Tests.test_PositionJsonAdapter
-SimulationModule/Tests/test_PositionJsonAdapter.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_PositionJsonAdapter.py:3: [W0611(unused-import), ] Unused import uuid
-SimulationModule/Tests/test_PositionJsonAdapter.py:4: [W0611(unused-import), ] Unused IJsonSerializable imported from Models.IJsonSerializable
-************* Module app.SimulationModule.Tests.test_GpsSensor
-SimulationModule/Tests/test_GpsSensor.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:49: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Tests.test_KafkaConfluentAdapter
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:41: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:53: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:58: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:73: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:76: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:79: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:83: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:5: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:9: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-************* Module app.SimulationModule.Models.BycicleSimulationStrategy
-SimulationModule/Models/BycicleSimulationStrategy.py:38: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Models/BycicleSimulationStrategy.py:4: [C0411(wrong-import-order), ] standard import "import random" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-************* Module app.SimulationModule.Models.SensorRepository
-SimulationModule/Models/SensorRepository.py:14: [W0612(unused-variable), SensorRepository.mark_sensor_as_occupied] Unused variable 'result'
-SimulationModule/Models/SensorRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.ISensorRepository import ISensorRepository"
-************* Module app.SimulationModule.Models.KafkaConfluentAdapter
-SimulationModule/Models/KafkaConfluentAdapter.py:7: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
+SimulationModule/Tests/test_UserRepository.py:30: [R0915(too-many-statements), TestUserRepository.test_get_free_user] Too many statements (25/20)
 ************* Module app.SimulationModule.Models.UserSensorService
-SimulationModule/Models/UserSensorService.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/UserSensorService.py:18: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
-SimulationModule/Models/UserSensorService.py:5: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.IUserRepository import IUserRepository"
-SimulationModule/Models/UserSensorService.py:6: [C0411(wrong-import-order), ] standard import "import threading" should be placed before "from Models.IUserRepository import IUserRepository"
-SimulationModule/Models/UserSensorService.py:7: [C0411(wrong-import-order), ] standard import "import time" should be placed before "from Models.IUserRepository import IUserRepository"
-SimulationModule/Models/UserSensorService.py:3: [W0611(unused-import), ] Unused UserDTO imported from Models.UserDTO
-SimulationModule/Models/UserSensorService.py:4: [W0611(unused-import), ] Unused SensorDTO imported from Models.SensorDTO
-************* Module app.SimulationModule.Models.GeoPosition
-SimulationModule/Models/GeoPosition.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Models.IUserRepository
-SimulationModule/Models/IUserRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.UserDTO import UserDTO"
-SimulationModule/Models/IUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserDTO import UserDTO"
-SimulationModule/Models/IUserRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Models.DatabaseConnection
-************* Module app.SimulationModule.Models.UserRepository
-SimulationModule/Models/UserRepository.py:14: [W0612(unused-variable), UserRepository.mark_user_as_occupied] Unused variable 'result'
-************* Module app.SimulationModule.Models.ISensorRepository
-SimulationModule/Models/ISensorRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.SensorDTO import SensorDTO"
-SimulationModule/Models/ISensorRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorDTO import SensorDTO"
-SimulationModule/Models/ISensorRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Models.DatabaseConnection
+SimulationModule/Models/UserSensorService.py:16: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
 ************* Module app.SimulationModule.Models.IPositionSimulationStrategy
-SimulationModule/Models/IPositionSimulationStrategy.py:9: [W0107(unnecessary-pass), IPositionSimulationStrategy.get_route] Unnecessary pass statement
-************* Module app.SimulationModule.Models.SensorSimulationAdministrator
-SimulationModule/Models/SensorSimulationAdministrator.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Models.DatabaseConfigParameters
-SimulationModule/Models/DatabaseConfigParameters.py:8: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.SimulationModule.Models.PositionJsonAdapter
-SimulationModule/Models/PositionJsonAdapter.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionJsonAdapter.py:3: [C0411(wrong-import-order), ] standard import "import json" should be placed before "from Models.IJsonSerializable import IJsonSerializable"
-************* Module app.SimulationModule.Models.GpsSensor
-SimulationModule/Models/GpsSensor.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Models/GpsSensor.py:7: [C0411(wrong-import-order), ] standard import "import time" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Models/GpsSensor.py:8: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from Models.SensorSubject import SensorSubject"
+SimulationModule/Models/IPositionSimulationStrategy.py:8: [W0107(unnecessary-pass), IPositionSimulationStrategy.get_route] Unnecessary pass statement
 ************* Module app.SimulationModule.Models.IJsonSerializable
 SimulationModule/Models/IJsonSerializable.py:8: [W0107(unnecessary-pass), IJsonSerializable.serialize_to_json] Unnecessary pass statement
 ************* Module app.SimulationModule.Models.SensorSubject
-SimulationModule/Models/SensorSubject.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/SensorSubject.py:30: [C0303(trailing-whitespace), ] Trailing whitespace
 SimulationModule/Models/SensorSubject.py:29: [W0107(unnecessary-pass), SensorSubject.simulate] Unnecessary pass statement
-************* Module app.SimulationModule.Models.DatabaseConnection
-SimulationModule/Models/DatabaseConnection.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/DatabaseConnection.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/DatabaseConnection.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.SimulationModule.Models.SensorDTO
 SimulationModule/Models/SensorDTO.py:3: [R0903(too-few-public-methods), SensorDTO] Too few public methods (0/1)
 ************* Module app.SimulationModule.Models.PositionSender
-SimulationModule/Models/PositionSender.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionSender.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionSender.py:19: [W0107(unnecessary-pass), PositionSender.send_data_to_broker] Unnecessary pass statement
-SimulationModule/Models/PositionSender.py:3: [C0411(wrong-import-order), ] standard import "import threading" should be placed before "from Models.GeoPosition import GeoPosition"
-SimulationModule/Models/PositionSender.py:4: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.GeoPosition import GeoPosition"
+SimulationModule/Models/PositionSender.py:18: [W0107(unnecessary-pass), PositionSender.send_data_to_broker] Unnecessary pass statement
 ************* Module app.SimulationModule.Models.UserDTO
 SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (9/8)
 SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
 
 -----------------------------------
-Your code has been rated at 8.84/10
+Your code has been rated at 9.69/10
 

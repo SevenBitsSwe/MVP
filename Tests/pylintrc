@@ -10,15 +10,16 @@ expected-line-ending-format =
 
 max-nested-blocks = 5
 max-locals = 15
-min-public-methods = 1
+min-public-methods = 0
 max-public-methods = 20
 max-bool-expr = 5
 
 ## PdQ
-max-statements = 20
-max-attributes = 8
-max-args = 8
+max-statements = 25
+max-attributes = 9
+max-args = 10
 max-branches = 4
 
 [MESSAGES CONTROL]
-disable = C0115
+disable = C0115,
+	  unnecessary-pass

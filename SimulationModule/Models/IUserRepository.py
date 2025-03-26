@@ -1,7 +1,6 @@
-from Models.UserDTO import UserDTO
-from Models.DatabaseConnection import DatabaseConnection
-from abc import ABC, abstractmethod
 import uuid
+from abc import ABC, abstractmethod
+from Models.UserDTO import UserDTO
 
 class IUserRepository(ABC):
     @abstractmethod

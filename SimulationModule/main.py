@@ -35,7 +35,3 @@ sensor_factory = SensorFactory(sensor_repository, user_repository)
 
 sensor_simulation_istance = SensorSimulationAdministrator(sensor_factory.create_gps_sensor_list(kafka_confluent_adapter, strategy_simulation, 6))
 sensor_simulation_istance.start_simulation()
-
-
-
-

@@ -1,10 +1,9 @@
 import unittest
-from unittest.mock import MagicMock
 import uuid
 from Models.GeoPosition import GeoPosition
 
 class TestGeoPosition(unittest.TestCase):
-    
+
     def setUp(self):
         self.test_sensor_id = str(uuid.uuid4())
         self.test_latitude = 0.0

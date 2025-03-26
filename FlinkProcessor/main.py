@@ -1,9 +1,9 @@
 import time
-from Core.FlinkJobManager import FlinkJobManager
 from pyflink.datastream import StreamExecutionEnvironment
 from pyflink.datastream.execution_mode import RuntimeExecutionMode
 from pyflink.datastream.functions import MapFunction,FilterFunction
-from pyflink.common.watermark_strategy import WatermarkStrategy
+from pyflink.common import Configuration
+from Core.FlinkJobManager import FlinkJobManager
 from Core.IPositionReceiver import IPositionReceiver
 from Core.IMessageWriter import IMessageWriter
 from Core.KafkaMessageWriter import KafkaMessageWriter
@@ -17,7 +17,6 @@ from Core.FilterMessageAlreadyDisplayed import FilterMessageAlreadyDisplayed
 from Core.LLMService import LLMService
 from Core.StructuredResponseMessage import StructuredResponseMessage
 from Core.GroqLLMService import GroqLLMService
-from pyflink.common import Configuration
 
 
 from Core.IUserRepository import IUserRepository

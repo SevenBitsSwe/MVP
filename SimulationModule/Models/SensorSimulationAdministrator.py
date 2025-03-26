@@ -12,4 +12,3 @@ class SensorSimulationAdministrator:
 
         with ThreadPool(len(self.__sensor_registry)) as pool:
             pool.map(lambda sensor: sensor.simulate(), self.__sensor_registry)
-            
