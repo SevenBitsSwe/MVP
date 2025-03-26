@@ -5,6 +5,7 @@ from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.ActivityDTO import ActivityDTO
 
+#TU1
 class TestClickhouseActivityRepository(unittest.TestCase):
     def setUp(self):
         # Create a mock for DatabaseConnection

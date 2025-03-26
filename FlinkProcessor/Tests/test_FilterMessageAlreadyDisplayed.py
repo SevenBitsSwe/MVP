@@ -6,6 +6,7 @@ from Core.FilterMessageAlreadyDisplayed import FilterMessageAlreadyDisplayed
 from Core.IMessageRepository import IMessageRepository
 from Core.MessageDTO import MessageDTO
 
+#TU7
 class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
     def setUp(self):
         # mock message repository , necessary for filter constructor

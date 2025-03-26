@@ -6,6 +6,7 @@ from Core.JsonRowSerializationAdapter import JsonRowSerializationAdapter
 from pyflink.datastream.connectors.kafka import KafkaSink, KafkaRecordSerializationSchema
 from pyflink.datastream.formats.json import JsonRowSerializationSchema
 
+#TU12
 class TestKafkaMessageWriter(unittest.TestCase):
     
     @patch('Core.KafkaMessageWriter.KafkaRecordSerializationSchema')

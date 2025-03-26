@@ -5,7 +5,7 @@ from Core.ClickhouseUserRepository import ClickhouseUserRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.UserDTO import UserDTO
 
-
+#TU3
 class TestClickhouseUserRepository(unittest.TestCase):
     def setUp(self):
         # Create a mock for DatabaseConnection

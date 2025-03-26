@@ -5,6 +5,7 @@ from Core.KafkaSourceConfiguration import KafkaSourceConfiguration
 from Core.JsonRowDeserializationAdapter import JsonRowDeserializationAdapter
 from pyflink.datastream.connectors.kafka import KafkaSource
 
+#TU13
 class TestKafkaPositionReceiver(unittest.TestCase):
     
     def setUp(self):

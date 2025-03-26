@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 import uuid
 from Models.GeoPosition import GeoPosition
 
+# TU21
 class TestGeoPosition(unittest.TestCase):
     
     def setUp(self):

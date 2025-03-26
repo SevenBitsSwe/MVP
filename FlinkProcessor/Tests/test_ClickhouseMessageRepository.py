@@ -5,6 +5,7 @@ from Core.ClickhouseMessageRepository import ClickhouseMessageRepository
 from Core.DatabaseConnection import DatabaseConnection
 from Core.MessageDTO import MessageDTO
 
+#TU2
 class TestClickhouseMessageRepository(unittest.TestCase):
     def setUp(self):
         # Create a mock for DatabaseConnection

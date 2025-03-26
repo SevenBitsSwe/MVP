@@ -6,6 +6,7 @@ from Models.GpsSensor import GpsSensor
 from Models.PositionSender import PositionSender
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 
+# TU22
 class TestGpsSensor(unittest.TestCase):
     def setUp(self):
         #PositionSender and IPositionSimulationStrategy mock

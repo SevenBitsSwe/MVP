@@ -5,6 +5,7 @@ from Core.MessageSerializer import MessageSerializer
 from Core.MessageDTO import MessageDTO
 from pyflink.common.types import Row
 
+#TU16
 class TestMessageSerializer(unittest.TestCase):
     
     def setUp(self):

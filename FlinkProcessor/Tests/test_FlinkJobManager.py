@@ -10,6 +10,7 @@ from Core.IMessageWriter import IMessageWriter
 from Core.FlinkJobManager import FlinkJobManager
 from Core.KafkaWriterConfiguration import KafkaWriterConfiguration
 
+#TU8
 class TestFlinkJobManager:
     
     @pytest.fixture

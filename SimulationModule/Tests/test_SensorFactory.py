@@ -10,6 +10,7 @@ from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 from unittest.mock import Mock, patch
 import uuid
 
+# TU27
 class TestSensorFactory(unittest.TestCase):
     def setUp(self):
         self.mock_sensor_repository = Mock(spec=ISensorRepository)

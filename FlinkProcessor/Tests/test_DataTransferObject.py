@@ -9,6 +9,7 @@ from Core.ActivityDTO import ActivityDTO
 # from Core.UserDTO import UserDTO
 # from Core.ActivityDTO import ActivityDTO
 
+#TU6
 class TestDataTransferObjects(unittest.TestCase):
     """Test suite for Data Transfer Objects used in the application."""
     

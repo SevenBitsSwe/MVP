@@ -5,6 +5,7 @@ from pyflink.common import Types
 from pyflink.datastream.formats.json import JsonRowDeserializationSchema
 from Core.JsonRowDeserializationAdapter import JsonRowDeserializationAdapter
 
+#TU10
 class TestJsonRowDeserializationAdapter(unittest.TestCase):
     
     def setUp(self):

@@ -5,6 +5,7 @@ from Models.IJsonSerializable import IJsonSerializable
 from Models.PositionJsonAdapter import PositionJsonAdapter
 from Models.GeoPosition import GeoPosition
 
+# TU26
 class TestPositionJsonAdapter(unittest.TestCase):
     def setUp(self):
         self.adapter = PositionJsonAdapter()

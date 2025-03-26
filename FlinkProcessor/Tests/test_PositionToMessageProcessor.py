@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 from pyflink.common.types import Row
 from datetime import datetime
 
-
+#TU17
 # Import corretti
 from Core.PositionToMessageProcessor import PositionToMessageProcessor
 from Core.LLMService import LLMService

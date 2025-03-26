@@ -8,7 +8,7 @@ from confluent_kafka import Producer
 
 from unittest.mock import MagicMock,patch
 
-
+# TU25
 class TestKafkaConfluentAdapter(unittest.TestCase):
 
     def setUp(self):

@@ -4,6 +4,7 @@ from Models.DatabaseConfigParameters import DatabaseConfigParameters
 import clickhouse_connect
 from unittest.mock import MagicMock,patch
 
+# TU20
 class TestDatabaseConnection(unittest.TestCase):
 
     def setUp(self):

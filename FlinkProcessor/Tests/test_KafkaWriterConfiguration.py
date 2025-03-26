@@ -3,6 +3,7 @@ from pyflink.common import Types
 from pyflink.common.typeinfo import TypeInformation
 from Core.KafkaWriterConfiguration import KafkaWriterConfiguration
 
+#TU15
 class TestKafkaWriterConfiguration(unittest.TestCase):    
     def test_default_values(self):
         """Test default configuration values"""

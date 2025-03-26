@@ -1,6 +1,7 @@
 import unittest
 from Core.KafkaSourceConfiguration import KafkaSourceConfiguration
 
+#TU14
 class TestKafkaSourceConfiguration(unittest.TestCase):
     
     def test_default_initialization(self):

@@ -1,6 +1,7 @@
 import unittest
 from Models.KafkaConfigParameters import KafkaConfigParameters
 
+# TU24
 class TestKafkaConfigParameters(unittest.TestCase):
 
     def test_default_values(self):
