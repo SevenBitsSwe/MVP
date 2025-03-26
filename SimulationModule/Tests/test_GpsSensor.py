@@ -15,6 +15,7 @@ class TestGpsSensor(unittest.TestCase):
         #IPositionSimulationStrategy mock
         self.mock_simulation_strategy.get_speed.return_value = 4.1667
         self.mock_simulation_strategy.get_route.return_value = [(45.0, 9.0), (45.1, 9.1)]
+        self.mock_simulation_strategy.get_delta_time.return_value = 21
 
         # Inizializziamo il sensore GPS con i mock
         self.test_uuid = uuid.uuid4()
@@ -62,9 +63,7 @@ class TestGpsSensor(unittest.TestCase):
 
     def test_get_update_time(self):
         """Verifica che il metodo get_update_time restituisca il tempo di aggiornamento della SimulationStrategy assegnata"""
-        expected_update_time = 20
-        self.mock_simulation_strategy.get_delta_time.return_value = expected_update_time
+        expected_update_time = 21
 
-        actual_update_time = self.test_sensor.get_update_time()
-        self.assertEqual(actual_update_time, expected_update_time)
+        self.assertEqual(self.test_sensor.get_update_time(), expected_update_time)
         self.mock_simulation_strategy.get_delta_time.assert_called_once()
