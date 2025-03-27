@@ -488,7 +488,7 @@
                 },
                 "assign_sensor_to_user": {
                     "parameters": 1,
-                    "lines": 24
+                    "lines": 25
                 }
             },
             "fan_in": 1,

@@ -1,5 +1,6 @@
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
+FlinkProcessor/Tests/test_GroqLLMService.py:98: [C0304(missing-final-newline), ] Final newline missing
 ************* Module app.FlinkProcessor.Tests.test_FlinkJobManager
 FlinkProcessor/Tests/test_FlinkJobManager.py:71: [W0612(unused-variable), TestFlinkJobManager.test_initialization] Unused variable 'job_manager'
 ************* Module app.FlinkProcessor.Tests.test_KafkaPositionReceiver
@@ -21,8 +22,21 @@ FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:16: [R1705(no-else-return),
 ************* Module app.FlinkProcessor.Core.ClickhouseActivityRepository
 FlinkProcessor/Core/ClickhouseActivityRepository.py:43: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 ************* Module app.SimulationModule.Models.UserSensorService
-SimulationModule/Models/UserSensorService.py:16: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
+SimulationModule/Models/UserSensorService.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
+SimulationModule/Models/UserSensorService.py:17: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
+************* Module app.IntegrationTests.test_KafkaClickhouseIntegration
+IntegrationTests/test_KafkaClickhouseIntegration.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:59: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:30: [W0613(unused-argument), TestKafkaIntegration.test_position_sent_to_kafka_are_correctly_stored] Unused argument 'mock_producer'
+IntegrationTests/test_KafkaClickhouseIntegration.py:9: [C0412(ungrouped-imports), ] Imports from package Models are not grouped
+IntegrationTests/test_KafkaClickhouseIntegration.py:13: [W0611(unused-import), ] Unused import clickhouse_connect
 
 -----------------------------------
-Your code has been rated at 9.93/10
+Your code has been rated at 9.86/10
 
