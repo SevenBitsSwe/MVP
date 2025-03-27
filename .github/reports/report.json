@@ -5,7 +5,7 @@
     },
     "class_metrics": {
         "Core.PositionToMessageProcessor": {
-            "attributes": 0,
+            "attributes": 4,
             "methods": {
                 "__init__": {
                     "parameters": 5,
@@ -21,7 +21,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 7
         },
         "Core.IMessageWriter": {
             "attributes": 0,
@@ -35,7 +35,7 @@
             "fan_out": 0
         },
         "Core.ClickhouseMessageRepository": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -47,10 +47,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Core.JsonRowSerializationAdapter": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -65,7 +65,7 @@
             "fan_out": 0
         },
         "Core.KafkaPositionReceiver": {
-            "attributes": 0,
+            "attributes": 3,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -81,10 +81,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Core.GroqLLMService": {
-            "attributes": 0,
+            "attributes": 2,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -100,10 +100,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.ActivityDTO": {
-            "attributes": 0,
+            "attributes": 7,
             "methods": {
                 "__init__": {
                     "parameters": 8,
@@ -131,7 +131,7 @@
             "fan_out": 0
         },
         "Core.CustomPrompt": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 1,
@@ -152,7 +152,7 @@
             "fan_out": 0
         },
         "Core.KafkaMessageWriter": {
-            "attributes": 0,
+            "attributes": 4,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -172,7 +172,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Core.IUserRepository": {
             "attributes": 0,
@@ -183,10 +183,10 @@
                 }
             },
             "fan_in": 2,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.LLMService": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -205,7 +205,7 @@
             "fan_out": 0
         },
         "Core.FilterMessageAlreadyDisplayed": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -221,7 +221,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.IMessageRepository": {
             "attributes": 0,
@@ -243,10 +243,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Core.ClickhouseActivityRepository": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -262,7 +262,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Core.DatabaseConfigParameters": {
             "attributes": 4,
@@ -271,7 +271,7 @@
             "fan_out": 0
         },
         "Core.ClickhouseUserRepository": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -283,7 +283,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Core.IActivityRepository": {
             "attributes": 0,
@@ -298,7 +298,7 @@
                 }
             },
             "fan_in": 2,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.KafkaWriterConfiguration": {
             "attributes": 4,
@@ -322,7 +322,7 @@
             "fan_out": 0
         },
         "Core.DatabaseConnection": {
-            "attributes": 0,
+            "attributes": 5,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -338,10 +338,10 @@
                 }
             },
             "fan_in": 3,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.JsonRowDeserializationAdapter": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -364,10 +364,10 @@
                 }
             },
             "fan_in": 2,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Core.UserDTO": {
-            "attributes": 0,
+            "attributes": 9,
             "methods": {
                 "__init__": {
                     "parameters": 10,
@@ -378,7 +378,7 @@
             "fan_out": 0
         },
         "Core.MessageDTO": {
-            "attributes": 0,
+            "attributes": 9,
             "methods": {
                 "__init__": {
                     "parameters": 10,
@@ -389,7 +389,7 @@
             "fan_out": 0
         },
         "Core.FlinkJobManager": {
-            "attributes": 0,
+            "attributes": 6,
             "methods": {
                 "__init__": {
                     "parameters": 7,
@@ -401,10 +401,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Models.BycicleSimulationStrategy": {
-            "attributes": 0,
+            "attributes": 3,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -424,10 +424,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Models.SensorRepository": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -443,10 +443,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Models.GraphWrapper": {
-            "attributes": 0,
+            "attributes": 4,
             "methods": {
                 "__init__": {
                     "parameters": 5,
@@ -461,7 +461,7 @@
             "fan_out": 0
         },
         "Models.KafkaConfluentAdapter": {
-            "attributes": 0,
+            "attributes": 2,
             "methods": {
                 "__init__": {
                     "parameters": 4,
@@ -473,10 +473,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Models.SensorFactory": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -492,10 +492,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 7
         },
         "Models.UserSensorService": {
-            "attributes": 0,
+            "attributes": 3,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -507,10 +507,10 @@
                 }
             },
             "fan_in": 1,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Models.GeoPosition": {
-            "attributes": 0,
+            "attributes": 4,
             "methods": {
                 "__init__": {
                     "parameters": 5,
@@ -549,7 +549,7 @@
                 }
             },
             "fan_in": 3,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Models.KafkaConfigParameters": {
             "attributes": 2,
@@ -558,7 +558,7 @@
             "fan_out": 0
         },
         "Models.UserRepository": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -574,7 +574,7 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 3
         },
         "Models.ISensorRepository": {
             "attributes": 0,
@@ -589,7 +589,7 @@
                 }
             },
             "fan_in": 3,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Models.IPositionSimulationStrategy": {
             "attributes": 0,
@@ -611,7 +611,7 @@
             "fan_out": 0
         },
         "Models.SensorSimulationAdministrator": {
-            "attributes": 0,
+            "attributes": 1,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -640,10 +640,10 @@
                 }
             },
             "fan_in": 0,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Models.GpsSensor": {
-            "attributes": 0,
+            "attributes": 2,
             "methods": {
                 "__init__": {
                     "parameters": 4,
@@ -659,7 +659,7 @@
                 }
             },
             "fan_in": 1,
-            "fan_out": 0
+            "fan_out": 4
         },
         "Models.IJsonSerializable": {
             "attributes": 0,
@@ -673,7 +673,7 @@
             "fan_out": 0
         },
         "Models.SensorSubject": {
-            "attributes": 0,
+            "attributes": 3,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -696,7 +696,7 @@
             "fan_out": 0
         },
         "Models.DatabaseConnection": {
-            "attributes": 0,
+            "attributes": 5,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -712,10 +712,10 @@
                 }
             },
             "fan_in": 2,
-            "fan_out": 0
+            "fan_out": 1
         },
         "Models.SensorDTO": {
-            "attributes": 0,
+            "attributes": 2,
             "methods": {
                 "__init__": {
                     "parameters": 3,
@@ -726,7 +726,7 @@
             "fan_out": 0
         },
         "Models.PositionSender": {
-            "attributes": 0,
+            "attributes": 2,
             "methods": {
                 "__init__": {
                     "parameters": 2,
@@ -742,10 +742,10 @@
                 }
             },
             "fan_in": 3,
-            "fan_out": 0
+            "fan_out": 2
         },
         "Models.UserDTO": {
-            "attributes": 0,
+            "attributes": 8,
             "methods": {
                 "__init__": {
                     "parameters": 9,
