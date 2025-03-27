@@ -8,7 +8,7 @@ class KafkaSourceConfiguration:
     group_id: str = "pyfinkJob"
     enable_auto_commit: str = "true"
     commit_offsets_on_checkpoint: str = "true"
-    row_type = Types.ROW_NAMED( ['user_uuid', 'latitude','longitude', 'receptionTime'],
+    row_type = Types.ROW_NAMED( ['user_uuid', 'latitude','longitude', 'received_at'],
                                 [
                                     Types.STRING(),
                                     Types.FLOAT(),

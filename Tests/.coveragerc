@@ -7,7 +7,6 @@ exclude_lines =
 
 [run]
 omit = 
-    */main.py
     */pytest.ini
     */pylintbadge.py
     */getReports.py
