@@ -68,16 +68,16 @@ jobs:
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add .github/reports/coverage.xml 
-        git add .github/reports/pylint_report.txt
-        git add .github/reports/report.json
-        git add .github/reports/metrics_attributes.png
-        git add .github/reports/metrics_fan_in.png
-        git add .github/reports/metrics_fan_out.png
-        git add .github/reports/metrics_lines.png
-        git add .github/reports/metrics_parameters.png
-        git commit -m "Aggiunta report"
-        git push 
+        git add .github/reports/coverage.xml || true
+        git add .github/reports/pylint_report.txt || true
+        git add .github/reports/report.json || true
+        git add .github/reports/metrics_attributes.png || true
+        git add .github/reports/metrics_fan_in.png || true
+        git add .github/reports/metrics_fan_out.png || true
+        git add .github/reports/metrics_lines.png || true
+        git add .github/reports/metrics_parameters.png || true
+        git commit -m "Aggiunta report" || true
+        git push || true
 
     - name: Upload coverage to Coveralls
       uses: coverallsapp/github-action@v2

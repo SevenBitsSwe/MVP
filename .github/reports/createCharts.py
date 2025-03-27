@@ -2,6 +2,7 @@ import json
 import matplotlib
 matplotlib.use('Agg')  # Usa il backend 'Agg' che non richiede GUI
 import matplotlib.pyplot as plt
+import os
 
 # Carica il JSON
 with open('report.json', 'r') as f:
@@ -27,6 +28,7 @@ for class_name, class_data in data['class_metrics'].items():
         method_parameters.append(method_data['parameters'])
         method_lines.append(method_data['lines'])
 
+base_path = f'.github/reports/'
 
 # 1. Numero di metodi per classe
 plt.figure(figsize=(10, 12))
@@ -36,8 +38,11 @@ plt.ylabel("Classi")
 plt.title("Attrbuti per classe")
 plt.margins(y=0.03)
 plt.tight_layout()
-plt.savefig(f'metrics_attributes.png')
+file_path = f'metrics_attributes.png'
+plt.savefig(base_path+file_path)
 plt.close()
+if not os.path.exists(base_path+file_path):
+    raise FileNotFoundError(f"Errore: Il file {base_path+file_path} non è stato creato correttamente.")
 
 # # 2. Fan-in per classe
 plt.figure(figsize=(10, 12))
@@ -47,8 +52,11 @@ plt.ylabel("Classi")
 plt.title("Fan-IN per classe")
 plt.margins(y=0.03)
 plt.tight_layout()
-plt.savefig(f'metrics_fan_in.png')
+file_path = f'metrics_fan_in.png'
+plt.savefig(base_path+file_path)
 plt.close()
+if not os.path.exists(base_path+file_path):
+    raise FileNotFoundError(f"Errore: Il file {base_path+file_path} non è stato creato correttamente.")
 
 # # 3. Linee totali di codice per classe
 plt.figure(figsize=(10, 12))
@@ -58,8 +66,11 @@ plt.ylabel("Classi")
 plt.title("Fan-OUT per classe")
 plt.margins(y=0.03)
 plt.tight_layout()
-plt.savefig(f'metrics_fan_out.png')
+file_path = f'metrics_fan_out.png'
+plt.savefig(base_path+file_path)
 plt.close()
+if not os.path.exists(base_path+file_path):
+    raise FileNotFoundError(f"Errore: Il file {base_path+file_path} non è stato creato correttamente.")
 
 # # 4. Parametri totali per metodo
 plt.figure(figsize=(10, 20))
@@ -69,8 +80,11 @@ plt.ylabel("Metodi")
 plt.title("Parametri per metodo")
 plt.margins(y=0.03)
 plt.tight_layout()
-plt.savefig(f'metrics_parameters.png')
+file_path = f'metrics_parameters.png'
+plt.savefig(base_path+file_path)
 plt.close()
+if not os.path.exists(base_path+file_path):
+    raise FileNotFoundError(f"Errore: Il file {base_path+file_path} non è stato creato correttamente.")
 
 # # 4. Linee totali per metodo
 plt.figure(figsize=(10, 20))
@@ -80,5 +94,8 @@ plt.ylabel("Metodi")
 plt.title("Linee per metodo")
 plt.margins(y=0.03)
 plt.tight_layout()
-plt.savefig(f'metrics_lines.png')
+file_path = f'metrics_lines.png'
+plt.savefig(base_path+file_path)
 plt.close()
+if not os.path.exists(base_path+file_path):
+    raise FileNotFoundError(f"Errore: Il file {base_path+file_path} non è stato creato correttamente.")
