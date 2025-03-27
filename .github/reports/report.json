@@ -1,7 +1,7 @@
 {
     "coverage": {
-        "line_coverage": 100.0,
-        "branch_coverage": 100.0
+        "line_coverage": 95.24,
+        "branch_coverage": 70.59
     },
     "class_metrics": {
         "Core.PositionToMessageProcessor": {
@@ -41,9 +41,9 @@
                     "parameters": 2,
                     "lines": 2
                 },
-                "get_user_last_message": {
-                    "parameters": 2,
-                    "lines": 31
+                "check_activity_already_displayed_for_user": {
+                    "parameters": 3,
+                    "lines": 15
                 }
             },
             "fan_in": 0,
@@ -217,7 +217,7 @@
                 },
                 "filter": {
                     "parameters": 2,
-                    "lines": 9
+                    "lines": 14
                 }
             },
             "fan_in": 0,
@@ -226,8 +226,8 @@
         "Core.IMessageRepository": {
             "attributes": 0,
             "methods": {
-                "get_user_last_message": {
-                    "parameters": 2,
+                "check_activity_already_displayed_for_user": {
+                    "parameters": 3,
                     "lines": 2
                 }
             },
@@ -306,6 +306,21 @@
             "fan_in": 2,
             "fan_out": 0
         },
+        "Core.FilterMessageValidator": {
+            "attributes": 0,
+            "methods": {
+                "open": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "filter": {
+                    "parameters": 2,
+                    "lines": 37
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
         "Core.DatabaseConnection": {
             "attributes": 0,
             "methods": {
@@ -370,15 +385,15 @@
                     "lines": 20
                 }
             },
-            "fan_in": 5,
+            "fan_in": 4,
             "fan_out": 0
         },
         "Core.FlinkJobManager": {
             "attributes": 0,
             "methods": {
                 "__init__": {
-                    "parameters": 6,
-                    "lines": 17
+                    "parameters": 7,
+                    "lines": 18
                 },
                 "execute": {
                     "parameters": 1,

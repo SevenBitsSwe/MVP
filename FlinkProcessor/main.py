@@ -14,6 +14,7 @@ from Core.JsonRowDeserializationAdapter import JsonRowDeserializationAdapter
 from Core.JsonRowSerializationAdapter import JsonRowSerializationAdapter
 from Core.PositionToMessageProcessor import PositionToMessageProcessor
 from Core.FilterMessageAlreadyDisplayed import FilterMessageAlreadyDisplayed
+from Core.FilterMessageValidator import FilterMessageValidator
 from Core.LLMService import LLMService
 from Core.StructuredResponseMessage import StructuredResponseMessage
 from Core.GroqLLMService import GroqLLMService
@@ -55,6 +56,7 @@ message_repository: IMessageRepository = ClickhouseMessageRepository(db_connecti
 message_serializer: IFlinkSerializable = MessageSerializer()
 
 map_function_istance: MapFunction = PositionToMessageProcessor(llm_service_istance,user_repository, activity_repository,message_serializer)
+filter_validator_istance: FilterFunction = FilterMessageValidator()
 filter_function_istance: FilterFunction = FilterMessageAlreadyDisplayed(message_repository)
 position_receiver_istance: IPositionReceiver = KafkaPositionReceiver(KafkaSourceConfiguration(),deserialization_adapter)
 message_writer_istance: IMessageWriter = KafkaMessageWriter(KafkaWriterConfiguration(),serialization_adapter)
@@ -63,6 +65,7 @@ message_writer_istance: IMessageWriter = KafkaMessageWriter(KafkaWriterConfigura
 job_istance = FlinkJobManager(
     streaming_env,
     map_function_istance,
+    filter_validator_istance,
     filter_function_istance,
     position_receiver_istance,
     message_writer_istance
