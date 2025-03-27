@@ -62,6 +62,7 @@ CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > /app/repo
     --cov-report=xml:/app/reports/coverage.xml \
     SimulationModule/Tests/ \
     FlinkProcessor/Tests/ \
+    IntegrationTests/ \
     --cov-branch \
     --cov-config=.coveragerc; \
     python getReports.py"]

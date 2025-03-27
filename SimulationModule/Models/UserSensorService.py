@@ -13,6 +13,7 @@ class UserSensorService:
 
     def assign_sensor_to_user(self) -> uuid:
         """Assigns a sensor to a user"""
+        
         with open('sensor_assignment.log', 'a') as log_file:
             log_file.write("Starting sensor assignment process...\n")
             time.sleep(1)
