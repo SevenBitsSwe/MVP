@@ -157,15 +157,19 @@ def write_fan_report():
         dependencies = analyze_project(models_dir)
         fan_in, fan_out = calculate_fan_in_out(dependencies)
         
-        # Merge dependencies and metrics
+        # Add directory prefix to module names
+        dir_name = os.path.basename(models_dir)  # Get "Models" or "Core"
         for module, deps in dependencies.items():
-            all_dependencies[module].update(deps)
+            prefixed_module = f"{dir_name}.{module}"
+            all_dependencies[prefixed_module].update(deps)
+            if module in fan_out:
+                combined_fan_out[prefixed_module] = fan_out[module]
+        
         for module, count in fan_in.items():
+            if not any(module.startswith(prefix) for prefix in ["Models.", "Core."]):
+                module = f"{dir_name}.{module}"
             combined_fan_in[module] += count
-        for module, count in fan_out.items():
-            combined_fan_out[module] += count
 
-    # Save results to report
     return dict(combined_fan_in), dict(combined_fan_out)
 
 
@@ -182,6 +186,15 @@ def analyze_module_metrics(filepath):
                 "attributes": len([n for n in node.body if isinstance(n, ast.AnnAssign) or isinstance(n, ast.Assign)]),
                 "methods": {}
             }
+            
+            # Find __init__ method and count instance attributes
+            init_method = next((n for n in node.body if isinstance(n, ast.FunctionDef) and n.name == '__init__'), None)
+            if init_method:
+                init_attrs = len([n for n in ast.walk(init_method) if isinstance(n, ast.Assign) 
+                                and isinstance(n.targets[0], ast.Attribute) 
+                                and isinstance(n.targets[0].value, ast.Name) 
+                                and n.targets[0].value.id == 'self'])
+                class_metrics["attributes"] += init_attrs
             
             # Analyze methods within the class
             for method in [n for n in node.body if isinstance(n, ast.FunctionDef)]:

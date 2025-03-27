@@ -50,6 +50,14 @@ jobs:
           exit 1
         fi
 
+    - name: Create charts based on recent reports
+      uses: actions/setup-python@v5
+      with: 
+        python-version: '3.12.2'
+    - run: |
+        pip install matplotlib
+        python3 .github/reports/createCharts.py
+
     - name: Push reports to .github/reports
       run: |
         git config user.name "github-actions[bot]"
@@ -57,6 +65,11 @@ jobs:
         git add .github/reports/coverage.xml 
         git add .github/reports/pylint_report.txt
         git add .github/reports/report.json
+        git add .github/reports/metrics_attributes.png
+        git add .github/reports/metrics_fan_in.png
+        git add .github/reports/metrics_fan_out.png
+        git add .github/reports/metrics_lines.png
+        git add .github/reports/metrics_parameters.png
         git commit -m "Aggiunta report"
         git push 
 
