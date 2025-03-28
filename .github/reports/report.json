@@ -315,7 +315,7 @@
                 },
                 "filter": {
                     "parameters": 2,
-                    "lines": 35
+                    "lines": 38
                 }
             },
             "fan_in": 0,
