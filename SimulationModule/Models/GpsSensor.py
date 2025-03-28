@@ -1,11 +1,11 @@
+import uuid
+import time
+from datetime import datetime
+from geopy.distance import geodesic
 from Models.SensorSubject import SensorSubject
 from Models.GeoPosition import GeoPosition
 from Models.PositionSender import PositionSender
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
-from geopy.distance import geodesic
-import uuid
-import time
-from datetime import datetime
 
 class GpsSensor(SensorSubject):
     '''This class inherit from the SensorSubject class and implements the GPS sensor '''
@@ -15,7 +15,7 @@ class GpsSensor(SensorSubject):
         super().__init__(uuid_creation,simulation_strategy)
         self.__position_sender = position_sender
         self.__speed_mps = simulation_strategy.get_speed()
-        
+
     def simulate(self):
         route_coords = self._simulation_strategy.get_route()
         total_distance = 0
@@ -43,6 +43,3 @@ class GpsSensor(SensorSubject):
             longitude,
             datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
-        
-    
-    

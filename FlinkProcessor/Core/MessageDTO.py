@@ -23,6 +23,3 @@ class MessageDTO:
         self.creation_time = creation_time
         self.user_lat = user_lat
         self.user_lon = user_lon
-    
-
-       

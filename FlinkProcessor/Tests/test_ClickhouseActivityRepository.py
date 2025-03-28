@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 import uuid
 from Core.ClickhouseActivityRepository import ClickhouseActivityRepository
 from Core.DatabaseConnection import DatabaseConnection
@@ -20,26 +20,26 @@ class TestClickhouseActivityRepository(unittest.TestCase):
         test_lon = 11.8444214
         test_lat = 45.3785957
         test_max_distance = 1000
-        
+
         # Mock data to simulate found activities
         mock_activities = [
             ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5],
             ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 800.2]
         ]
-        
+
         # Configure the mock to return the data
         mock_result = Mock()
         mock_result.result_rows = mock_activities
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute the method to test
         result = self.repository.get_activities_in_range(test_lon, test_lat, test_max_distance)
-        
+
         # Verify the results
         self.assertEqual(len(result), 2)
         self.assertEqual(result[0][0], "Bar Roma")
         self.assertEqual(result[1][0], "Ristorante Verona")
-        
+
         # Verify that the query is executed with correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
@@ -53,7 +53,7 @@ class TestClickhouseActivityRepository(unittest.TestCase):
         # Prepare test data
         test_activity_name = "Gasperi, Almagi e Lollobrigida SPA"
         test_activity_id = uuid.uuid4()
-        
+
         # Create a mock for the query result
         mock_result = Mock()
         mock_result.result_set = [{}]  # Necessary for length check
@@ -66,12 +66,12 @@ class TestClickhouseActivityRepository(unittest.TestCase):
             'type': 'Education',
             'description': 'Training center'
         }
-        
+
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute the method to test
         result = self.repository.get_activity_spec_from_name(test_activity_name)
-        
+
         # Verify the results using correct attributes of ActivityDTO
         self.assertEqual(result.activity_id, str(test_activity_id))
         self.assertEqual(result.activity_name, test_activity_name)  # Changed from name to activity_name
@@ -80,7 +80,7 @@ class TestClickhouseActivityRepository(unittest.TestCase):
         self.assertEqual(result.activity_addr, 'Contrada Altera, Montegallo, Bellamonte, Grosseto, 51021, Italia')  # Changed from address to activity_addr
         self.assertEqual(result.activity_type, 'Education')  # Changed from type to activity_type
         self.assertEqual(result.activity_description, 'Training center')  # Changed from description to activity_description
-        
+
         # Verify that the query is executed with correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
@@ -92,17 +92,61 @@ class TestClickhouseActivityRepository(unittest.TestCase):
         test_activity_name = "Attività Inesistente"
         mock_result = Mock()
         mock_result.result_set = []  # No results found
-        
+
         self.mock_connection.query.return_value = mock_result
-        
+
         # Execute method to test
         result = self.repository.get_activity_spec_from_name(test_activity_name)
-        
+
         # Verify that an empty ActivityDTO is returned using correct attributes
         self.assertIsInstance(result, ActivityDTO)
         self.assertEqual(result.activity_name,"")  # Keeps activity_name
-        
+
         # Verify that the query was executed with correct parameters
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
         self.assertEqual(call_args[1]["parameters"]["nome"], test_activity_name)
+
+    def test_get_activity_for_user_with_matching_interests(self):
+        # Prepare test data
+        interests = ["Bar", "Restaurant"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 800.2],
+            ["Museum", "Piazza dei Musei", "Museum", "Art museum", 300.0]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is the closest matching activity
+        self.assertEqual(result, ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5])
+
+    def test_get_activity_for_user_no_matching_interests(self):
+        # Prepare test data
+        interests = ["Cinema"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 800.2]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is None when no matches
+        self.assertIsNone(result)
+
+    def test_get_activity_for_user_multiple_matches_returns_closest(self):
+        # Prepare test data
+        interests = ["Bar", "Restaurant"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 800.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 500.2],
+            ["Pub", "Piazza Pub", "Bar", "Local pub", 700.0]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is the closest matching activity
+        self.assertEqual(result, ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 500.2])

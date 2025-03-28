@@ -11,7 +11,7 @@ class UserRepository(IUserRepository):
         """Marks a user as occupied in the database"""
         query = f"ALTER TABLE nearyou.user UPDATE assigned_sensor_uuid = '{sensor_uuid}' WHERE user_uuid = '{user_uuid}'"
         conn = self.__db_conn.connect()
-        result = conn.query(query)
+        conn.query(query)
         self.__db_conn.disconnect()
 
     def get_free_user(self) -> UserDTO:

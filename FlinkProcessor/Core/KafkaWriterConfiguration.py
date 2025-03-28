@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from pyflink.common import Types
-from pyflink.common.types import Row
 
 @dataclass
 class KafkaWriterConfiguration:
@@ -12,16 +11,16 @@ class KafkaWriterConfiguration:
                                     Types.STRING()
                                 ])
     row_type_info_message = Types.ROW_NAMED(
-                                            ['user_uuid', 'activity_uuid', 'message_uuid','message','activityLatitude','activityLongitude','creationTime','userLatitude','userLongitude'], 
+                                            ['user_uuid', 'activity_uuid', 'message_uuid','message','activityLatitude','activityLongitude','creationTime','userLatitude','userLongitude'],
                                             [
                                                 Types.STRING(),
                                                 Types.STRING(),
                                                 Types.STRING(),
                                                 Types.STRING(),
-                                                Types.FLOAT(),  
+                                                Types.FLOAT(),
                                                 Types.FLOAT(),
                                                 Types.STRING(),
-                                                Types.FLOAT(),  
+                                                Types.FLOAT(),
                                                 Types.FLOAT()
                                             ]
                                             )

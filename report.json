@@ -1,0 +1,744 @@
+{
+    "coverage": {
+        "line_coverage": 100.0,
+        "branch_coverage": 100.0
+    },
+    "class_metrics": {
+        "Core.PositionToMessageProcessor": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 5,
+                    "lines": 8
+                },
+                "open": {
+                    "parameters": 2,
+                    "lines": 3
+                },
+                "map": {
+                    "parameters": 2,
+                    "lines": 32
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.IMessageWriter": {
+            "attributes": 0,
+            "methods": {
+                "get_message_writer": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.ClickhouseMessageRepository": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_user_last_message": {
+                    "parameters": 2,
+                    "lines": 31
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.JsonRowSerializationAdapter": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_serialization_schema": {
+                    "parameters": 1,
+                    "lines": 4
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Core.KafkaPositionReceiver": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 5
+                },
+                "build_kafka_source": {
+                    "parameters": 1,
+                    "lines": 9
+                },
+                "get_position_receiver": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.GroqLLMService": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 4
+                },
+                "set_up_chat": {
+                    "parameters": 1,
+                    "lines": 17
+                },
+                "get_llm_structured_response": {
+                    "parameters": 2,
+                    "lines": 3
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.ActivityDTO": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 8,
+                    "lines": 9
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Core.IPositionReceiver": {
+            "attributes": 0,
+            "methods": {
+                "get_position_receiver": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.StructuredResponseMessage": {
+            "attributes": 2,
+            "methods": {},
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.CustomPrompt": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 1,
+                    "lines": 15
+                },
+                "get_prompt": {
+                    "parameters": 3,
+                    "lines": 5
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Core.KafkaSourceConfiguration": {
+            "attributes": 6,
+            "methods": {},
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Core.KafkaMessageWriter": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 6
+                },
+                "build_record_serializer": {
+                    "parameters": 1,
+                    "lines": 8
+                },
+                "build_kafka_sink": {
+                    "parameters": 1,
+                    "lines": 5
+                },
+                "get_message_writer": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.IUserRepository": {
+            "attributes": 0,
+            "methods": {
+                "get_user_who_owns_sensor": {
+                    "parameters": 2,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.LLMService": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "set_up_chat": {
+                    "parameters": 1,
+                    "lines": 2
+                },
+                "get_llm_structured_response": {
+                    "parameters": 2,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.FilterMessageAlreadyDisplayed": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "open": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "filter": {
+                    "parameters": 2,
+                    "lines": 9
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.IMessageRepository": {
+            "attributes": 0,
+            "methods": {
+                "get_user_last_message": {
+                    "parameters": 2,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.MessageSerializer": {
+            "attributes": 0,
+            "methods": {
+                "create_row_from_message": {
+                    "parameters": 2,
+                    "lines": 12
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.ClickhouseActivityRepository": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_activities_in_range": {
+                    "parameters": 4,
+                    "lines": 21
+                },
+                "get_activity_spec_from_name": {
+                    "parameters": 2,
+                    "lines": 22
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.DatabaseConfigParameters": {
+            "attributes": 4,
+            "methods": {},
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Core.ClickhouseUserRepository": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_user_who_owns_sensor": {
+                    "parameters": 2,
+                    "lines": 36
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Core.IActivityRepository": {
+            "attributes": 0,
+            "methods": {
+                "get_activity_spec_from_name": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_activities_in_range": {
+                    "parameters": 4,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.KafkaWriterConfiguration": {
+            "attributes": 4,
+            "methods": {},
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.DatabaseConnection": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 6
+                },
+                "connect": {
+                    "parameters": 1,
+                    "lines": 8
+                },
+                "disconnect": {
+                    "parameters": 1,
+                    "lines": 4
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Core.JsonRowDeserializationAdapter": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_deserialization_schema": {
+                    "parameters": 1,
+                    "lines": 4
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Core.IFlinkSerializable": {
+            "attributes": 0,
+            "methods": {
+                "create_row_from_message": {
+                    "parameters": 2,
+                    "lines": 2
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.UserDTO": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 10,
+                    "lines": 11
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Core.MessageDTO": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 10,
+                    "lines": 20
+                }
+            },
+            "fan_in": 5,
+            "fan_out": 0
+        },
+        "Core.FlinkJobManager": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 6,
+                    "lines": 17
+                },
+                "execute": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.BycicleSimulationStrategy": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 5
+                },
+                "get_route": {
+                    "parameters": 1,
+                    "lines": 16
+                },
+                "get_delta_time": {
+                    "parameters": 1,
+                    "lines": 2
+                },
+                "get_speed": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.SensorRepository": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "mark_sensor_as_occupied": {
+                    "parameters": 2,
+                    "lines": 6
+                },
+                "get_non_occupied_sensor": {
+                    "parameters": 1,
+                    "lines": 12
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.GraphWrapper": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 5,
+                    "lines": 6
+                },
+                "get_graph": {
+                    "parameters": 1,
+                    "lines": 7
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Models.KafkaConfluentAdapter": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 4,
+                    "lines": 8
+                },
+                "send_data_to_broker": {
+                    "parameters": 3,
+                    "lines": 6
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.SensorFactory": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 2
+                },
+                "create_gps_sensor": {
+                    "parameters": 3,
+                    "lines": 4
+                },
+                "create_gps_sensor_list": {
+                    "parameters": 4,
+                    "lines": 3
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.UserSensorService": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 4
+                },
+                "assign_sensor_to_user": {
+                    "parameters": 1,
+                    "lines": 24
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Models.GeoPosition": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 5,
+                    "lines": 6
+                },
+                "get_sensor_id": {
+                    "parameters": 1,
+                    "lines": 3
+                },
+                "get_latitude": {
+                    "parameters": 1,
+                    "lines": 3
+                },
+                "get_longitude": {
+                    "parameters": 1,
+                    "lines": 3
+                },
+                "get_timestamp": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.IUserRepository": {
+            "attributes": 0,
+            "methods": {
+                "mark_user_as_occupied": {
+                    "parameters": 3,
+                    "lines": 2
+                },
+                "get_free_user": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.KafkaConfigParameters": {
+            "attributes": 2,
+            "methods": {},
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Models.UserRepository": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "mark_user_as_occupied": {
+                    "parameters": 3,
+                    "lines": 6
+                },
+                "get_free_user": {
+                    "parameters": 1,
+                    "lines": 11
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.ISensorRepository": {
+            "attributes": 0,
+            "methods": {
+                "mark_sensor_as_occupied": {
+                    "parameters": 2,
+                    "lines": 2
+                },
+                "get_non_occupied_sensor": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.IPositionSimulationStrategy": {
+            "attributes": 0,
+            "methods": {
+                "get_route": {
+                    "parameters": 1,
+                    "lines": 3
+                },
+                "get_delta_time": {
+                    "parameters": 1,
+                    "lines": 2
+                },
+                "get_speed": {
+                    "parameters": 1,
+                    "lines": 2
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.SensorSimulationAdministrator": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 3
+                },
+                "start_simulation": {
+                    "parameters": 1,
+                    "lines": 5
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.DatabaseConfigParameters": {
+            "attributes": 4,
+            "methods": {},
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Models.PositionJsonAdapter": {
+            "attributes": 0,
+            "methods": {
+                "serialize_to_json": {
+                    "parameters": 2,
+                    "lines": 9
+                }
+            },
+            "fan_in": 0,
+            "fan_out": 0
+        },
+        "Models.GpsSensor": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 4,
+                    "lines": 5
+                },
+                "simulate": {
+                    "parameters": 1,
+                    "lines": 18
+                },
+                "create_geo_position": {
+                    "parameters": 3,
+                    "lines": 8
+                }
+            },
+            "fan_in": 1,
+            "fan_out": 0
+        },
+        "Models.IJsonSerializable": {
+            "attributes": 0,
+            "methods": {
+                "serialize_to_json": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Models.SensorSubject": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 5
+                },
+                "get_sensor_uuid": {
+                    "parameters": 1,
+                    "lines": 3
+                },
+                "get_update_time": {
+                    "parameters": 1,
+                    "lines": 2
+                },
+                "simulate": {
+                    "parameters": 1,
+                    "lines": 3
+                }
+            },
+            "fan_in": 2,
+            "fan_out": 0
+        },
+        "Models.DatabaseConnection": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 6
+                },
+                "connect": {
+                    "parameters": 1,
+                    "lines": 8
+                },
+                "disconnect": {
+                    "parameters": 1,
+                    "lines": 4
+                }
+            },
+            "fan_in": 4,
+            "fan_out": 0
+        },
+        "Models.SensorDTO": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 3,
+                    "lines": 4
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.PositionSender": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 2,
+                    "lines": 4
+                },
+                "send_data_to_broker": {
+                    "parameters": 3,
+                    "lines": 3
+                },
+                "send_position": {
+                    "parameters": 2,
+                    "lines": 7
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        },
+        "Models.UserDTO": {
+            "attributes": 0,
+            "methods": {
+                "__init__": {
+                    "parameters": 9,
+                    "lines": 10
+                }
+            },
+            "fan_in": 3,
+            "fan_out": 0
+        }
+    }
+}

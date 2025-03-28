@@ -1,12 +1,13 @@
-from Core.ActivityDTO import ActivityDTO
-from Core.DatabaseConnection import DatabaseConnection
-from typing import List
 from abc import ABC, abstractmethod
-import uuid
+from Core.ActivityDTO import ActivityDTO
 
 class IActivityRepository(ABC):
     @abstractmethod
     def get_activity_spec_from_name(self, activity_name) -> ActivityDTO:
+        pass
+
+    @abstractmethod
+    def get_activity_for_user(self, interests, activity_list):
         pass
 
     @abstractmethod

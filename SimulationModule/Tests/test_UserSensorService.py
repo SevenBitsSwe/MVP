@@ -1,11 +1,11 @@
 import unittest
 from unittest.mock import Mock
+import uuid
 from Models.UserSensorService import UserSensorService
 from Models.IUserRepository import IUserRepository
 from Models.ISensorRepository import ISensorRepository
 from Models.UserDTO import UserDTO
 from Models.SensorDTO import SensorDTO
-import uuid
 
 class TestUserSensorService(unittest.TestCase):
 
@@ -14,7 +14,7 @@ class TestUserSensorService(unittest.TestCase):
         self.mock_user_repository = Mock(spec=IUserRepository)
 
         self.user_sensor_service = UserSensorService(self.mock_sensor_repository, self.mock_user_repository)
-        
+
     def test_assign_sensor_to_user_success(self):
         test_sensor_uuid = uuid.uuid4()
         test_user_uuid = uuid.uuid4()

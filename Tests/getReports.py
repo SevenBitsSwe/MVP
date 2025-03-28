@@ -108,7 +108,22 @@ def calculate_fan_in_out(dependencies):
         'osmnx',
         'confluent_kafka',
         'geopy.distance',
-        'clickhouse_connect'
+        'clickhouse_connect',
+        'pyflink.datastream.functions',
+        'pyflink.common.types',
+        'pyflink.common',
+        'pyflink.datastream.formats.json',
+        'pyflink.datastream.connectors.kafka',
+        'langchain_groq',
+        'dotenv',
+        'langchain_core.rate_limiters',
+        'langchain_core.prompts',
+        'pydantic',
+        'string',
+        'typing',
+        'pyflink.common.watermark_strategy',
+        'pyflink.datastream',
+        'pyflink.datastream.execution_mode'
     }
     fan_in = defaultdict(int)
     fan_out = defaultdict(int)
@@ -125,6 +140,7 @@ def calculate_fan_in_out(dependencies):
 def write_fan_report():
     # Find all Models directories recursively
     models_dirs = []
+    # parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for root, dirs, _ in os.walk("."):
         if "Models" in dirs:
             models_dirs.append(os.path.join(root, "Models"))
@@ -141,29 +157,101 @@ def write_fan_report():
         dependencies = analyze_project(models_dir)
         fan_in, fan_out = calculate_fan_in_out(dependencies)
         
-        # Merge dependencies and metrics
+        # Add directory prefix to module names
+        dir_name = os.path.basename(models_dir)  # Get "Models" or "Core"
         for module, deps in dependencies.items():
-            all_dependencies[module].update(deps)
+            prefixed_module = f"{dir_name}.{module}"
+            all_dependencies[prefixed_module].update(deps)
+            if module in fan_out:
+                combined_fan_out[prefixed_module] = fan_out[module]
+        
         for module, count in fan_in.items():
+            if not any(module.startswith(prefix) for prefix in ["Models.", "Core."]):
+                module = f"{dir_name}.{module}"
             combined_fan_in[module] += count
-        for module, count in fan_out.items():
-            combined_fan_out[module] += count
 
-    # Save results to report
     return dict(combined_fan_in), dict(combined_fan_out)
 
 
+def analyze_module_metrics(filepath):
+    """Analyzes a Python file and returns metrics about its classes and their methods."""
+    with open(filepath, "r", encoding="utf-8") as file:
+        tree = ast.parse(file.read(), filename=filepath)
+    
+    metrics = {}
+    
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ClassDef):
+            class_metrics = {
+                "attributes": len([n for n in node.body if isinstance(n, ast.AnnAssign) or isinstance(n, ast.Assign)]),
+                "methods": {}
+            }
+            
+            # Find __init__ method and count instance attributes
+            init_method = next((n for n in node.body if isinstance(n, ast.FunctionDef) and n.name == '__init__'), None)
+            if init_method:
+                init_attrs = len([n for n in ast.walk(init_method) if isinstance(n, ast.Assign) 
+                                and isinstance(n.targets[0], ast.Attribute) 
+                                and isinstance(n.targets[0].value, ast.Name) 
+                                and n.targets[0].value.id == 'self'])
+                class_metrics["attributes"] += init_attrs
+            
+            # Analyze methods within the class
+            for method in [n for n in node.body if isinstance(n, ast.FunctionDef)]:
+                class_metrics["methods"][method.name] = {
+                    "parameters": len(method.args.args),
+                    "lines": method.end_lineno - method.lineno + 1
+                }
+            
+            metrics[node.name] = class_metrics
+    
+    return metrics
+
+def get_class_metrics():
+    """Collects metrics for all Python classes in Models and Core directories."""
+    class_metrics = {}
+    
+    # parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for root, dirs, _ in os.walk("."):
+        if "Models" in dirs or "Core" in dirs:
+            for dirname in ["Models", "Core"]:
+                if dirname in dirs:
+                    dir_path = os.path.join(root, dirname)
+                    for dirpath, _, filenames in os.walk(dir_path):
+                        for filename in filenames:
+                            if filename.endswith(".py"):
+                                filepath = os.path.join(dirpath, filename)
+                                metrics = analyze_module_metrics(filepath)
+                                if metrics:
+                                    for class_name, class_data in metrics.items():
+                                        full_name = f"{dirname}.{class_name}"
+                                        class_data["fan_in"] = fan_in_dict.get(full_name, 0)
+                                        class_data["fan_out"] = fan_out_dict.get(full_name, 0)
+                                        class_metrics[full_name] = class_data
+    
+    return class_metrics
+
 if __name__ == "__main__":
-
     xml_file = "reports/coverage.xml"
-
+    
+    # Get coverage data
     data = write_coverage_report()
-
+    
+    # Get fan-in and fan-out metrics
     fan_in_dict, fan_out_dict = write_fan_report()
-
-    data["fan_in"] = fan_in_dict
-    data["fan_out"] = fan_out_dict
-
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    with open(f"reports/report.json", 'w') as f:
-        json.dump(data, f, indent=4)
+    
+    # Get detailed class metrics
+    class_metrics = get_class_metrics()
+    
+    # Combine all metrics
+    final_report = {
+        "coverage": {
+            "line_coverage": data["line_coverage"],
+            "branch_coverage": data["branch_coverage"]
+        },
+        "class_metrics": class_metrics
+    }
+    
+    # Save to file
+    with open("reports/report.json", 'w') as f:
+        json.dump(final_report, f, indent=4)

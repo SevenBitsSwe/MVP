@@ -1,4 +1,6 @@
 import unittest
+from unittest.mock import Mock, patch
+import uuid
 from Models.SensorSubject import SensorSubject
 from Models.GpsSensor import GpsSensor
 from Models.UserSensorService import UserSensorService
@@ -7,8 +9,6 @@ from Models.IUserRepository import IUserRepository
 from Models.SensorFactory import SensorFactory
 from Models.PositionSender import PositionSender
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
-from unittest.mock import Mock, patch
-import uuid
 
 class TestSensorFactory(unittest.TestCase):
     def setUp(self):
@@ -22,7 +22,7 @@ class TestSensorFactory(unittest.TestCase):
         self.patcher.start()
 
         self.sensor_factory = SensorFactory(self.mock_sensor_repository, self.mock_user_repository)
-        
+
     def tearDown(self):
         # it stops the patcher after every test
         self.patcher.stop()
@@ -34,7 +34,7 @@ class TestSensorFactory(unittest.TestCase):
         sensor_instance = self.sensor_factory.create_gps_sensor(self.mock_position_sender, self.mock_simulation_strategy)
         self.assertIsInstance(sensor_instance, SensorSubject)
         self.assertIsInstance(sensor_instance, GpsSensor)
-    
+
     def test_create_gps_sensor_valid_uuid(self):
         mock_uuid = uuid.uuid4()
         self.mock_user_sensor_service.assign_sensor_to_user.return_value = mock_uuid
@@ -43,8 +43,7 @@ class TestSensorFactory(unittest.TestCase):
         sensor_uuid = sensor_instance.get_sensor_uuid()
 
         self.assertEqual(str(sensor_uuid), str(mock_uuid))
-        
-    
+
     def test_sensor_has_unique_uuid(self):
         num_sensor = 10
         mock_uuids = [f"mock-uuid-{i}" for i in range(num_sensor)]
@@ -61,8 +60,8 @@ class TestSensorFactory(unittest.TestCase):
         self.mock_user_sensor_service.assign_sensor_to_user.side_effect = mock_uuids
 
         sensors_list = self.sensor_factory.create_gps_sensor_list(self.mock_position_sender, self.mock_simulation_strategy, num_sensors)
-        
+
         self.assertEqual(len(sensors_list), num_sensors)
-        
+
         for sensor in sensors_list:
             self.assertIsInstance(sensor, GpsSensor)
