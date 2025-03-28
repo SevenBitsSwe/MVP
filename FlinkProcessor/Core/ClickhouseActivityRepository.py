@@ -28,6 +28,22 @@ class ClickhouseActivityRepository(IActivityRepository):
         conn = self.__db_conn.connect()
         return conn.query(query,parameters=params).result_rows
 
+    def get_activity_for_user(self, interests, activity_list):
+        activity_list_filtered_for_type = []
+
+        #filtro per tipologia
+        for activity in activity_list:
+            if activity[2] in interests:
+                activity_list_filtered_for_type.append(activity)
+
+        if len(activity_list_filtered_for_type) == 0:
+            return None
+
+        #filtro per distanza
+        activity_min = min(activity_list_filtered_for_type, key=lambda a: a[4])
+
+        return activity_min
+
     def get_activity_spec_from_name(self, activity_name) -> ActivityDTO:
         param = {'nome':activity_name}
         query = '''

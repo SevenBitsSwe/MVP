@@ -29,10 +29,11 @@ FlinkProcessor/Tests/test_FlinkJobManager.py:106: [R0913(too-many-arguments), Te
 FlinkProcessor/Tests/test_FilterMessageValidator.py:107: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.FlinkProcessor.Tests.test_KafkaPositionReceiver
 FlinkProcessor/Tests/test_KafkaPositionReceiver.py:38: [W0612(unused-variable), TestKafkaPositionReceiver.test_build_kafka_source] Unused variable 'receiver'
-************* Module app.FlinkProcessor.Tests.test_CustomPrompt
-FlinkProcessor/Tests/test_CustomPrompt.py:38: [C0201(consider-iterating-dictionary), TestCustomPrompt.test_get_prompt_formatting] Consider iterating the dictionary directly instead of calling .keys()
 ************* Module app.FlinkProcessor.Tests.test_PositionToMessageProcessor
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:77: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_with_activities] Too many statements (29/25)
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:127: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:113: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_successful_message_generation] Too many statements (30/25)
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:13: [W0611(unused-import), ] Unused StructuredResponseMessage imported from Core.StructuredResponseMessage
 ************* Module app.FlinkProcessor.Tests.test_KafkaMessageWriter
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:12: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/25)
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:44: [W0612(unused-variable), TestKafkaMessageWriter.test_initialization] Unused variable 'writer'
@@ -48,7 +49,7 @@ FlinkProcessor/Core/ClickhouseMessageRepository.py:3: [W0611(unused-import), ] U
 FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:25: [C0304(missing-final-newline), ] Final newline missing
 FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:22: [C0121(singleton-comparison), FilterMessageAlreadyDisplayed.filter] Comparison 'self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]) == True' should be 'self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]) is True' if checking for the singleton value True, or 'bool(self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]))' if testing for truthiness
 ************* Module app.FlinkProcessor.Core.ClickhouseActivityRepository
-FlinkProcessor/Core/ClickhouseActivityRepository.py:43: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
+FlinkProcessor/Core/ClickhouseActivityRepository.py:59: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 ************* Module app.FlinkProcessor.Core.FilterMessageValidator
 FlinkProcessor/Core/FilterMessageValidator.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Core/FilterMessageValidator.py:13: [R0911(too-many-return-statements), FilterMessageValidator.filter] Too many return statements (7/6)

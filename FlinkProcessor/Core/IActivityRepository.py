@@ -7,5 +7,9 @@ class IActivityRepository(ABC):
         pass
 
     @abstractmethod
+    def get_activity_for_user(self, interests, activity_list):
+        pass
+
+    @abstractmethod
     def get_activities_in_range(self, lon, lat, max_distance) -> list:
         pass
