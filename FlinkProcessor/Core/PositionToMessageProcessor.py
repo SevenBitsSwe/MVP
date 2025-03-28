@@ -41,7 +41,20 @@ class PositionToMessageProcessor(MapFunction):
                         value[1], #latitude
                         value[2])
 
-        current_prompt = self.prompt_creator.get_prompt(user_dict, activity_dict)
+        chosen_activity = self.__activity_repository.get_activity_for_user(user_dict.interests, activity_dict)
+
+        if chosen_activity is None:
+            return Row(str(user_dict.user_uuid),
+                        str(uuid.uuid4()),
+                        str(uuid.uuid4()),
+                        "skip-this-message",
+                        0.0,
+                        0.0,
+                        datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        value[1], #latitude
+                        value[2])
+
+        current_prompt = self.prompt_creator.get_prompt(user_dict, chosen_activity)
         ai_response_dict = self.ai_service.get_llm_structured_response(current_prompt).model_dump()
 
         activity_info: ActivityDTO = self.__activity_repository.get_activity_spec_from_name(ai_response_dict['attivita'])
