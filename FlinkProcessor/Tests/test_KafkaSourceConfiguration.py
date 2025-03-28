@@ -9,6 +9,6 @@ class TestKafkaSourceConfiguration(unittest.TestCase):
 
         self.assertEqual(config.bootstrap_servers, "kafka:9092")
         self.assertEqual(config.source_topic, "SimulatorPosition")
-        self.assertEqual(config.group_id, "pyfinkJob")
+        self.assertEqual(config.group_id, "pyflinkJob")
         self.assertEqual(config.enable_auto_commit, "true")
         self.assertEqual(config.commit_offsets_on_checkpoint, "true")
