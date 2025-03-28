@@ -12,6 +12,9 @@ class FilterMessageValidator(FilterFunction):
     
     def filter(self, value):
         # Validazione dei campi obbligatori
+        if not value or len(value) < 4:
+            return False
+
         print(value)
         # Validazione del range di latitudine/longitudine
         lat = value[1]
