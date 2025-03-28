@@ -33,7 +33,7 @@ class ClickhouseActivityRepository(IActivityRepository):
 
         #filtro per tipologia
         for activity in activity_list:
-            if activity[2] == interests[0] or activity[2] == interests[1]:
+            if activity[2] in interests:
                 activity_list_filtered_for_type.append(activity)
 
         if len(activity_list_filtered_for_type) == 0:
