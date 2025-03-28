@@ -1,7 +1,7 @@
 {
     "coverage": {
-        "line_coverage": 95.24,
-        "branch_coverage": 70.59
+        "line_coverage": 100.0,
+        "branch_coverage": 100.0
     },
     "class_metrics": {
         "Core.PositionToMessageProcessor": {
@@ -315,7 +315,7 @@
                 },
                 "filter": {
                     "parameters": 2,
-                    "lines": 37
+                    "lines": 35
                 }
             },
             "fan_in": 0,
