@@ -23,7 +23,7 @@ class ClickhouseActivityRepository(IActivityRepository):
         FROM 
             nearyou.activity AS a
         WHERE
-            geoDistance( %(lon)s , %(lat)s  ,a.longitude ,a.latitude) <= %(max_distance)s AND a.type
+            geoDistance( %(lon)s , %(lat)s  ,a.longitude ,a.latitude) <= %(max_distance)s
         '''
         conn = self.__db_conn.connect()
         return conn.query(query,parameters=params).result_rows
