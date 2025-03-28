@@ -11,7 +11,7 @@ class CustomPrompt:
                         Il messaggio deve essere lungo fra i 200 e 300 caratteri e deve riguardare al massimo una fra le attività. 
                         Il messaggio deve essere uno solo. La risposta deve essere in lingua italiana.""")
 
-    def get_prompt(self, user_info_dict, activity):
+    def get_prompt(self, user_info_dict, activity_info):
 
-        prompt = self.__template.substitute(user_info=user_info_dict, activity=activity)
+        prompt = self.__template.substitute(user_info=user_info_dict, activity=activity_info)
         return prompt
