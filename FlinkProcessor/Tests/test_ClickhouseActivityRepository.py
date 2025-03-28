@@ -106,3 +106,47 @@ class TestClickhouseActivityRepository(unittest.TestCase):
         self.mock_connection.query.assert_called_once()
         call_args = self.mock_connection.query.call_args
         self.assertEqual(call_args[1]["parameters"]["nome"], test_activity_name)
+
+    def test_get_activity_for_user_with_matching_interests(self):
+        # Prepare test data
+        interests = ["Bar", "Restaurant"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 800.2],
+            ["Museum", "Piazza dei Musei", "Museum", "Art museum", 300.0]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is the closest matching activity
+        self.assertEqual(result, ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5])
+
+    def test_get_activity_for_user_no_matching_interests(self):
+        # Prepare test data
+        interests = ["Cinema"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 500.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 800.2]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is None when no matches
+        self.assertIsNone(result)
+
+    def test_get_activity_for_user_multiple_matches_returns_closest(self):
+        # Prepare test data
+        interests = ["Bar", "Restaurant"]
+        activity_list = [
+            ["Bar Roma", "Via Roma 1", "Bar", "Bar in the center", 800.5],
+            ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 500.2],
+            ["Pub", "Piazza Pub", "Bar", "Local pub", 700.0]
+        ]
+
+        # Execute the method to test
+        result = self.repository.get_activity_for_user(interests, activity_list)
+
+        # Verify the result is the closest matching activity
+        self.assertEqual(result, ["Ristorante Verona", "Via Verona 2", "Restaurant", "Italian restaurant", 500.2])
