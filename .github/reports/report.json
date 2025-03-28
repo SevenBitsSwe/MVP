@@ -17,7 +17,7 @@
                 },
                 "map": {
                     "parameters": 2,
-                    "lines": 32
+                    "lines": 45
                 }
             },
             "fan_in": 0,
@@ -135,11 +135,11 @@
             "methods": {
                 "__init__": {
                     "parameters": 1,
-                    "lines": 15
+                    "lines": 9
                 },
                 "get_prompt": {
                     "parameters": 3,
-                    "lines": 5
+                    "lines": 4
                 }
             },
             "fan_in": 1,
@@ -256,6 +256,10 @@
                     "parameters": 4,
                     "lines": 21
                 },
+                "get_activity_for_user": {
+                    "parameters": 3,
+                    "lines": 15
+                },
                 "get_activity_spec_from_name": {
                     "parameters": 2,
                     "lines": 22
@@ -290,6 +294,10 @@
             "methods": {
                 "get_activity_spec_from_name": {
                     "parameters": 2,
+                    "lines": 2
+                },
+                "get_activity_for_user": {
+                    "parameters": 3,
                     "lines": 2
                 },
                 "get_activities_in_range": {
