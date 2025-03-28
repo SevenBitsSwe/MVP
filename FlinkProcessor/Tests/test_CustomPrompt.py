@@ -18,7 +18,7 @@ class TestCustomPrompt(unittest.TestCase):
         }
 
         activity_info = {
-            "name": "Concert in the Park",
+            "name": "Concerto nel Parco",
             "type": "Music",
             "description": "Un concerto all'aperto con artisti locali",
             "address": "Parco Centrale, Milano"
