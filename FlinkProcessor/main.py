@@ -42,7 +42,7 @@ time.sleep(9)
 streaming_env = StreamExecutionEnvironment.get_execution_environment(config)
 
 streaming_env.add_jars("file:///opt/flink/usrlib/flink-sql-connector-kafka-3.2.0-1.18.jar")
-streaming_env.set_parallelism(6)
+streaming_env.set_parallelism(10)
 streaming_env.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 
 serialization_adapter = JsonRowSerializationAdapter(KafkaWriterConfiguration().row_type_info_message)
