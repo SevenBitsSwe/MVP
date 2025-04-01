@@ -6,16 +6,13 @@ FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:50: [C0303(trailing-w
 FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:67: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:75: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:95: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:97: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:100: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:104: [C0304(missing-final-newline), ] Final newline missing
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:94: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:96: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:99: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:6: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
 FlinkProcessor/Tests/test_GroqLLMService.py:98: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Tests.test_ClickhouseMessageRepository
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:6: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
 ************* Module app.FlinkProcessor.Tests.test_FlinkJobManager
 FlinkProcessor/Tests/test_FlinkJobManager.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_FlinkJobManager.py:72: [C0303(trailing-whitespace), ] Trailing whitespace
@@ -30,9 +27,9 @@ FlinkProcessor/Tests/test_FilterMessageValidator.py:107: [C0303(trailing-whitesp
 ************* Module app.FlinkProcessor.Tests.test_KafkaPositionReceiver
 FlinkProcessor/Tests/test_KafkaPositionReceiver.py:38: [W0612(unused-variable), TestKafkaPositionReceiver.test_build_kafka_source] Unused variable 'receiver'
 ************* Module app.FlinkProcessor.Tests.test_PositionToMessageProcessor
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:127: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:113: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_successful_message_generation] Too many statements (30/25)
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:91: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:126: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:112: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_successful_message_generation] Too many statements (30/25)
 FlinkProcessor/Tests/test_PositionToMessageProcessor.py:13: [W0611(unused-import), ] Unused StructuredResponseMessage imported from Core.StructuredResponseMessage
 ************* Module app.FlinkProcessor.Tests.test_KafkaMessageWriter
 FlinkProcessor/Tests/test_KafkaMessageWriter.py:12: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/25)
@@ -41,9 +38,7 @@ FlinkProcessor/Tests/test_KafkaMessageWriter.py:65: [W0612(unused-variable), Tes
 ************* Module app.FlinkProcessor.Core.PositionToMessageProcessor
 FlinkProcessor/Core/PositionToMessageProcessor.py:26: [W0201(attribute-defined-outside-init), PositionToMessageProcessor.open] Attribute 'prompt_creator' defined outside __init__
 ************* Module app.FlinkProcessor.Core.ClickhouseMessageRepository
-FlinkProcessor/Core/ClickhouseMessageRepository.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseMessageRepository.py:55: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/ClickhouseMessageRepository.py:52: [R1705(no-else-return), ClickhouseMessageRepository.check_activity_already_displayed_for_user] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
+FlinkProcessor/Core/ClickhouseMessageRepository.py:21: [R1705(no-else-return), ClickhouseMessageRepository.check_activity_already_displayed_for_user] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
 FlinkProcessor/Core/ClickhouseMessageRepository.py:3: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
 ************* Module app.FlinkProcessor.Core.FilterMessageAlreadyDisplayed
 FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:25: [C0304(missing-final-newline), ] Final newline missing
@@ -57,6 +52,9 @@ FlinkProcessor/Core/FilterMessageValidator.py:13: [R0912(too-many-branches), Fil
 FlinkProcessor/Core/FilterMessageValidator.py:38: [W0612(unused-variable), FilterMessageValidator.filter] Unused variable 'uuid_obj'
 FlinkProcessor/Core/FilterMessageValidator.py:2: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from pyflink.datastream.functions import FilterFunction"
 FlinkProcessor/Core/FilterMessageValidator.py:3: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from pyflink.datastream.functions import FilterFunction"
+************* Module app.SimulationModule.Tests.test_GpsSensor
+SimulationModule/Tests/test_GpsSensor.py:25: [E2515(invalid-character-zero-width-space), ] Invalid unescaped character zero-width-space, use "\u200B" instead.
+SimulationModule/Tests/test_GpsSensor.py:25: [E2515(invalid-character-zero-width-space), ] Invalid unescaped character zero-width-space, use "\u200B" instead.
 ************* Module app.SimulationModule.Models.UserSensorService
 SimulationModule/Models/UserSensorService.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
 SimulationModule/Models/UserSensorService.py:17: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
@@ -74,5 +72,5 @@ IntegrationTests/test_KafkaClickhouseIntegration.py:9: [C0412(ungrouped-imports)
 IntegrationTests/test_KafkaClickhouseIntegration.py:13: [W0611(unused-import), ] Unused import clickhouse_connect
 
 -----------------------------------
-Your code has been rated at 9.70/10
+Your code has been rated at 9.67/10
 
