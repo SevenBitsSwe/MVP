@@ -1,629 +1,76 @@
-************* Module app.getReports
-getReports.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:50: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:53: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:63: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:77: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:84: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:87: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:115: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:121: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:143: [C0303(trailing-whitespace), ] Trailing whitespace
-getReports.py:169: [C0304(missing-final-newline), ] Final newline missing
-getReports.py:14: [W0621(redefined-outer-name), write_coverage_report] Redefining name 'data' from outer scope (line 160)
-getReports.py:11: [E0601(used-before-assignment), write_coverage_report] Using variable 'xml_file' before assignment
-getReports.py:23: [W0621(redefined-outer-name), extract_models_coverage] Redefining name 'xml_file' from outer scope (line 158)
-getReports.py:125: [R0912(too-many-branches), write_fan_report] Too many branches (7/4)
-getReports.py:168: [W1514(unspecified-encoding), ] Using open without explicitly specifying an encoding
-getReports.py:168: [W1309(f-string-without-interpolation), ] Using an f-string that does not have any interpolated variables
-************* Module app.FlinkProcessor.main
-FlinkProcessor/main.py:72: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/main.py:7: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/main.py:20: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-FlinkProcessor/main.py:23: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/main.py:6: [W0611(unused-import), ] Unused WatermarkStrategy imported from pyflink.common.watermark_strategy
-************* Module app.FlinkProcessor.Tests.test_JsonRowSerializationAdapter
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:31: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:34: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:48: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_JsonRowSerializationAdapter.py:2: [W0611(unused-import), ] Unused MagicMock imported from unittest.mock
-************* Module app.FlinkProcessor.Tests.test_KafkaSourceConfiguration
-FlinkProcessor/Tests/test_KafkaSourceConfiguration.py:5: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaSourceConfiguration.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaSourceConfiguration.py:14: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Tests.test_MessageSerializer
-FlinkProcessor/Tests/test_MessageSerializer.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:27: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_MessageSerializer.py:48: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_MessageSerializer.py:2: [W0611(unused-import), ] Unused Mock imported from unittest.mock
-************* Module app.FlinkProcessor.Tests.test_ClickhouseActivityRepository
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:34: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:74: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:83: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:95: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:97: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:100: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:104: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:108: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_ClickhouseActivityRepository.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
 ************* Module app.FlinkProcessor.Tests.test_FilterMessageAlreadyDisplayed
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:55: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:68: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:77: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:80: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:84: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:97: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:98: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:100: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:106: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:109: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:113: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:126: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:127: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:129: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:135: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:138: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:141: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:24: [W0107(unnecessary-pass), TestFilterMessageAlreadyDisplayed.test_open] Unnecessary pass statement
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
-FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:3: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-************* Module app.FlinkProcessor.Tests.test_KafkaWriterConfiguration
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:6: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaWriterConfiguration.py:31: [C0304(missing-final-newline), ] Final newline missing
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:50: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:67: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:75: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:94: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:96: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:99: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FilterMessageAlreadyDisplayed.py:6: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
 ************* Module app.FlinkProcessor.Tests.test_GroqLLMService
-FlinkProcessor/Tests/test_GroqLLMService.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:41: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:63: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:73: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:77: [C0303(trailing-whitespace), ] Trailing whitespace
 FlinkProcessor/Tests/test_GroqLLMService.py:80: [C0301(line-too-long), ] Line too long (373/270)
-FlinkProcessor/Tests/test_GroqLLMService.py:84: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:88: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:91: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_GroqLLMService.py:94: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Tests.test_JsonRowDeserializationAdapter
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:31: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:34: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:48: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_JsonRowDeserializationAdapter.py:2: [W0611(unused-import), ] Unused MagicMock imported from unittest.mock
-************* Module app.FlinkProcessor.Tests.test_ClickhouseMessageRepository
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:40: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:54: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:68: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:77: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:81: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:18: [R0915(too-many-statements), TestClickhouseMessageRepository.test_get_user_last_message_found] Too many statements (22/20)
-FlinkProcessor/Tests/test_ClickhouseMessageRepository.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
+FlinkProcessor/Tests/test_GroqLLMService.py:98: [C0304(missing-final-newline), ] Final newline missing
 ************* Module app.FlinkProcessor.Tests.test_FlinkJobManager
-FlinkProcessor/Tests/test_FlinkJobManager.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:41: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:61: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:62: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:64: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:71: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:80: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:94: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:97: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:104: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:113: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:116: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_FlinkJobManager.py:118: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_FlinkJobManager.py:62: [R0913(too-many-arguments), TestFlinkJobManager.test_initialization] Too many arguments (10/8)
-FlinkProcessor/Tests/test_FlinkJobManager.py:73: [W0612(unused-variable), TestFlinkJobManager.test_initialization] Unused variable 'job_manager'
-FlinkProcessor/Tests/test_FlinkJobManager.py:95: [R0913(too-many-arguments), TestFlinkJobManager.test_execute] Too many arguments (10/8)
-FlinkProcessor/Tests/test_FlinkJobManager.py:2: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock, patch, ANY" should be placed before "import pytest"
-FlinkProcessor/Tests/test_FlinkJobManager.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
-FlinkProcessor/Tests/test_FlinkJobManager.py:5: [W0611(unused-import), ] Unused Types imported from pyflink.common
-FlinkProcessor/Tests/test_FlinkJobManager.py:6: [W0611(unused-import), ] Unused WatermarkStrategy imported from pyflink.common.watermark_strategy
+FlinkProcessor/Tests/test_FlinkJobManager.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FlinkJobManager.py:72: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FlinkJobManager.py:106: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FlinkJobManager.py:108: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_FlinkJobManager.py:131: [C0304(missing-final-newline), ] Final newline missing
+FlinkProcessor/Tests/test_FlinkJobManager.py:70: [R0913(too-many-arguments), TestFlinkJobManager.test_initialization] Too many arguments (12/10)
+FlinkProcessor/Tests/test_FlinkJobManager.py:82: [W0612(unused-variable), TestFlinkJobManager.test_initialization] Unused variable 'job_manager'
+FlinkProcessor/Tests/test_FlinkJobManager.py:106: [R0913(too-many-arguments), TestFlinkJobManager.test_execute] Too many arguments (12/10)
+************* Module app.FlinkProcessor.Tests.test_FilterMessageValidator
+FlinkProcessor/Tests/test_FilterMessageValidator.py:107: [C0303(trailing-whitespace), ] Trailing whitespace
 ************* Module app.FlinkProcessor.Tests.test_KafkaPositionReceiver
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:36: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:49: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:54: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:63: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaPositionReceiver.py:74: [C0304(missing-final-newline), ] Final newline missing
 FlinkProcessor/Tests/test_KafkaPositionReceiver.py:38: [W0612(unused-variable), TestKafkaPositionReceiver.test_build_kafka_source] Unused variable 'receiver'
-************* Module app.FlinkProcessor.Tests.test_ClickhouseUserRepository
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:78: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:92: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:95: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:101: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:114: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:117: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:121: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
-FlinkProcessor/Tests/test_ClickhouseUserRepository.py:6: [W0611(unused-import), ] Unused UserDTO imported from Core.UserDTO
-************* Module app.FlinkProcessor.Tests.test_CustomPrompt
-FlinkProcessor/Tests/test_CustomPrompt.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:45: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:52: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_CustomPrompt.py:54: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_CustomPrompt.py:38: [C0201(consider-iterating-dictionary), TestCustomPrompt.test_get_prompt_formatting] Consider iterating the dictionary directly instead of calling .keys()
 ************* Module app.FlinkProcessor.Tests.test_PositionToMessageProcessor
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:34: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:41: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:63: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:88: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:89: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:93: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:96: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:103: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:109: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:110: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:113: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:116: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:124: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:126: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:80: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_with_activities] Too many statements (29/20)
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:4: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from pyflink.common.types import Row"
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:2: [W0611(unused-import), ] Unused patch imported from unittest.mock
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:4: [W0611(unused-import), ] Unused datetime imported from datetime
-FlinkProcessor/Tests/test_PositionToMessageProcessor.py:14: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
-************* Module app.FlinkProcessor.Tests.test_DataTransferObject
-FlinkProcessor/Tests/test_DataTransferObject.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:27: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:50: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:55: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:67: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:80: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:93: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:104: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:110: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:121: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:124: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:130: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:142: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:146: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:147: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:148: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:159: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:169: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:178: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:183: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:192: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:200: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:204: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DataTransferObject.py:211: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Tests.test_DatabaseConnenction
-FlinkProcessor/Tests/test_DatabaseConnenction.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:58: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:60: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_DatabaseConnenction.py:6: [W0404(reimported), ] Reimport 'DatabaseConfigParameters' (imported line 3)
-FlinkProcessor/Tests/test_DatabaseConnenction.py:5: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Core.DatabaseConnection import DatabaseConnection"
-FlinkProcessor/Tests/test_DatabaseConnenction.py:6: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/Tests/test_DatabaseConnenction.py:4: [W0611(unused-import), ] Unused import clickhouse_connect
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:91: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:126: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:112: [R0915(too-many-statements), TestPositionToMessageProcessor.test_map_successful_message_generation] Too many statements (30/25)
+FlinkProcessor/Tests/test_PositionToMessageProcessor.py:13: [W0611(unused-import), ] Unused StructuredResponseMessage imported from Core.StructuredResponseMessage
 ************* Module app.FlinkProcessor.Tests.test_KafkaMessageWriter
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:33: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:55: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:62: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:65: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:73: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:14: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/20)
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:46: [W0612(unused-variable), TestKafkaMessageWriter.test_initialization] Unused variable 'writer'
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:67: [W0612(unused-variable), TestKafkaMessageWriter.test_get_message_writer] Unused variable 'mock_build_record'
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:2: [W0611(unused-import), ] Unused MagicMock imported from unittest.mock
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:6: [W0611(unused-import), ] Unused KafkaSink imported from pyflink.datastream.connectors.kafka
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:6: [W0611(unused-import), ] Unused KafkaRecordSerializationSchema imported from pyflink.datastream.connectors.kafka
-FlinkProcessor/Tests/test_KafkaMessageWriter.py:7: [W0611(unused-import), ] Unused JsonRowSerializationSchema imported from pyflink.datastream.formats.json
+FlinkProcessor/Tests/test_KafkaMessageWriter.py:12: [R0915(too-many-statements), TestKafkaMessageWriter.test_initialization] Too many statements (30/25)
+FlinkProcessor/Tests/test_KafkaMessageWriter.py:44: [W0612(unused-variable), TestKafkaMessageWriter.test_initialization] Unused variable 'writer'
+FlinkProcessor/Tests/test_KafkaMessageWriter.py:65: [W0612(unused-variable), TestKafkaMessageWriter.test_get_message_writer] Unused variable 'mock_build_record'
 ************* Module app.FlinkProcessor.Core.PositionToMessageProcessor
-FlinkProcessor/Core/PositionToMessageProcessor.py:30: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/PositionToMessageProcessor.py:49: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/PositionToMessageProcessor.py:60: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/PositionToMessageProcessor.py:27: [W0201(attribute-defined-outside-init), PositionToMessageProcessor.open] Attribute 'prompt_creator' defined outside __init__
-FlinkProcessor/Core/PositionToMessageProcessor.py:6: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from pyflink.datastream.functions import MapFunction"
-FlinkProcessor/Core/PositionToMessageProcessor.py:9: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from pyflink.datastream.functions import MapFunction"
-FlinkProcessor/Core/PositionToMessageProcessor.py:5: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-FlinkProcessor/Core/PositionToMessageProcessor.py:7: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/Core/PositionToMessageProcessor.py:3: [W0611(unused-import), ] Unused StructuredResponseMessage imported from Core.StructuredResponseMessage
-************* Module app.FlinkProcessor.Core.IMessageWriter
-FlinkProcessor/Core/IMessageWriter.py:7: [C0304(missing-final-newline), ] Final newline missing
+FlinkProcessor/Core/PositionToMessageProcessor.py:26: [W0201(attribute-defined-outside-init), PositionToMessageProcessor.open] Attribute 'prompt_creator' defined outside __init__
 ************* Module app.FlinkProcessor.Core.ClickhouseMessageRepository
-FlinkProcessor/Core/ClickhouseMessageRepository.py:12: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:13: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:27: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseMessageRepository.py:28: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:29: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:30: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:31: [W0311(bad-indentation), ] Bad indentation. Found 16 spaces, expected 12
-FlinkProcessor/Core/ClickhouseMessageRepository.py:32: [W0311(bad-indentation), ] Bad indentation. Found 12 spaces, expected 8
-FlinkProcessor/Core/ClickhouseMessageRepository.py:40: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/ClickhouseMessageRepository.py:30: [R1705(no-else-return), ClickhouseMessageRepository.get_user_last_message] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-FlinkProcessor/Core/ClickhouseMessageRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IMessageRepository import IMessageRepository"
-FlinkProcessor/Core/ClickhouseMessageRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.JsonRowSerializationAdapter
-FlinkProcessor/Core/JsonRowSerializationAdapter.py:13: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/JsonRowSerializationAdapter.py:1: [W0611(unused-import), ] Unused Types imported from pyflink.common
-FlinkProcessor/Core/JsonRowSerializationAdapter.py:2: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-FlinkProcessor/Core/JsonRowSerializationAdapter.py:3: [W0611(unused-import), ] Unused JsonRowDeserializationSchema imported from pyflink.datastream.formats.json
-************* Module app.FlinkProcessor.Core.KafkaPositionReceiver
-FlinkProcessor/Core/KafkaPositionReceiver.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaPositionReceiver.py:3: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-************* Module app.FlinkProcessor.Core.GroqLLMService
-FlinkProcessor/Core/GroqLLMService.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/GroqLLMService.py:38: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/GroqLLMService.py:2: [C0411(wrong-import-order), ] standard import "import os" should be placed before "from Core.LLMService import LLMService"
-FlinkProcessor/Core/GroqLLMService.py:3: [W0611(unused-import), ] Unused ChatPromptTemplate imported from langchain_core.prompts
-************* Module app.FlinkProcessor.Core.ActivityDTO
-FlinkProcessor/Core/ActivityDTO.py:3: [R0903(too-few-public-methods), ActivityDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.IPositionReceiver
-FlinkProcessor/Core/IPositionReceiver.py:7: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.StructuredResponseMessage
-FlinkProcessor/Core/StructuredResponseMessage.py:6: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.CustomPrompt
-FlinkProcessor/Core/CustomPrompt.py:9: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/CustomPrompt.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/CustomPrompt.py:27: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.FlinkProcessor.Core.KafkaSourceConfiguration
-FlinkProcessor/Core/KafkaSourceConfiguration.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaSourceConfiguration.py:19: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaSourceConfiguration.py:3: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-************* Module app.FlinkProcessor.Core.KafkaMessageWriter
-FlinkProcessor/Core/KafkaMessageWriter.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaMessageWriter.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaMessageWriter.py:32: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaMessageWriter.py:4: [C0412(ungrouped-imports), ] Imports from package Core are not grouped
-FlinkProcessor/Core/KafkaMessageWriter.py:5: [C0412(ungrouped-imports), ] Imports from package pyflink are not grouped
-************* Module app.FlinkProcessor.Core.IUserRepository
-FlinkProcessor/Core/IUserRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.UserDTO import UserDTO"
-FlinkProcessor/Core/IUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.UserDTO import UserDTO"
-FlinkProcessor/Core/IUserRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-************* Module app.FlinkProcessor.Core.LLMService
-FlinkProcessor/Core/LLMService.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/LLMService.py:15: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/LLMService.py:7: [W0238(unused-private-member), LLMService.__init__] Unused private member `LLMService.__llm_structured_response`
+FlinkProcessor/Core/ClickhouseMessageRepository.py:21: [R1705(no-else-return), ClickhouseMessageRepository.check_activity_already_displayed_for_user] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
+FlinkProcessor/Core/ClickhouseMessageRepository.py:3: [W0611(unused-import), ] Unused MessageDTO imported from Core.MessageDTO
 ************* Module app.FlinkProcessor.Core.FilterMessageAlreadyDisplayed
-FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:20: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:16: [R1705(no-else-return), FilterMessageAlreadyDisplayed.filter] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-************* Module app.FlinkProcessor.Core.IMessageRepository
-FlinkProcessor/Core/IMessageRepository.py:11: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Core/IMessageRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.MessageDTO import MessageDTO"
-FlinkProcessor/Core/IMessageRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.MessageDTO import MessageDTO"
-FlinkProcessor/Core/IMessageRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-FlinkProcessor/Core/IMessageRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.MessageSerializer
-FlinkProcessor/Core/MessageSerializer.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:25: [C0304(missing-final-newline), ] Final newline missing
+FlinkProcessor/Core/FilterMessageAlreadyDisplayed.py:22: [C0121(singleton-comparison), FilterMessageAlreadyDisplayed.filter] Comparison 'self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]) == True' should be 'self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]) is True' if checking for the singleton value True, or 'bool(self.__local_repository.check_activity_already_displayed_for_user(value[0], value[1]))' if testing for truthiness
 ************* Module app.FlinkProcessor.Core.ClickhouseActivityRepository
-FlinkProcessor/Core/ClickhouseActivityRepository.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:48: [W0311(bad-indentation), ] Bad indentation. Found 11 spaces, expected 12
-FlinkProcessor/Core/ClickhouseActivityRepository.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/ClickhouseActivityRepository.py:61: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/ClickhouseActivityRepository.py:45: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
-FlinkProcessor/Core/ClickhouseActivityRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IActivityRepository import IActivityRepository"
-FlinkProcessor/Core/ClickhouseActivityRepository.py:4: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.DatabaseConfigParameters
-FlinkProcessor/Core/DatabaseConfigParameters.py:8: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.FlinkProcessor.Core.ClickhouseUserRepository
-FlinkProcessor/Core/ClickhouseUserRepository.py:65: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Core/ClickhouseUserRepository.py:14: [W0612(unused-variable), ClickhouseUserRepository.mark_user_as_occupied] Unused variable 'result'
-FlinkProcessor/Core/ClickhouseUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.IUserRepository import IUserRepository"
-************* Module app.FlinkProcessor.Core.IActivityRepository
-FlinkProcessor/Core/IActivityRepository.py:3: [C0411(wrong-import-order), ] standard import "from typing import List" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:4: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:5: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Core.ActivityDTO import ActivityDTO"
-FlinkProcessor/Core/IActivityRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Core.DatabaseConnection
-FlinkProcessor/Core/IActivityRepository.py:3: [W0611(unused-import), ] Unused List imported from typing
-FlinkProcessor/Core/IActivityRepository.py:5: [W0611(unused-import), ] Unused import uuid
-************* Module app.FlinkProcessor.Core.KafkaWriterConfiguration
-FlinkProcessor/Core/KafkaWriterConfiguration.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/KafkaWriterConfiguration.py:27: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/KafkaWriterConfiguration.py:3: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-************* Module app.FlinkProcessor.Core.DatabaseConnection
-FlinkProcessor/Core/DatabaseConnection.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/DatabaseConnection.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/DatabaseConnection.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.FlinkProcessor.Core.JsonRowDeserializationAdapter
-FlinkProcessor/Core/JsonRowDeserializationAdapter.py:13: [C0304(missing-final-newline), ] Final newline missing
-FlinkProcessor/Core/JsonRowDeserializationAdapter.py:1: [W0611(unused-import), ] Unused Types imported from pyflink.common
-FlinkProcessor/Core/JsonRowDeserializationAdapter.py:2: [W0611(unused-import), ] Unused Row imported from pyflink.common.types
-FlinkProcessor/Core/JsonRowDeserializationAdapter.py:3: [W0611(unused-import), ] Unused JsonRowSerializationSchema imported from pyflink.datastream.formats.json
-************* Module app.FlinkProcessor.Core.IFlinkSerializable
-FlinkProcessor/Core/IFlinkSerializable.py:10: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.FlinkProcessor.Core.UserDTO
-FlinkProcessor/Core/UserDTO.py:3: [R0902(too-many-instance-attributes), UserDTO] Too many instance attributes (9/8)
-FlinkProcessor/Core/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (10/8)
-FlinkProcessor/Core/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.MessageDTO
-FlinkProcessor/Core/MessageDTO.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/MessageDTO.py:27: [C0305(trailing-newlines), ] Trailing newlines
-FlinkProcessor/Core/MessageDTO.py:3: [R0902(too-many-instance-attributes), MessageDTO] Too many instance attributes (9/8)
-FlinkProcessor/Core/MessageDTO.py:6: [R0913(too-many-arguments), MessageDTO.__init__] Too many arguments (10/8)
-FlinkProcessor/Core/MessageDTO.py:3: [R0903(too-few-public-methods), MessageDTO] Too few public methods (0/1)
-************* Module app.FlinkProcessor.Core.FlinkJobManager
-FlinkProcessor/Core/FlinkJobManager.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-FlinkProcessor/Core/FlinkJobManager.py:2: [W0611(unused-import), ] Unused RuntimeExecutionMode imported from pyflink.datastream.execution_mode
-************* Module app.SimulationModule.main
-SimulationModule/main.py:41: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.SimulationModule.Tests.test_UserSensorService
-SimulationModule/Tests/test_UserSensorService.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_UserSensorService.py:8: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserSensorService import UserSensorService"
-************* Module app.SimulationModule.Tests.test_SensorFactory
-SimulationModule/Tests/test_SensorFactory.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:64: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:66: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorFactory.py:10: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock, patch" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Tests/test_SensorFactory.py:11: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorSubject import SensorSubject"
-************* Module app.SimulationModule.Tests.test_GraphWrapper
-SimulationModule/Tests/test_GraphWrapper.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:38: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GraphWrapper.py:44: [C0304(missing-final-newline), ] Final newline missing
-SimulationModule/Tests/test_GraphWrapper.py:3: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.GraphWrapper import GraphWrapper"
-SimulationModule/Tests/test_GraphWrapper.py:4: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.GraphWrapper import GraphWrapper"
-SimulationModule/Tests/test_GraphWrapper.py:2: [W0611(unused-import), ] Unused import osmnx
-************* Module app.SimulationModule.Tests.test_DatabaseConnection
-SimulationModule/Tests/test_DatabaseConnection.py:11: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:57: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:59: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_DatabaseConnection.py:61: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Tests/test_DatabaseConnection.py:5: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.DatabaseConnection import DatabaseConnection"
-SimulationModule/Tests/test_DatabaseConnection.py:4: [W0611(unused-import), ] Unused import clickhouse_connect
-************* Module app.SimulationModule.Tests.test_SensorRepository
-SimulationModule/Tests/test_SensorRepository.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorRepository import SensorRepository"
-SimulationModule/Tests/test_SensorRepository.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock" should be placed before "from Models.SensorRepository import SensorRepository"
-SimulationModule/Tests/test_SensorRepository.py:3: [W0611(unused-import), ] Unused ISensorRepository imported from Models.ISensorRepository
-************* Module app.SimulationModule.Tests.test_BycicleSimulationStrategy
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:6: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:11: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:35: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:60: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:69: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:6: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:8: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:1: [W0611(unused-import), ] Unused IPositionSimulationStrategy imported from Models.IPositionSimulationStrategy
-SimulationModule/Tests/test_BycicleSimulationStrategy.py:3: [W0611(unused-import), ] Unused GeoPosition imported from Models.GeoPosition
-************* Module app.SimulationModule.Tests.test_SensorSimulationAdministrator
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:26: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:33: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:42: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:44: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_SensorSimulationAdministrator.py:47: [C0305(trailing-newlines), ] Trailing newlines
-************* Module app.SimulationModule.Tests.test_KafkaConfigParameters
-SimulationModule/Tests/test_KafkaConfigParameters.py:9: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.SimulationModule.Tests.test_UserRepository
-SimulationModule/Tests/test_UserRepository.py:78: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Tests/test_UserRepository.py:31: [R0915(too-many-statements), TestUserRepository.test_get_free_user] Too many statements (25/20)
-SimulationModule/Tests/test_UserRepository.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserRepository import UserRepository"
-SimulationModule/Tests/test_UserRepository.py:7: [C0411(wrong-import-order), ] standard import "from unittest.mock import Mock" should be placed before "from Models.UserRepository import UserRepository"
-SimulationModule/Tests/test_UserRepository.py:3: [W0611(unused-import), ] Unused IUserRepository imported from Models.IUserRepository
-************* Module app.SimulationModule.Tests.test_GeoPosition
-SimulationModule/Tests/test_GeoPosition.py:7: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GeoPosition.py:31: [C0304(missing-final-newline), ] Final newline missing
-SimulationModule/Tests/test_GeoPosition.py:2: [W0611(unused-import), ] Unused MagicMock imported from unittest.mock
-************* Module app.SimulationModule.Tests.test_PositionJsonAdapter
-SimulationModule/Tests/test_PositionJsonAdapter.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_PositionJsonAdapter.py:3: [W0611(unused-import), ] Unused import uuid
-SimulationModule/Tests/test_PositionJsonAdapter.py:4: [W0611(unused-import), ] Unused IJsonSerializable imported from Models.IJsonSerializable
+FlinkProcessor/Core/ClickhouseActivityRepository.py:59: [R1705(no-else-return), ClickhouseActivityRepository.get_activity_spec_from_name] Unnecessary "else" after "return", remove the "else" and de-indent the code inside it
+************* Module app.FlinkProcessor.Core.FilterMessageValidator
+FlinkProcessor/Core/FilterMessageValidator.py:12: [C0303(trailing-whitespace), ] Trailing whitespace
+FlinkProcessor/Core/FilterMessageValidator.py:13: [R0911(too-many-return-statements), FilterMessageValidator.filter] Too many return statements (7/6)
+FlinkProcessor/Core/FilterMessageValidator.py:13: [R0912(too-many-branches), FilterMessageValidator.filter] Too many branches (8/4)
+FlinkProcessor/Core/FilterMessageValidator.py:38: [W0612(unused-variable), FilterMessageValidator.filter] Unused variable 'uuid_obj'
+FlinkProcessor/Core/FilterMessageValidator.py:2: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from pyflink.datastream.functions import FilterFunction"
+FlinkProcessor/Core/FilterMessageValidator.py:3: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from pyflink.datastream.functions import FilterFunction"
 ************* Module app.SimulationModule.Tests.test_GpsSensor
-SimulationModule/Tests/test_GpsSensor.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:37: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_GpsSensor.py:49: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Tests.test_KafkaConfluentAdapter
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:20: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:24: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:29: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:39: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:41: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:51: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:53: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:56: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:58: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:70: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:73: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:76: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:79: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:83: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:5: [C0411(wrong-import-order), ] standard import "import unittest" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-SimulationModule/Tests/test_KafkaConfluentAdapter.py:9: [C0411(wrong-import-order), ] standard import "from unittest.mock import MagicMock, patch" should be placed before "from Models.KafkaConfigParameters import KafkaConfigParameters"
-************* Module app.SimulationModule.Models.BycicleSimulationStrategy
-SimulationModule/Models/BycicleSimulationStrategy.py:38: [C0305(trailing-newlines), ] Trailing newlines
-SimulationModule/Models/BycicleSimulationStrategy.py:4: [C0411(wrong-import-order), ] standard import "import random" should be placed before "from Models.IPositionSimulationStrategy import IPositionSimulationStrategy"
-************* Module app.SimulationModule.Models.SensorRepository
-SimulationModule/Models/SensorRepository.py:14: [W0612(unused-variable), SensorRepository.mark_sensor_as_occupied] Unused variable 'result'
-SimulationModule/Models/SensorRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.ISensorRepository import ISensorRepository"
-************* Module app.SimulationModule.Models.KafkaConfluentAdapter
-SimulationModule/Models/KafkaConfluentAdapter.py:7: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/KafkaConfluentAdapter.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
+SimulationModule/Tests/test_GpsSensor.py:25: [E2515(invalid-character-zero-width-space), ] Invalid unescaped character zero-width-space, use "\u200B" instead.
+SimulationModule/Tests/test_GpsSensor.py:25: [E2515(invalid-character-zero-width-space), ] Invalid unescaped character zero-width-space, use "\u200B" instead.
 ************* Module app.SimulationModule.Models.UserSensorService
-SimulationModule/Models/UserSensorService.py:30: [C0303(trailing-whitespace), ] Trailing whitespace
+SimulationModule/Models/UserSensorService.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
 SimulationModule/Models/UserSensorService.py:17: [W1514(unspecified-encoding), UserSensorService.assign_sensor_to_user] Using open without explicitly specifying an encoding
-SimulationModule/Models/UserSensorService.py:5: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.IUserRepository import IUserRepository"
-SimulationModule/Models/UserSensorService.py:6: [C0411(wrong-import-order), ] standard import "import threading" should be placed before "from Models.IUserRepository import IUserRepository"
-SimulationModule/Models/UserSensorService.py:3: [W0611(unused-import), ] Unused UserDTO imported from Models.UserDTO
-SimulationModule/Models/UserSensorService.py:4: [W0611(unused-import), ] Unused SensorDTO imported from Models.SensorDTO
-************* Module app.SimulationModule.Models.GeoPosition
-SimulationModule/Models/GeoPosition.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:17: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:19: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GeoPosition.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Models.IUserRepository
-SimulationModule/Models/IUserRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.UserDTO import UserDTO"
-SimulationModule/Models/IUserRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.UserDTO import UserDTO"
-SimulationModule/Models/IUserRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Models.DatabaseConnection
-************* Module app.SimulationModule.Models.UserRepository
-SimulationModule/Models/UserRepository.py:14: [W0612(unused-variable), UserRepository.mark_user_as_occupied] Unused variable 'result'
-************* Module app.SimulationModule.Models.ISensorRepository
-SimulationModule/Models/ISensorRepository.py:3: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.SensorDTO import SensorDTO"
-SimulationModule/Models/ISensorRepository.py:4: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorDTO import SensorDTO"
-SimulationModule/Models/ISensorRepository.py:2: [W0611(unused-import), ] Unused DatabaseConnection imported from Models.DatabaseConnection
-************* Module app.SimulationModule.Models.IPositionSimulationStrategy
-SimulationModule/Models/IPositionSimulationStrategy.py:9: [W0107(unnecessary-pass), IPositionSimulationStrategy.get_route] Unnecessary pass statement
-************* Module app.SimulationModule.Models.SensorSimulationAdministrator
-SimulationModule/Models/SensorSimulationAdministrator.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Models.DatabaseConfigParameters
-SimulationModule/Models/DatabaseConfigParameters.py:8: [C0304(missing-final-newline), ] Final newline missing
-************* Module app.SimulationModule.Models.PositionJsonAdapter
-SimulationModule/Models/PositionJsonAdapter.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionJsonAdapter.py:3: [C0411(wrong-import-order), ] standard import "import json" should be placed before "from Models.IJsonSerializable import IJsonSerializable"
-************* Module app.SimulationModule.Models.GpsSensor
-SimulationModule/Models/GpsSensor.py:18: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:46: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:47: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:48: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/GpsSensor.py:6: [C0411(wrong-import-order), ] standard import "import uuid" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Models/GpsSensor.py:7: [C0411(wrong-import-order), ] standard import "import time" should be placed before "from Models.SensorSubject import SensorSubject"
-SimulationModule/Models/GpsSensor.py:8: [C0411(wrong-import-order), ] standard import "from datetime import datetime" should be placed before "from Models.SensorSubject import SensorSubject"
-************* Module app.SimulationModule.Models.IJsonSerializable
-SimulationModule/Models/IJsonSerializable.py:8: [W0107(unnecessary-pass), IJsonSerializable.serialize_to_json] Unnecessary pass statement
-************* Module app.SimulationModule.Models.SensorSubject
-SimulationModule/Models/SensorSubject.py:25: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/SensorSubject.py:30: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/SensorSubject.py:29: [W0107(unnecessary-pass), SensorSubject.simulate] Unnecessary pass statement
-************* Module app.SimulationModule.Models.DatabaseConnection
-SimulationModule/Models/DatabaseConnection.py:14: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/DatabaseConnection.py:15: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/DatabaseConnection.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
-************* Module app.SimulationModule.Models.SensorDTO
-SimulationModule/Models/SensorDTO.py:3: [R0903(too-few-public-methods), SensorDTO] Too few public methods (0/1)
-************* Module app.SimulationModule.Models.PositionSender
-SimulationModule/Models/PositionSender.py:10: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionSender.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
-SimulationModule/Models/PositionSender.py:19: [W0107(unnecessary-pass), PositionSender.send_data_to_broker] Unnecessary pass statement
-SimulationModule/Models/PositionSender.py:3: [C0411(wrong-import-order), ] standard import "import threading" should be placed before "from Models.GeoPosition import GeoPosition"
-SimulationModule/Models/PositionSender.py:4: [C0411(wrong-import-order), ] standard import "from abc import ABC, abstractmethod" should be placed before "from Models.GeoPosition import GeoPosition"
-************* Module app.SimulationModule.Models.UserDTO
-SimulationModule/Models/UserDTO.py:6: [R0913(too-many-arguments), UserDTO.__init__] Too many arguments (9/8)
-SimulationModule/Models/UserDTO.py:3: [R0903(too-few-public-methods), UserDTO] Too few public methods (0/1)
+************* Module app.IntegrationTests.test_KafkaClickhouseIntegration
+IntegrationTests/test_KafkaClickhouseIntegration.py:16: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:21: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:22: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:23: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:28: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:32: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:43: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:59: [C0303(trailing-whitespace), ] Trailing whitespace
+IntegrationTests/test_KafkaClickhouseIntegration.py:30: [W0613(unused-argument), TestKafkaIntegration.test_position_sent_to_kafka_are_correctly_stored] Unused argument 'mock_producer'
+IntegrationTests/test_KafkaClickhouseIntegration.py:9: [C0412(ungrouped-imports), ] Imports from package Models are not grouped
+IntegrationTests/test_KafkaClickhouseIntegration.py:13: [W0611(unused-import), ] Unused import clickhouse_connect
 
 -----------------------------------
-Your code has been rated at 7.28/10
+Your code has been rated at 9.67/10
 

@@ -1,12 +1,11 @@
 import unittest
-from unittest.mock import Mock
 from datetime import datetime
+from pyflink.common.types import Row
 from Core.MessageSerializer import MessageSerializer
 from Core.MessageDTO import MessageDTO
-from pyflink.common.types import Row
 
 class TestMessageSerializer(unittest.TestCase):
-    
+
     def setUp(self):
         """Setup for tests with a sample MessageDTO"""
         # Create a sample MessageDTO object
@@ -21,18 +20,18 @@ class TestMessageSerializer(unittest.TestCase):
             user_lat=45.4646,
             user_lon=9.1904
         )
-        
+
         # Instance of the serializer to be tested
         self.serializer = MessageSerializer()
-    
+
     def test_create_row_from_message(self):
         """Verify that the create_row_from_message method correctly creates a Row object"""
         # Call the method to be tested
         result = self.serializer.create_row_from_message(self.sample_message)
-        
+
         # Verify that the result is a Row object
         self.assertIsInstance(result, Row)
-        
+
         # Verify that the values in the Row are the expected ones
         self.assertEqual(result[0], "user123")
         self.assertEqual(result[1], "activity456")
@@ -43,6 +42,6 @@ class TestMessageSerializer(unittest.TestCase):
         self.assertEqual(result[6], str(self.sample_message.creation_time))
         self.assertEqual(result[7], 45.4646)
         self.assertEqual(result[8], 9.1904)
-        
+
         # Verify that the Row object contains the correct number of elements
         self.assertEqual(len(result), 9)

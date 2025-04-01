@@ -2,7 +2,6 @@ from Core.IFlinkSerializable import IFlinkSerializable
 from Core.MessageDTO import MessageDTO
 from pyflink.common.types import Row
 
-
 class MessageSerializer(IFlinkSerializable):
 
     def create_row_from_message(self, message_to_serialize: MessageDTO) -> Row:
@@ -17,4 +16,3 @@ class MessageSerializer(IFlinkSerializable):
             message_to_serialize.user_lat,
             message_to_serialize.user_lon
         )
-       

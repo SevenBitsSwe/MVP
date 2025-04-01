@@ -1,6 +1,4 @@
-from pyflink.common import Types
-from pyflink.common.types import Row
-from pyflink.datastream.formats.json import JsonRowDeserializationSchema,JsonRowSerializationSchema
+from pyflink.datastream.formats.json import JsonRowDeserializationSchema
 
 class JsonRowDeserializationAdapter:
     '''Adapter for serializing and deserializing JSON data'''

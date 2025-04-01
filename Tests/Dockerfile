@@ -26,14 +26,12 @@ RUN chmod 777 getReports.py
 RUN mkdir -p app/SimulationModule
 RUN mkdir -p app/FlinkProcessor
 RUN mkdir -p app/IntegrationTests
-RUN mkdir -p app/SystemTests
 
 
 # Copia il codice sorgente e i test
 COPY ./SimulationModule /app/SimulationModule
 COPY ./FlinkProcessor /app/FlinkProcessor
 COPY ./Tests/IntegrationTests /app/IntegrationTests
-COPY ./Tests/SystemTests /app/SystemTests
 
 RUN apt-get update -y && \
 apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/*
@@ -62,6 +60,7 @@ CMD ["sh","-c","pylint --rcfile=pylintrc --output-format=parseable . > /app/repo
     --cov-report=xml:/app/reports/coverage.xml \
     SimulationModule/Tests/ \
     FlinkProcessor/Tests/ \
+    IntegrationTests/ \
     --cov-branch \
     --cov-config=.coveragerc; \
     python getReports.py"]

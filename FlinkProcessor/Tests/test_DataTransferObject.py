@@ -5,13 +5,9 @@ from Core.MessageDTO import MessageDTO
 from Core.UserDTO import UserDTO
 from Core.ActivityDTO import ActivityDTO
 
-# Import other DTOs if available
-# from Core.UserDTO import UserDTO
-# from Core.ActivityDTO import ActivityDTO
-
 class TestDataTransferObjects(unittest.TestCase):
     """Test suite for Data Transfer Objects used in the application."""
-    
+
     def test_message_dto_initialization(self):
         """Test that MessageDTO correctly initializes with provided values."""
         # Create a MessageDTO with specific values
@@ -24,7 +20,7 @@ class TestDataTransferObjects(unittest.TestCase):
         creation_time = datetime.now()
         user_lat = 45.4646
         user_lon = 9.1904
-        
+
         message = MessageDTO(
             user_id=user_id,
             activity_id=activity_id,
@@ -36,7 +32,7 @@ class TestDataTransferObjects(unittest.TestCase):
             user_lat=user_lat,
             user_lon=user_lon
         )
-        
+
         # Verify all values are correctly stored
         self.assertEqual(message.user_id, str(user_id))
         self.assertEqual(message.activity_id, str(activity_id))
@@ -47,12 +43,12 @@ class TestDataTransferObjects(unittest.TestCase):
         self.assertEqual(message.creation_time, creation_time)
         self.assertEqual(message.user_lat, user_lat)
         self.assertEqual(message.user_lon, user_lon)
-    
+
     def test_message_dto_default_values(self):
         """Test that MessageDTO correctly sets default values when not provided."""
         # Create a MessageDTO with default values
         message = MessageDTO()
-        
+
         # Verify UUIDs are generated and other defaults are set
         self.assertTrue(isinstance(uuid.UUID(message.user_id), uuid.UUID))
         self.assertTrue(isinstance(uuid.UUID(message.activity_id), uuid.UUID))
@@ -63,8 +59,7 @@ class TestDataTransferObjects(unittest.TestCase):
         self.assertEqual(message.creation_time, "")
         self.assertEqual(message.user_lat, 0.0)
         self.assertEqual(message.user_lon, 0.0)
-    
-   
+
     def test_user_initialization(self):
         """Test that UserDTO correctly initializes with provided values."""
         # Create test data
@@ -77,7 +72,7 @@ class TestDataTransferObjects(unittest.TestCase):
         birthdate = "1990-01-01"
         civil_status = "Single"
         interests = ["Sports", "Reading", "Music"]
-        
+
         # Create a UserDTO with the test data
         user = UserDTO(
             user_uuid=user_uuid,
@@ -90,7 +85,7 @@ class TestDataTransferObjects(unittest.TestCase):
             civil_status=civil_status,
             interests=interests
         )
-        
+
         # Verify all values are correctly stored
         self.assertEqual(user.user_uuid, user_uuid)
         self.assertEqual(user.assigned_sensor_uuid, assigned_sensor_uuid)
@@ -101,13 +96,13 @@ class TestDataTransferObjects(unittest.TestCase):
         self.assertEqual(user.birthdate, birthdate)
         self.assertEqual(user.civil_status, civil_status)
         self.assertEqual(user.interests, interests)
-    
+
     def test_user_with_default_interests(self):
         """Test that UserDTO correctly handles the default value for interests."""
         # Create a UserDTO without specifying interests
         user_uuid = uuid.uuid4()
         assigned_sensor_uuid = uuid.uuid4()
-        
+
         user = UserDTO(
             user_uuid=user_uuid,
             assigned_sensor_uuid=assigned_sensor_uuid,
@@ -118,16 +113,16 @@ class TestDataTransferObjects(unittest.TestCase):
             birthdate="1992-05-15",
             civil_status="Married"
         )
-        
+
         # Verify that interests is None when not provided
         self.assertIsNone(user.interests)
-    
+
     def test_user_with_empty_interests(self):
         """Test that UserDTO correctly handles empty interests list."""
         # Create a UserDTO with empty interests list
         user_uuid = uuid.uuid4()
         assigned_sensor_uuid = uuid.uuid4()
-        
+
         user = UserDTO(
             user_uuid=user_uuid,
             assigned_sensor_uuid=assigned_sensor_uuid,
@@ -139,13 +134,11 @@ class TestDataTransferObjects(unittest.TestCase):
             civil_status="Divorced",
             interests=[]
         )
-        
+
         # Verify that interests is an empty list
         self.assertEqual(user.interests, [])
         self.assertIsInstance(user.interests, list)
-    
-    
-    
+
     def test_activity_initialization(self):
         """Test that ActivityDTO correctly initializes with provided values."""
         # Create an ActivityDTO with specific values
@@ -156,7 +149,7 @@ class TestDataTransferObjects(unittest.TestCase):
         activity_addr = "Mountain Park, Alps"
         activity_type = "Outdoor"
         activity_description = "A beautiful hiking trail"
-        
+
         activity = ActivityDTO(
             activity_id=activity_id,
             activity_name=activity_name,
@@ -166,7 +159,7 @@ class TestDataTransferObjects(unittest.TestCase):
             activity_type=activity_type,
             activity_description=activity_description
         )
-        
+
         # Verify all values are correctly stored
         self.assertEqual(activity.activity_id, activity_id)  # Note: ActivityDTO doesn't convert UUID to string
         self.assertEqual(activity.activity_name, activity_name)
@@ -175,12 +168,12 @@ class TestDataTransferObjects(unittest.TestCase):
         self.assertEqual(activity.activity_addr, activity_addr)
         self.assertEqual(activity.activity_type, activity_type)
         self.assertEqual(activity.activity_description, activity_description)
-    
+
     def test_activity_default_values(self):
         """Test that ActivityDTO correctly sets default values when not provided."""
         # Create an ActivityDTO with default values
         activity = ActivityDTO()
-        
+
         # Verify defaults are set
         self.assertTrue(isinstance(activity.activity_id, uuid.UUID))
         self.assertEqual(activity.activity_name, "")
@@ -189,7 +182,7 @@ class TestDataTransferObjects(unittest.TestCase):
         self.assertEqual(activity.activity_addr, "")
         self.assertEqual(activity.activity_type, "")
         self.assertEqual(activity.activity_description, "")
-    
+
     def test_activity_partial_initialization(self):
         """Test initialization with only some parameters specified."""
         # Create an ActivityDTO with only some values
@@ -197,16 +190,14 @@ class TestDataTransferObjects(unittest.TestCase):
             activity_name="Beach Day",
             activity_lat=41.1234
         )
-        
+
         # Verify specified values are set
         self.assertEqual(activity.activity_name, "Beach Day")
         self.assertEqual(activity.activity_lat, 41.1234)
-        
+
         # Verify unspecified values get defaults
         self.assertTrue(isinstance(activity.activity_id, uuid.UUID))
         self.assertEqual(activity.activity_lon, 0.0)
         self.assertEqual(activity.activity_addr, "")
         self.assertEqual(activity.activity_type, "")
         self.assertEqual(activity.activity_description, "")
-    
-    

@@ -1,5 +1,5 @@
-from Models.DatabaseConfigParameters import DatabaseConfigParameters
 import clickhouse_connect
+from Models.DatabaseConfigParameters import DatabaseConfigParameters
 
 class DatabaseConnection:
     def __init__(self, config_parameters: DatabaseConfigParameters):
@@ -11,9 +11,9 @@ class DatabaseConnection:
 
     def connect(self):
         self.connection = clickhouse_connect.get_client(
-            host=self.host, 
-            port=self.port, 
-            username=self.user, 
+            host=self.host,
+            port=self.port,
+            username=self.user,
             password=self.password
         )
         return self.connection

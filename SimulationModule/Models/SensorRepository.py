@@ -1,7 +1,7 @@
+import uuid
 from Models.ISensorRepository import ISensorRepository
 from Models.DatabaseConnection import DatabaseConnection
 from Models.SensorDTO import SensorDTO
-import uuid
 
 class SensorRepository(ISensorRepository):
     def __init__(self, db_connection: DatabaseConnection):
@@ -11,7 +11,7 @@ class SensorRepository(ISensorRepository):
         """Marks a sensor as occupied in the database"""
         query = f"ALTER TABLE nearyou.sensor UPDATE is_occupied = true WHERE sensor_uuid = '{sensor_uuid}'"
         conn = self.__db_conn.connect()
-        result = conn.query(query)
+        conn.query(query)
         self.__db_conn.disconnect()
 
     def get_non_occupied_sensor(self) -> SensorDTO:

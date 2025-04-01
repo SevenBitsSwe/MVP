@@ -1,14 +1,14 @@
+import random
+import osmnx
 from Models.IPositionSimulationStrategy import IPositionSimulationStrategy
 from Models.GraphWrapper import GraphWrapper
-import osmnx
-import random
 
 class BycicleSimulationStrategy(IPositionSimulationStrategy):
 
     def __init__(self, graph_istance: GraphWrapper):
         '''constructor to initialize the bycicle simulation strategy'''
         self.__bycicle_speed_approximated = 15
-        self.__delta_time_between_positions = 10
+        self.__delta_time_between_positions = 21
         self.__graph_istance = graph_istance.get_graph()
 
     def get_route(self):
@@ -35,4 +35,3 @@ class BycicleSimulationStrategy(IPositionSimulationStrategy):
     def get_speed(self) -> float:
         speed = self.__bycicle_speed_approximated / 3.6
         return speed
-

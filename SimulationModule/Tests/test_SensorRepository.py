@@ -1,10 +1,9 @@
 import unittest
+from unittest.mock import Mock
+import uuid
 from Models.SensorRepository import SensorRepository
-from Models.ISensorRepository import ISensorRepository
 from Models.DatabaseConnection import DatabaseConnection
 from Models.SensorDTO import SensorDTO
-import uuid
-from unittest.mock import Mock
 
 class TestSensorRepository(unittest.TestCase):
 

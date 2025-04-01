@@ -1,9 +1,8 @@
-from Models.IUserRepository import IUserRepository
-from Models.ISensorRepository import ISensorRepository
-from Models.UserDTO import UserDTO
-from Models.SensorDTO import SensorDTO
 import uuid
 import threading
+import time
+from Models.IUserRepository import IUserRepository
+from Models.ISensorRepository import ISensorRepository
 
 class UserSensorService:
 
@@ -14,8 +13,10 @@ class UserSensorService:
 
     def assign_sensor_to_user(self) -> uuid:
         """Assigns a sensor to a user"""
+        
         with open('sensor_assignment.log', 'a') as log_file:
             log_file.write("Starting sensor assignment process...\n")
+            time.sleep(1)
             with self.__lock:  # Use a context manager to acquire and release the lock
                 log_file.write("Lock acquired\n")
                 sensor = self.__SensorRepository.get_non_occupied_sensor()
@@ -27,7 +28,7 @@ class UserSensorService:
                 if not sensor or not user:
                     log_file.write("Assignment failed: no available sensor or user\n")
                     return None
-                
+
                 self.__SensorRepository.mark_sensor_as_occupied(sensor.sensor_uuid)
                 log_file.write(f"Marked sensor {sensor.sensor_uuid} as occupied\n")
 

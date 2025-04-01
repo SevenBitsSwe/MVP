@@ -22,9 +22,8 @@ class SensorSubject(ABC):
 
     def get_update_time(self) -> float:
         return self._update_time
-    
+
     @abstractmethod
     def simulate(self):
         '''abstract method to get the current data'''
         pass
-    
