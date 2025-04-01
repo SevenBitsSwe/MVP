@@ -21,7 +21,7 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         self.filter.open(runtime_context)
 
     def test_filter_new_message_should_pass(self):
-        """Test che verifica che un messaggio per un'attività non ancora mostrata all'utente passi il filtro"""
+        """Test that verifies that a message for an activity not yet shown to the user passes the filter"""
         # Arrange
         # Mock input data
         user_id = "10000000-0000-0000-0000-000000000000"
@@ -38,7 +38,7 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         input_value = [user_id, activity_id, message_id, message_text,
                        activity_lat, activity_lon, timestamp, user_lat, user_lon]
         
-        # Configurazione del mock per simulare un'attività non ancora mostrata
+        # Configuring a mock to simulate an activity not yet shown
         self.message_repository.check_activity_already_displayed_for_user.return_value = False
                 
         # Act
@@ -49,7 +49,7 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         self.message_repository.check_activity_already_displayed_for_user.assert_called_once_with(user_id, activity_id)
     
     def test_filter_already_displayed_message_should_not_pass(self):
-        """Test che verifica che un messaggio per un'attività già mostrata all'utente sia filtrato"""
+        """Test that verifies that a message for an activity already shown to the user is filtered"""
         # Arrange
         user_id = "10000000-0000-0000-0000-000000000000"
         activity_id = "30000000-0000-0000-0000-000000000000"
@@ -65,7 +65,7 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         input_value = [user_id, activity_id, message_id, message_text,
                        activity_lat, activity_lon, timestamp, user_lat, user_lon]
         
-        # Configurazione del mock per simulare un'attività già mostrata
+        # Configuring a mock to simulate an already displayed activity
         self.message_repository.check_activity_already_displayed_for_user.return_value = True
         # Act
         result = self.filter.filter(input_value)
@@ -74,7 +74,7 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         self.message_repository.check_activity_already_displayed_for_user.assert_called_once_with(user_id, activity_id)
     
     def test_filter_zero_coordinates_should_not_pass(self):
-        """Test che verifica che un messaggio con coordinate (0,0) sia sempre filtrato"""
+        """Test that verifies that a message with coordinates (0,0) is always filtered"""
         # Arrange
         user_id = "10000000-0000-0000-0000-000000000000"
         activity_id = "30000000-0000-0000-0000-000000000000"
@@ -90,15 +90,14 @@ class TestFilterMessageAlreadyDisplayed(unittest.TestCase):
         input_value = [user_id, activity_id, message_id, message_text,
                        activity_lat, activity_lon, timestamp, user_lat, user_lon]
         
-        # Non importa il valore di ritorno qui perché la condizione delle coordinate dovrebbe filtrare comunque
         self.message_repository.check_activity_already_displayed_for_user.return_value = False
         
-        # Preparazione dei dati di input con coordinate (0,0)
+        # Preparing input data with coordinates (0,0)
         
         # Act
         result = self.filter.filter(input_value)
         
         # Assert
         self.assertFalse(result)
-        # Verifichiamo che il repository sia stato comunque chiamato
+        # Check that the repository was called anyway
         self.message_repository.check_activity_already_displayed_for_user.assert_called_once_with(user_id, activity_id)

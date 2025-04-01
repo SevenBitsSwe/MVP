@@ -36,16 +36,15 @@ class TestPositionToMessageProcessor(unittest.TestCase):
         """Test the open method which initializes the AI service and the prompt creator"""
         runtime_context = MagicMock()
 
-        # Esegui il metodo da testare
         self.processor.open(runtime_context)
 
-        # Verifica che i metodi necessari siano chiamati
+        # Verificy of the call of the methods
         self.ai_service.set_up_chat.assert_called_once()
         self.assertIsNotNone(self.processor.prompt_creator)
 
     def test_map_no_activities(self):
         """Case test where there are no activities in the range (very rare)"""
-        # Prepara i dati di input
+        # dati di input
         sensor_id = "00000000-0000-0000-0000-000000000000"
         latitude = 45.4642
         longitude = 9.1900
@@ -76,7 +75,7 @@ class TestPositionToMessageProcessor(unittest.TestCase):
 
 
     def test_map_no_matching_activities(self):
-        """Test case di quando le attività esistono ma non c'è un match con gli interessi dell'utente"""
+        """Test case when activities exist but there is no match with user interests"""
         # Input data
         sensor_id = "00000000-0000-0000-0000-000000000000"
         latitude = 45.4642
@@ -99,12 +98,12 @@ class TestPositionToMessageProcessor(unittest.TestCase):
 
         result = self.processor.map(input_value)
 
-        # Verifica le chiamate
+        # Verify the calls
         self.user_repository.get_user_who_owns_sensor.assert_called_once_with(sensor_id)
         self.activity_repository.get_activities_in_range.assert_called_once_with(longitude, latitude, 300)
         self.activity_repository.get_activity_for_user.assert_called_once_with(mock_user.interests, mock_activities)
 
-        # Verifica il risultato
+        # check the result
         self.assertIsInstance(result, Row)
         self.assertEqual(result[0], mock_user.user_uuid)
         self.assertEqual(result[3], "skip-this-message")
@@ -119,13 +118,13 @@ class TestPositionToMessageProcessor(unittest.TestCase):
         timestamp = "2025-03-17 14:45:30"
         input_value = [sensor_id, latitude, longitude, timestamp]
 
-        # Mock utente
+        # user mock
         mock_user = MagicMock(spec=UserDTO)
         mock_user.user_uuid = "10000000-0000-0000-0000-000000000000"
         mock_user.interests = ["Sport"]
         self.user_repository.get_user_who_owns_sensor.return_value = mock_user
         
-        # Mock le attività
+        # activities mock
         mock_activities = [
             ["Palestra", "Indirizzo 1", "Sport", "Centro Fitness", 100.0],
             ["Piscina", "Indirizzo 2", "Sport", "Piscina", 200.0]
@@ -141,7 +140,7 @@ class TestPositionToMessageProcessor(unittest.TestCase):
         mock_activity_info.activity_lon = 9.1950
         self.activity_repository.get_activity_spec_from_name.return_value = mock_activity_info
 
-        # Mock la risposta AI
+        # AI response mock
         mock_ai_response = MagicMock()
         mock_ai_response.model_dump.return_value = {
             'pubblicita': 'Unisciti alla nostra palestra oggi! Offerta speciale!'
@@ -164,11 +163,11 @@ class TestPositionToMessageProcessor(unittest.TestCase):
 
         result = self.processor.map(input_value)
 
-        # Verifica le chiamate
+        # Verify the calls
         self.processor.prompt_creator.get_prompt.assert_called_once_with(mock_user, chosen_activity)
         self.ai_service.get_llm_structured_response.assert_called_once()
         self.activity_repository.get_activity_spec_from_name.assert_called_once_with("Palestra")
         self.message_serializer.create_row_from_message.assert_called_once()
 
-        # Verifcia il risultato
+        # check the result
         self.assertEqual(result, expected_row)

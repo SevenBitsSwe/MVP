@@ -5,10 +5,6 @@ from Core.MessageDTO import MessageDTO
 from Core.UserDTO import UserDTO
 from Core.ActivityDTO import ActivityDTO
 
-# Import other DTOs if available
-# from Core.UserDTO import UserDTO
-# from Core.ActivityDTO import ActivityDTO
-
 class TestDataTransferObjects(unittest.TestCase):
     """Test suite for Data Transfer Objects used in the application."""
 

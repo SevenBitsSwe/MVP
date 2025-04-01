@@ -47,7 +47,7 @@ class TestKafkaPositionReceiver(unittest.TestCase):
         self.mock_builder.set_value_only_deserializer.assert_called_once_with(
             self.mock_deserializer.get_deserialization_schema.return_value)
 
-        # Verifica che set_property sia stato chiamato due volte con i parametri corretti
+        # Verify that set_property was called twice with the correct parameters
         self.mock_builder.set_property.assert_any_call("enable.auto.commit", self.mock_config.enable_auto_commit)
         self.mock_builder.set_property.assert_any_call(
             "commit.offsets.on.checkpoint", self.mock_config.commit_offsets_on_checkpoint)
@@ -67,7 +67,7 @@ class TestKafkaPositionReceiver(unittest.TestCase):
         # call the method to test
         result = receiver.get_position_receiver()
 
-        #verify the result is the expected one
+        # verify the result is the expected one
         self.assertEqual(result, mock_kafka_source)
 
 if __name__ == '__main__':

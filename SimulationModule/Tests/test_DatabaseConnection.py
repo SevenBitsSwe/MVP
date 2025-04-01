@@ -28,15 +28,15 @@ class TestDatabaseConnection(unittest.TestCase):
 
     @patch('clickhouse_connect.get_client')
     def test_connect_failure(self, mock_get_client):
-        """Test che verifica la gestione di un errore durante la connessione"""
-        # Configura il mock per sollevare un'eccezione
+        """Test to verify connection error management"""
+        # Configure the mock to raise an exception
         mock_get_client.side_effect = Exception("Errore di connessione")
 
-        # Verifica che venga sollevata un'eccezione
+        # Verify that an exception is raised
         with self.assertRaises(Exception):
             self.db_connection.connect()
 
-        # Verifica che la connessione non sia stata impostata
+        # Verify the connection
         self.assertIsNone(self.db_connection.connection)
 
     def test_disconnect_success(self):

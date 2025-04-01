@@ -4,8 +4,8 @@ import uuid
 
 class FilterMessageValidator(FilterFunction):
     """
-    Filtra i messaggi Kafka invalidi o potenzialmente dannosi.
-    I messaggi che non passano la validazione vengono scartati.
+    Filters out invalid or potentially malicious Kafka messages.
+    Messages that fail validation are discarded.
     """
     def open(self,runtime_context):
         pass

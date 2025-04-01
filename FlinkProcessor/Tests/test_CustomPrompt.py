@@ -34,7 +34,7 @@ class TestCustomPrompt(unittest.TestCase):
         self.assertIn("Music", result)
         self.assertIn("Parco Centrale", result)
 
-        # Verifica più generica sul contenuto senza cercare frasi esatte
+        # General checks on the content without searching for exact sentences
         self.assertTrue(len(result) > 0)
 
     def test_get_prompt_empty_data(self):
@@ -50,5 +50,5 @@ class TestCustomPrompt(unittest.TestCase):
         self.assertIsInstance(result, str)
         self.assertTrue(len(result) > 0)
 
-        # Verifica che l'output abbia una struttura corretta anche con dati vuoti
-        self.assertNotIn(" - ", result)  # No activity items should be present
+        # Verify that the output has a correct structure even with empty data
+        self.assertNotIn(" - ", result)

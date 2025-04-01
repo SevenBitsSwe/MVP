@@ -17,7 +17,7 @@ class TestSensorSimulationAdministrator(unittest.TestCase):
 
     @patch('Models.SensorSimulationAdministrator.ThreadPool')
     def test_start_simulation(self, mock_thread_pool):
-        """Test che start_simulation crei correttamente il thread pool e avvii la simulazione"""
+        """Test that start_simulation correctly creates the thread pool and starts the simulation"""
         # Setup
         mock_pool = MagicMock()
         mock_thread_pool.return_value.__enter__.return_value = mock_pool

@@ -25,7 +25,7 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
         self.mock_sensor.get_sensor_uuid.return_value = self.sensor_uuid
 
     def test_initialization(self):
-        """Verifica che il costruttore inizializzi correttamente i valori predefiniti"""
+        """Check that the constructor correctly initializes the default values"""
         # verify private values
         self.assertEqual(self.strategy._BycicleSimulationStrategy__bycicle_speed_approximated, 15)
         self.assertEqual(self.strategy._BycicleSimulationStrategy__delta_time_between_positions, 21)
@@ -34,7 +34,7 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
     @patch('random.choice')
     @patch('osmnx.shortest_path')
     def test_get_route(self, mock_shortest_path, mock_choice):
-        """Test del comportamento di base del metodo simulate_position_live_update"""
+        """Test of the basic behavior of the simulate_position_live_update method"""
         # mock random choice
         mock_choice.side_effect = [1, 2]
 
@@ -57,12 +57,12 @@ class TestBycicleSimulationStrategy(unittest.TestCase):
         self.assertEqual(route_coords, expected_coords)
 
     def test_get_delta_time(self):
-        """Verifica che il metodo get_delta_time restituisca il valore corretto"""
+        """Verify that the get_delta_time method returns the correct value"""
         delta_time = self.strategy.get_delta_time()
         self.assertEqual(delta_time, 21)
 
     def test_get_speed(self):
-        """Verifica che il metodo get_speed restituisca il valore corretto"""
+        """Verify that the get_speed method returns the correct value"""
         speed = self.strategy.get_speed()
         expected_speed = 15 / 3.6
         self.assertEqual(speed, expected_speed)

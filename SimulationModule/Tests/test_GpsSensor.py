@@ -17,12 +17,12 @@ class TestGpsSensor(unittest.TestCase):
         self.mock_simulation_strategy.get_route.return_value = [(45.0, 9.0), (45.1, 9.1)]
         self.mock_simulation_strategy.get_delta_time.return_value = 21
 
-        # Inizializziamo il sensore GPS con i mock
+        # GPS sensor initialization with the mocks
         self.test_uuid = uuid.uuid4()
         self.test_sensor = GpsSensor(self.test_uuid, self.mock_position_sender, self.mock_simulation_strategy)
 
     def test_initialization(self):
-        """Verifica che il costruttore inizializzi correttamente i valori"""
+        """Verify that the constructor initializes the values ​​correctly"""
         self.assertEqual(self.test_sensor._sensor_uuid, self.test_uuid)
         self.assertEqual(self.test_sensor._GpsSensor__position_sender, self.mock_position_sender)
         self.assertEqual(self.test_sensor._GpsSensor__speed_mps, 4.1667)
@@ -30,7 +30,7 @@ class TestGpsSensor(unittest.TestCase):
     @patch('time.sleep', return_value=None)
     @patch('geopy.distance.geodesic')
     def test_simulate(self, mock_geodesic, mock_sleep):
-        """Test del metodo simulate per verificare che invii correttamente le posizioni"""
+        """Test the simulate method to verify that it sends positions correctly"""
         # geodesic mock
         mock_distance = MagicMock()
         mock_distance.meters = 1000  # 1 km tra i punti
@@ -58,11 +58,11 @@ class TestGpsSensor(unittest.TestCase):
         self.assertEqual(position.get_timestamp(), "2023-01-01 12:00:00")
 
     def test_get_sensor_uuid(self):
-        """Verifica che il metodo get_sensor_uuid restituisca l'UUID corretto"""
+        """Verify that the get_sensor_uuid method returns the correct UUID"""
         self.assertEqual(self.test_sensor.get_sensor_uuid(), self.test_uuid)
 
     def test_get_update_time(self):
-        """Verifica che il metodo get_update_time restituisca il tempo di aggiornamento della SimulationStrategy assegnata"""
+        """Verify that the get_update_time method returns the update time of the assigned SimulationStrategy"""
         expected_update_time = 21
 
         self.assertEqual(self.test_sensor.get_update_time(), expected_update_time)
